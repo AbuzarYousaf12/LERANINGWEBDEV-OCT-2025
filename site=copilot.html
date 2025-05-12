@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inline and Block Level Elements</title>
+    <style>
+        .block {
+            border: 2px solid blue;
+            margin: 10px 0;
+            padding: 10px;
+        }
+        .inline {
+            border: 1px solid red;
+            margin: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <a href="video8-10.html">Go To Video 8-10 HTML</a><br>
+    <a href="assignment1.html">Go To Assignment1 HTML</a>
+    
+    <h1>Block Level Elements</h1>
+    <div class="block">This is a &lt;div&gt; element (block level).</div>
+    <p class="block">This is a &lt;p&gt; element (block level).</p>
+    <section class="block">This is a &lt;section&gt; element (block level).</section>
+    <article class="block">This is an &lt;article&gt; element (block level).</article>
+    <header class="block">This is a &lt;header&gt; element (block level).</header>
+    <footer class="block">This is a &lt;footer&gt; element (block level).</footer>
+    <ul class="block">
+        <li>List item 1</li>
+        <li>List item 2</li>
+    </ul>
+
+    <h1>Inline Elements</h1>
+    <span class="inline">This is a &lt;span&gt; element (inline).</span>
+    <a href="#" class="inline">This is an &lt;a&gt; element (inline).</a>
+    <strong class="inline">This is a &lt;strong&gt; element (inline).</strong>
+    <em class="inline">This is an &lt;em&gt; element (inline).</em>
+    <img src="https://via.placeholder.com/50" alt="Placeholder Image" class="inline">
+    <label class="inline">This is a &lt;label&gt; element (inline).</label>
+
+
+    <h1>Semantic Tags</h1>
+    <main class="block">
+        <h2>Main Content</h2>
+        <p>This is the main content of the page, wrapped in a &lt;main&gt; tag.</p>
+    </main>
+    <nav class="block">
+        <h2>Navigation</h2>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <aside class="block">
+        <h2>Sidebar</h2>
+        <p>This is an &lt;aside&gt; element, typically used for side content.</p>
+    </aside>
+    
+
+
+    <h1>Understanding ID and Classes</h1>
+    <p class="block">In HTML, <strong>classes</strong> and <strong>IDs</strong> are used to apply styles and identify elements.</p>
+    
+    <h2>Using Classes</h2>
+    <p class="block">A class is a reusable style that can be applied to multiple elements. For example:</p>
+    <div class="block">This div uses the "block" class.</div>
+    <p class="block">This paragraph also uses the "block" class.</p>
+
+    <h2>Using IDs</h2>
+    <p class="block">An ID is a unique identifier for a single element. For example:</p>
+    <div id="unique-element" style="border: 2px dashed green; padding: 10px; margin: 10px 0;">
+        This div has a unique ID called "unique-element".
+    </div>
+    <p class="block">IDs are unique and should not be used on more than one element in the same document.</p>
+</body>
+</html>

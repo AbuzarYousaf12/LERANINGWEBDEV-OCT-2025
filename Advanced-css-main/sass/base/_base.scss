@@ -1,0 +1,41 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  /* Sets global font size to a percentage defined by user in their browser 1 rem = 10px */
+
+  @include respond(tab-land) {
+    font-size: 56.25%; //1 rem = 9px
+  }
+
+  @include respond(tab-port) {
+    font-size: 50%; //1 rem = 8px
+  }
+
+
+  @include respond(bid-desktop) {
+    font-size: 75%; //1 rem = 12px
+  }
+
+  // @include respond(phone) {
+ //   font-size: 37.5%; //1 rem = 6px
+ // }
+}
+
+body {
+  box-sizing: border-box;
+  /* to ensure the padding and borders are not added to total width and height of element */
+  padding: 3rem;
+
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+
+}

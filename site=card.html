@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature Lake Card</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0; /* Light grey background */
+            margin: 0;
+        }
+
+        .card {
+            width: 300px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .tags {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            background-color: #e0e0e0;
+            padding: 5px 10px;
+            border-radius: 15px;
+            margin: 0 5px;
+            font-size: 0.8em;
+        }
+
+        .title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            background-color: #b19cd9; /* Light purple */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+        }
+
+        .read-more:hover {
+            background-color: #9f86c0; /* Darker purple */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <img src="https://media.cntraveler.com/photos/5ad79fc6fa45355065f2047c/master/w_320,c_limit/Moraine-Lake,-Banff-National-Park-GettyImages-517747003.jpg">
+        <div class="card-content">
+            <div class="tags">
+                <span class="tag">Nature</span>
+                <span class="tag">Lake</span>
+            </div>
+            <h2 class="title">Lorem, ipsum dolor.</h2>
+            <p class="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam perspiciatis aspernatur voluptatibus voluptatum iusto incidunt assumenda aperiam sunt?</p>
+            <button class="read-more">Read More</button>
+        </div>
+    </div>
+
+</body>
+</html>

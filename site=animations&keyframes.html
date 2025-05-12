@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animations and Keyframes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            display: grid;
+            gap: 30px;
+            grid-template-columns: repeat(3, 1fr);
+            width: 80%;
+        }
+
+        /* Animation 1: Bounce */
+        .bounce {
+            width: 150px;
+            height: 150px;
+            background-color: #3498db;
+            border-radius: 10px;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-30px);
+            }
+        }
+
+        /* Animation 2: Fade In */
+        .fade-in {
+            width: 150px;
+            height: 150px;
+            background-color: #e74c3c;
+            border-radius: 10px;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Animation 3: Rotate */
+        .rotate {
+            width: 150px;
+            height: 150px;
+            background-color: #2ecc71;
+            border-radius: 10px;
+            animation: rotate 4s infinite linear;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Animation 4: Slide In from Left */
+        .slide-left {
+            width: 150px;
+            height: 150px;
+            background-color: #9b59b6;
+            border-radius: 10px;
+            animation: slideLeft 2s ease-in-out forwards;
+        }
+
+        @keyframes slideLeft {
+            0% {
+                transform: translateX(-200px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        /* Animation 5: Pulse */
+        .pulse {
+            width: 150px;
+            height: 150px;
+            background-color: #f39c12;
+            border-radius: 10px;
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Animation 6: Color Change */
+        .color-change {
+            width: 150px;
+            height: 150px;
+            background-color: #1abc9c;
+            border-radius: 10px;
+            animation: colorChange 3s infinite alternate;
+        }
+
+        @keyframes colorChange {
+            0% {
+                background-color: #1abc9c;
+            }
+
+            50% {
+                background-color: #e74c3c;
+            }
+
+            100% {
+                background-color: #3498db;
+            }
+        }
+
+        /* Animation 7: Flip */
+        .flip {
+            width: 150px;
+            height: 150px;
+            background-color: #f1c40f;
+            border-radius: 10px;
+            animation: flip 2s infinite alternate;
+        }
+
+        @keyframes flip {
+            0% {
+                transform: rotateY(0deg);
+            }
+
+            100% {
+                transform: rotateY(180deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="bounce">Bounce</div>
+        <div class="fade-in">Fade In</div>
+        <div class="rotate">Rotate</div>
+        <div class="slide-left">Slide Left</div>
+        <div class="pulse">Pulse</div>
+        <div class="color-change">Color Change</div>
+        <div class="flip">Flip</div>
+    </div>
+
+</body>
+
+</html>

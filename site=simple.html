@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Sigma Web Development Express</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background-color: aliceblue;
+        }
+
+        header {
+            position: sticky;
+            top: 0; /* IMPORTANT HE YE AGR LAGAYA TO HI HEADER STICKY HOGA */
+            z-index: 1000; /* Optional: to ensure it stays above other content */
+        }
+
+        nav {
+            display: flex;
+            background-color: pink;
+        }
+
+        nav ul {
+            display: flex;
+            padding: 10px;
+        }
+
+        nav ul li {
+            list-style: none;
+            padding: 0px 10px 0px 10px;
+            cursor: pointer;
+        }
+
+        nav img {
+            padding: 5px;
+            border-radius: 20px;
+        }
+        main{
+            background-color: rgb(37, 153, 37);
+            color: white;
+            padding-bottom: 80px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 84vh;
+            text-align: center;
+        }
+
+        .box1 {
+            background-color: rgb(49, 49, 49);
+            width: 40%;
+            padding: 20px;
+            border-radius: 20px;
+            height: 80%;
+
+        }
+
+        .box2 {
+            background-color: rgb(8, 8, 8);
+            width: 40%;
+            padding: 20px;
+            border-radius: 20px;
+            height: 80%;
+
+        }
+
+        .box2 li {
+            list-style: none;
+
+        }
+
+        footer {
+            background: grey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+        }
+        .content {
+            background-color: black;
+            padding: 50px;
+            text-align: center;
+            border-radius: 40px;
+            width: 80%;
+            margin: auto;
+        }
+        .orange-box {
+            width: 32px;
+            height: 32px;
+            position: fixed;
+            background-color: orange;
+            bottom: 13px;
+            /* left: 12px;  */
+            right: 12px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img width="70px" src="joshua-hanson-e616t35Vbeg-unsplash.jpg" alt="">
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+                <li>Services</li>
+                <li>Products</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="box1">
+                <h1>Welcome to the Sigma Web Development Express</h1>
+                <p>We are a team of passionate web developers dedicated to creating stunning and functional websites.
+                </p>
+                <p>Our mission is to help businesses establish a strong online presence and connect with their audience.
+                </p>
+                <p>Contact us today to learn more about our services!</p>
+            </div>
+            <div class="box2">
+                <h2>Our Services</h2>
+                <ul>
+                    <li>Web Development</li>
+                    <li>UI/UX Design</li>
+                    <li>SEO Optimization</li>
+                    <li>Content Creation</li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere et dolorem ab ipsa esse minima,
+                    tempore
+                    consectetur voluptates debitis exercitationem error aliquam eligendi enim beatae iusto omnis culpa
+                    distinctio officia magni! Ullam tenetur pariatur reprehenderit. This is calle
+                </p>
+            </div>
+        </div>
+        <div class="content">
+            Welcome to Sigma Web Development Course
+        </div>
+        <div class="orange-box">
+
+        </div>
+    </main>
+    <footer>
+        <p>&copy All Rights Reserved</p>
+    </footer>
+</body>
+
+</html>

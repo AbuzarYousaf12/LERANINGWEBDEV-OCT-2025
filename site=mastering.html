@@ -1,0 +1,1978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & CSS Mastery Guide: From Basics to Building Netflix-like Websites</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            padding: 0;
+            margin: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #e50914;
+            font-weight: bold;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #221f1f;
+            border-bottom: 2px solid #e50914;
+            padding-bottom: 0.5rem;
+        }
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #221f1f;
+        }
+        h4 {
+            font-size: 1.2rem;
+            margin-top: 1.2rem;
+            margin-bottom: 0.6rem;
+            color: #221f1f;
+        }
+        p, ul, ol {
+            margin-bottom: 1rem;
+        }
+        pre {
+            background-color: #f0f0f0;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #e50914;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f0f0f0;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.9rem;
+        }
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+        .note {
+            background-color: #ffffcc;
+            border-left: 4px solid #ffcc00;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 5px;
+        }
+        .tip {
+            background-color: #e6f7ff;
+            border-left: 4px solid #1890ff;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 5px;
+        }
+        .warning {
+            background-color: #fff2f0;
+            border-left: 4px solid #ff4d4f;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 5px;
+        }
+        .netflix-example {
+            background-color: #000;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .netflix-row {
+            display: flex;
+            overflow-x: auto;
+            padding: 10px 0;
+            gap: 10px;
+        }
+        .netflix-item {
+            min-width: 200px;
+            height: 120px;
+            background-color: #333;
+            border-radius: 4px;
+            transition: transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .netflix-item:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .color-box {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+        }
+        .project-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 1rem;
+        }
+        .tab {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border: 1px solid transparent;
+            border-bottom: none;
+            border-radius: 4px 4px 0 0;
+            margin-right: 0.5rem;
+        }
+        .tab.active {
+            background-color: #fff;
+            border-color: #ddd;
+            border-bottom-color: white;
+            margin-bottom: -1px;
+        }
+        .tab-content > div {
+            display: none;
+        }
+        .tab-content > div.active {
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.75rem;
+            }
+            h3 {
+                font-size: 1.25rem;
+            }
+        }
+        /* Dark mode toggle styles */
+        .dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4 {
+            color: #ffffff;
+        }
+        .dark-mode pre {
+            background-color: #2d2d2d;
+            border-left: 4px solid #e50914;
+        }
+        .dark-mode code {
+            background-color: #2d2d2d;
+        }
+        .dark-mode .project-card {
+            background-color: #1e1e1e;
+            border-color: #333;
+        }
+        .dark-mode table, .dark-mode th, .dark-mode td {
+            border-color: #444;
+        }
+        .dark-mode th {
+            background-color: #333;
+        }
+        .dark-mode tr:nth-child(even) {
+            background-color: #282828;
+        }
+        /* Netflix clone specific styles */
+        .netflix-clone-header {
+            background-color: #000;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .netflix-logo {
+            color: #e50914;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .netflix-navigation {
+            display: flex;
+            gap: 20px;
+        }
+        .netflix-navigation a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .netflix-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://assets.nflxext.com/ffe/siteui/vlv3/f841d4c7-10e1-40af-bcae-07a3f8dc141a/f6d7434e-d6de-4185-a6d4-c77a2d08737b/US-en-20220502-popsignuptwoweeks-perspective_alpha_website_medium.jpg');
+            background-size: cover;
+            height: 500px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .netflix-hero h1 {
+            font-size: 3rem;
+            max-width: 800px;
+            margin-bottom: 1rem;
+        }
+        .netflix-hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin-bottom: 1.5rem;
+        }
+        .netflix-button {
+            background-color: #e50914;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .netflix-button:hover {
+            background-color: #f40612;
+        }
+        #table-of-contents {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            border-left: 4px solid #e50914;
+        }
+        .dark-mode #table-of-contents {
+            background-color: #1e1e1e;
+        }
+        #table-of-contents ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        #table-of-contents li {
+            margin-bottom: 8px;
+        }
+        #table-of-contents a {
+            text-decoration: none;
+            color: #0275d8;
+        }
+        .dark-mode #table-of-contents a {
+            color: #61dafb;
+        }
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #e50914;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        .scroll-top:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="text-center py-10">
+            <h1 class="text-4xl font-bold mb-4">HTML & CSS Mastery Guide</h1>
+            <p class="text-xl mb-6">From Basics to Building Netflix-like Websites</p>
+            <div class="flex justify-center mb-4">
+                <button id="darkModeToggle" class="bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition duration-300">
+                    <i class="fas fa-moon mr-2"></i> Toggle Dark Mode
+                </button>
+            </div>
+        </header>
+
+        <div id="table-of-contents">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#introduction">1. Introduction</a></li>
+                <li><a href="#html-basics">2. HTML Basics</a>
+                    <ul>
+                        <li><a href="#html-structure">2.1 HTML Structure</a></li>
+                        <li><a href="#html-elements">2.2 HTML Elements</a></li>
+                        <li><a href="#html-attributes">2.3 HTML Attributes</a></li>
+                        <li><a href="#html-semantics">2.4 Semantic HTML</a></li>
+                    </ul>
+                </li>
+                <li><a href="#css-basics">3. CSS Basics</a>
+                    <ul>
+                        <li><a href="#css-selectors">3.1 CSS Selectors</a></li>
+                        <li><a href="#css-box-model">3.2 Box Model</a></li>
+                        <li><a href="#css-typography">3.3 Typography</a></li>
+                        <li><a href="#css-colors">3.4 Colors and Backgrounds</a></li>
+                    </ul>
+                </li>
+                <li><a href="#css-layout">4. CSS Layout</a>
+                    <ul>
+                        <li><a href="#css-display">4.1 Display Property</a></li>
+                        <li><a href="#css-positioning">4.2 Positioning</a></li>
+                        <li><a href="#css-float">4.3 Float and Clear</a></li>
+                        <li><a href="#css-flexbox">4.4 Flexbox</a></li>
+                        <li><a href="#css-grid">4.5 CSS Grid</a></li>
+                    </ul>
+                </li>
+                <li><a href="#responsive-design">5. Responsive Web Design</a>
+                    <ul>
+                        <li><a href="#media-queries">5.1 Media Queries</a></li>
+                        <li><a href="#mobile-first">5.2 Mobile-First Approach</a></li>
+                        <li><a href="#responsive-images">5.3 Responsive Images</a></li>
+                        <li><a href="#responsive-typography">5.4 Responsive Typography</a></li>
+                    </ul>
+                </li>
+                <li><a href="#advanced-css">6. Advanced CSS</a>
+                    <ul>
+                        <li><a href="#css-transitions">6.1 Transitions</a></li>
+                        <li><a href="#css-animations">6.2 Animations</a></li>
+                        <li><a href="#css-variables">6.3 CSS Variables</a></li>
+                        <li><a href="#css-preprocessors">6.4 CSS Preprocessors</a></li>
+                    </ul>
+                </li>
+                <li><a href="#netflix-clone">7. Building a Netflix Clone</a>
+                    <ul>
+                        <li><a href="#netflix-structure">7.1 Project Structure</a></li>
+                        <li><a href="#netflix-header">7.2 Creating the Header</a></li>
+                        <li><a href="#netflix-hero">7.3 Hero Section</a></li>
+                        <li><a href="#netflix-grid">7.4 Content Grid</a></li>
+                        <li><a href="#netflix-responsive">7.5 Making it Responsive</a></li>
+                    </ul>
+                </li>
+                <li><a href="#other-projects">8. Other Project Ideas</a></li>
+                <li><a href="#best-practices">9. Best Practices</a></li>
+                <li><a href="#resources">10. Additional Resources</a></li>
+            </ul>
+        </div>
+
+        <section id="introduction">
+            <h2>1. Introduction</h2>
+            <p>Welcome to your comprehensive guide to mastering HTML and CSS! This guide is designed to take you from the basics all the way to building complex, responsive websites like Netflix. Whether you're a complete beginner or looking to refresh your knowledge, this guide has something for you.</p>
+            
+            <p>By the end of this guide, you'll be able to:</p>
+            <ul>
+                <li>Write semantic, well-structured HTML</li>
+                <li>Style websites with CSS using modern techniques</li>
+                <li>Create responsive layouts that work on all device sizes</li>
+                <li>Build a Netflix-like interface from scratch</li>
+                <li>Apply best practices for web development</li>
+            </ul>
+            
+            <p>To get the most out of this guide, I recommend following along by creating your own projects as you learn. The best way to master web development is through practice!</p>
+            
+            <div class="note">
+                <strong>Note:</strong> This guide assumes you have a basic understanding of how to use a text editor and web browser. If you're completely new to web development, consider using Visual Studio Code as your editor.
+            </div>
+        </section>
+
+        <section id="html-basics">
+            <h2>2. HTML Basics</h2>
+            <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages. It describes the structure of a web page and consists of a series of elements that tell the browser how to display the content.</p>
+            
+            <div id="html-structure">
+                <h3>2.1 HTML Structure</h3>
+                <p>Every HTML document follows a standard structure:</p>
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;My First Web Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Your content goes here --&gt;
+    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+    &lt;p&gt;This is my first web page.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                
+                <p>Let's break down this structure:</p>
+                <ul>
+                    <li><code>&lt;!DOCTYPE html&gt;</code>: Declares the document type and HTML version</li>
+                    <li><code>&lt;html&gt;</code>: The root element of an HTML page</li>
+                    <li><code>&lt;head&gt;</code>: Contains meta-information about the document</li>
+                    <li><code>&lt;meta&gt;</code>: Provides metadata about the HTML document</li>
+                    <li><code>&lt;title&gt;</code>: Specifies a title for the document</li>
+                    <li><code>&lt;body&gt;</code>: Contains the visible page content</li>
+                </ul>
+            </div>
+            
+            <div id="html-elements">
+                <h3>2.2 HTML Elements</h3>
+                <p>HTML elements are the building blocks of HTML pages. Here are some common HTML elements:</p>
+                
+                <h4>Headings</h4>
+                <p>HTML provides six levels of headings, from <code>&lt;h1&gt;</code> (most important) to <code>&lt;h6&gt;</code> (least important):</p>
+                <pre><code>&lt;h1&gt;This is a Heading 1&lt;/h1&gt;
+&lt;h2&gt;This is a Heading 2&lt;/h2&gt;
+&lt;h3&gt;This is a Heading 3&lt;/h3&gt;
+&lt;h4&gt;This is a Heading 4&lt;/h4&gt;
+&lt;h5&gt;This is a Heading 5&lt;/h5&gt;
+&lt;h6&gt;This is a Heading 6&lt;/h6&gt;</code></pre>
+                
+                <h4>Paragraphs</h4>
+                <pre><code>&lt;p&gt;This is a paragraph.&lt;/p&gt;
+&lt;p&gt;This is another paragraph.&lt;/p&gt;</code></pre>
+                
+                <h4>Links</h4>
+                <pre><code>&lt;a href="https://www.example.com"&gt;This is a link&lt;/a&gt;</code></pre>
+                
+                <h4>Images</h4>
+                <pre><code>&lt;img src="image.jpg" alt="Description of the image"&gt;</code></pre>
+                
+                <h4>Lists</h4>
+                <p>Unordered list:</p>
+                <pre><code>&lt;ul&gt;
+    &lt;li&gt;Item 1&lt;/li&gt;
+    &lt;li&gt;Item 2&lt;/li&gt;
+    &lt;li&gt;Item 3&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                
+                <p>Ordered list:</p>
+                <pre><code>&lt;ol&gt;
+    &lt;li&gt;First item&lt;/li&gt;
+    &lt;li&gt;Second item&lt;/li&gt;
+    &lt;li&gt;Third item&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+                
+                <h4>Divs and Spans</h4>
+                <pre><code>&lt;div&gt;This is a block-level container&lt;/div&gt;
+&lt;span&gt;This is an inline container&lt;/span&gt;</code></pre>
+                
+                <div class="tip">
+                    <strong>Tip:</strong> <code>&lt;div&gt;</code> is a block-level element (starts on a new line), while <code>&lt;span&gt;</code> is an inline element (does not start on a new line).
+                </div>
+            </div>
+            
+            <div id="html-attributes">
+                <h3>2.3 HTML Attributes</h3>
+                <p>HTML attributes provide additional information about HTML elements:</p>
+                
+                <pre><code>&lt;tag attribute="value"&gt;Content&lt;/tag&gt;</code></pre>
+                
+                <p>Common attributes:</p>
+                <ul>
+                    <li><code>id</code>: Specifies a unique ID for an element</li>
+                    <li><code>class</code>: Specifies one or more class names for an element</li>
+                    <li><code>style</code>: Specifies an inline CSS style for an element</li>
+                    <li><code>src</code>: Specifies the URL of the media file (used with <code>&lt;img&gt;</code>, <code>&lt;audio&gt;</code>, <code>&lt;video&gt;</code>, etc.)</li>
+                    <li><code>href</code>: Specifies the URL of the page the link goes to</li>
+                    <li><code>alt</code>: Specifies an alternative text for an image</li>
+                </ul>
+                
+                <p>Example:</p>
+                <pre><code>&lt;a href="https://www.example.com" id="main-link" class="external-link" style="color: blue;"&gt;Visit Example.com&lt;/a&gt;</code></pre>
+            </div>
+            
+            <div id="html-semantics">
+                <h3>2.4 Semantic HTML</h3>
+                <p>Semantic HTML introduces meaning to the web page rather than just presentation. This helps search engines, screen readers, and other devices better understand your content.</p>
+                
+                <p>Examples of semantic elements:</p>
+                <pre><code>&lt;header&gt;...&lt;/header&gt;
+&lt;nav&gt;...&lt;/nav&gt;
+&lt;main&gt;...&lt;/main&gt;
+&lt;article&gt;...&lt;/article&gt;
+&lt;section&gt;...&lt;/section&gt;
+&lt;aside&gt;...&lt;/aside&gt;
+&lt;footer&gt;...&lt;/footer&gt;</code></pre>
+                
+                <p>A semantic HTML structure might look like this:</p>
+                <pre><code>&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;My Website&lt;/h1&gt;
+        &lt;nav&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    
+    &lt;main&gt;
+        &lt;section&gt;
+            &lt;h2&gt;About Us&lt;/h2&gt;
+            &lt;p&gt;We are a company that...&lt;/p&gt;
+        &lt;/section&gt;
+        
+        &lt;article&gt;
+            &lt;h2&gt;Latest News&lt;/h2&gt;
+            &lt;p&gt;Our company has just launched...&lt;/p&gt;
+        &lt;/article&gt;
+        
+        &lt;aside&gt;
+            &lt;h3&gt;Related Links&lt;/h3&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Link 1&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Link 2&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/aside&gt;
+    &lt;/main&gt;
+    
+    &lt;footer&gt;
+        &lt;p&gt;&copy; 2023 My Company&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;</code></pre>
+                
+                <div class="tip">
+                    <strong>Tip:</strong> Using semantic HTML improves accessibility, SEO, and code readability.
+                </div>
+            </div>
+        </section>
+
+        <section id="css-basics">
+            <h2>3. CSS Basics</h2>
+            <p>CSS (Cascading Style Sheets) is used to style and layout web pages. It describes how HTML elements should be displayed on screen, paper, or in other media.</p>
+            
+            <p>There are three ways to insert CSS:</p>
+            <ul>
+                <li><strong>External CSS</strong>: Using a separate CSS file (recommended)</li>
+                <li><strong>Internal CSS</strong>: Using a <code>&lt;style&gt;</code> element in the <code>&lt;head&gt;</code> section</li>
+                <li><strong>Inline CSS</strong>: Using the <code>style</code> attribute in HTML elements</li>
+            </ul>
+            
+            <p>Example of external CSS:</p>
+            <pre><code>/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}</code></pre>
+            
+            <p>Then link it in your HTML:</p>
+            <pre><code>&lt;head&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;</code></pre>
+            
+            <div id="css-selectors">
+                <h3>3.1 CSS Selectors</h3>
+                <p>CSS selectors are used to "find" (or select) the HTML elements you want to style.</p>
+                
+                <h4>Basic Selectors</h4>
+                <table>
+                    <tr>
+                        <th>Selector</th>
+                        <th>Example</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>Element</td>
+                        <td><code>p { }</code></td>
+                        <td>Selects all &lt;p&gt; elements</td>
+                    </tr>
+                    <tr>
+                        <td>ID</td>
+                        <td><code>#header { }</code></td>
+                        <td>Selects the element with id="header"</td>
+                    </tr>
+                    <tr>
+                        <td>Class</td>
+                        <td><code>.btn { }</code></td>
+                        <td>Selects all elements with class="btn"</td>
+                    </tr>
+                    <tr>
+                        <td>Universal</td>
+                        <td><code>* { }</code></td>
+                        <td>Selects all elements</td>
+                    </tr>
+                </table>
+                
+                <h4>Combinators</h4>
+                <table>
+                    <tr>
+                        <th>Selector</th>
+                        <th>Example</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>Descendant</td>
+                        <td><code>div p { }</code></td>
+                        <td>Selects all &lt;p&gt; elements inside &lt;div&gt; elements</td>
+                    </tr>
+                    <tr>
+                        <td>Child</td>
+                        <td><code>div > p { }</code></td>
+                        <td>Selects all &lt;p&gt; elements where the parent is a &lt;div&gt; element</td>
+                    </tr>
+                    <tr>
+                        <td>Adjacent Sibling</td>
+                        <td><code>div + p { }</code></td>
+                        <td>Selects the first &lt;p&gt; element that is placed immediately after &lt;div&gt; elements</td>
+                    </tr>
+                    <tr>
+                        <td>General Sibling</td>
+                        <td><code>div ~ p { }</code></td>
+                        <td>Selects all &lt;p&gt; elements that are siblings of &lt;div&gt; elements</td>
+                    </tr>
+                </table>
+                
+                <h4>Pseudo-classes and Pseudo-elements</h4>
+                <pre><code>/* Pseudo-classes */
+a:hover { color: red; }          /* When user hovers over a link */
+button:focus { outline: none; }  /* When button has focus */
+li:first-child { font-weight: bold; } /* First item in a list */
+
+/* Pseudo-elements */
+p::first-line { font-weight: bold; }  /* First line of a paragraph */
+p::before { content: "→ "; }          /* Insert content before each paragraph */
+p::after { content: " ←"; }           /* Insert content after each paragraph */</code></pre>
+            </div>
+            
+            <div id="css-box-model">
+                <h3>3.2 Box Model</h3>
+                <p>The CSS box model is essentially a box that wraps around every HTML element. It consists of: margins, borders, padding, and the actual content.</p>
+                
+                <pre><code>.box {
+    /* Content dimensions */
+    width: 300px;
+    height: 200px;
+    
+    /* Padding */
+    padding-top: 20px;
+    padding-right: 30px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    /* Shorthand: padding: 20px 30px; */
+    
+    /* Border */
+    border-width: 2px;
+    border-style: solid;
+    border-color: #333;
+    /* Shorthand: border: 2px solid #333; */
+    
+    /* Margin */
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    /* Shorthand: margin: 10px 15px; */
+}</code></pre>
+                
+                <div class="tip">
+                    <strong>Tip:</strong> Use <code>box-sizing: border-box;</code> to include padding and border in an element's total width and height.
+                    <pre><code>* {
+    box-sizing: border-box;
+}</code></pre>
+                </div>
+            </div>
+            
+            <div id="css-typography">
+                <h3>3.3 Typography</h3>
+                <p>CSS provides properties to control text appearance:</p>
+                
+                <pre><code>body {
+    font-family: 'Arial', sans-serif;  /* Font family */
+    font-size: 16px;                   /* Font size */
+    font-weight: normal;               /* Font weight (normal, bold, etc.) */
+    font-style: normal;                /* Font style (normal, italic, etc.) */
+    line-height: 1.5;                  /* Line height */
+    letter-spacing: 0.5px;             /* Space between letters */
+    word-spacing: 2px;                 /* Space between words */
+    text-align: left;                  /* Text alignment (left, right, center, justify) */
+    text-decoration: none;             /* Text decoration (none, underline, etc.) */
+    text-transform: none;              /* Text transform (none, uppercase, lowercase, capitalize) */
+}</code></pre>
+                
+                <h4>Web Fonts</h4>
+                <p>You can use custom fonts using <code>@font-face</code> or by importing from services like Google Fonts:</p>
+                
+                <pre><code>/* Using Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}</code></pre>
+            </div>
+            
+            <div id="css-colors">
+                <h3>3.4 Colors and Backgrounds</h3>
+                <p>CSS provides several ways to specify colors:</p>
+                
+                <pre><code>/* Color names */
+color: red;
+
+/* Hex values */
+color: #ff0000;  /* Same as red */
+color: #f00;     /* Shorthand */
+
+/* RGB values */
+color: rgb(255, 0, 0);  /* Same as red */
+
+/* RGBA (with alpha/transparency) */
+color: rgba(255, 0, 0, 0.5);  /* Semi-transparent red */
+
+/* HSL (Hue, Saturation, Lightness) */
+color: hsl(0, 100%, 50%);  /* Same as red */
+
+/* HSLA (with alpha/transparency) */
+color: hsla(0, 100%, 50%, 0.5);  /* Semi-transparent red */</code></pre>
+                
+                <h4>Background Properties</h4>
+                <pre><code>.element {
+    background-color: #f0f0f0;
+    background-image: url('background.jpg');
+    background-repeat: no-repeat;  /* no-repeat, repeat, repeat-x, repeat-y */
+    background-position: center;   /* top, right, bottom, left, center or x y coordinates */
+    background-size: cover;        /* auto, cover, contain, or specific values */
+    
+    /* Shorthand */
+    background: #f0f0f0 url('background.jpg') no-repeat center / cover;
+}</code></pre>
+                
+                <h4>Gradients</h4>
+                <pre><code>/* Linear Gradient */
+background: linear-gradient(to right, #ff0000, #0000ff);
+
+/* Radial Gradient */
+background: radial-gradient(circle, #ff0000, #0000ff);</code></pre>
+            </div>
+        </section>
+
+        <section id="css-layout">
+            <h2>4. CSS Layout</h2>
+            <p>CSS provides several techniques for controlling the layout of web pages:</p>
+            
+            <div id="css-display">
+                <h3>4.1 Display Property</h3>
+                <p>The <code>display</code> property specifies if/how an element is displayed:</p>
+                
+                <pre><code>/* Common display values */
+.element {
+    display: block;       /* Takes up the full width available */
+    display: inline;      /* Takes only as much width as necessary */
+    display: inline-block; /* Like inline but can have width and height */
+    display: none;        /* Removes the element completely */
+    display: flex;        /* Creates a flex container */
+    display: grid;        /* Creates a grid container */
+}</code></pre>
+            </div>
+            
+            <div id="css-positioning">
+                <h3>4.2 Positioning</h3>
+                <p>The <code>position</code> property specifies the type of positioning method used for an element:</p>
+                
+                <pre><code>.element {
+    /* Position types */
+    position: static;    /* Default - follows normal document flow */
+    position: relative;  /* Positioned relative to its normal position */
+    position: absolute;  /* Positioned relative to nearest positioned ancestor */
+    position: fixed;     /* Positioned relative to the viewport */
+    position: sticky;    /* Positioned based on scroll position */
+    
+    /* Used with non-static positioning */
+    top: 10px;
+    right: 20px;
+    bottom: 30px;
+    left: 40px;
+    z-index: 1;  /* Controls stacking order */
+}</code></pre>
+                
+                <div class="tip">
+                    <strong>Tip:</strong> When using <code>position: absolute</code>, make sure the parent element has <code>position: relative</code> if you want to position relative to the parent.
+                </div>
+            </div>
+            
+            <div id="css-float">
+                <h3>4.3 Float and Clear</h3>
+                <p>The <code>float</code> property is used for positioning and formatting content:</p>
+                
+                <pre><code>.left {
+    float: left;   /* Element floats to the left */
+}
+
+.right {
+    float: right;  /* Element floats to the right */
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;   /* Clears floats */
+}</code></pre>
+                
+                <div class="note">
+                    <strong>Note:</strong> While floats are still used, modern layouts typically use Flexbox or Grid instead.
+                </div>
+            </div>
+            
+            <div id="css-flexbox">
+                <h3>4.4 Flexbox</h3>
+                <p>Flexbox is a one-dimensional layout method for laying out items in rows or columns:</p>
+                
+                <pre><code>.container {
+    display: flex;                /* Creates a flex container */
+    flex-direction: row;          /* row, row-reverse, column, column-reverse */
+    flex-wrap: wrap;              /* nowrap, wrap, wrap-reverse */
+    flex-flow: row wrap;          /* Shorthand for flex-direction and flex-wrap */
+    justify-content: space-between; /* Alignment along main axis */
+    align-items: center;          /* Alignment along cross axis */
+    align-content: space-around;  /* Alignment of flex lines (when multiple lines) */
+    gap: 10px;                    /* Gap between flex items */
+}
+
+.item {
+    flex-grow: 1;     /* Ability to grow relative to other items */
+    flex-shrink: 0;   /* Ability to shrink relative to other items */
+    flex-basis: auto; /* Default size before remaining space is distributed */
+    flex: 1 0 auto;   /* Shorthand for grow, shrink, basis */
+    align-self: flex-end; /* Override align-items for specific item */
+    order: 2;         /* Controls order of items */
+}</code></pre>
+                
+                <h4>Common Flexbox Patterns</h4>
+                <p>Centering content:</p>
+                <pre><code>.centered {
+    display: flex;
+    justify-content: center;  /* Horizontal centering */
+    align-items: center;      /* Vertical centering */
+    height: 100vh;            /* Full viewport height */
+}</code></pre>
+                
+                <p>Creating a responsive navigation:</p>
+                <pre><code>.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+}</code></pre>
+            </div>
+            
+            <div id="css-grid">
+                <h3>4.5 CSS Grid</h3>
+                <p>CSS Grid is a two-dimensional layout system designed for complex layouts:</p>
+                
+                <pre><code>.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;  /* Three columns with proportional widths */
+    grid-template-rows: 100px auto 100px;  /* Three rows with specified heights */
+    grid-template-areas:  /* Named grid areas */
+        "header header header"
+        "sidebar content content"
+        "footer footer footer";
+    grid-gap: 10px;  /* Gap between grid items */
+    /* Or use column-gap and row-gap separately */
+}
+
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.content { grid-area: content; }
+.footer { grid-area: footer; }
+
+/* Positioning items individually */
+.item {
+    grid-column: 1 / 3;  /* Start at column line 1, end at column line 3 */
+    grid-row: 2 / 4;     /* Start at row line 2, end at row line 4 */
+    /* Or use grid-column-start, grid-column-end, grid-row-start, grid-row-end */
+}</code></pre>
+                
+                <h4>Responsive Grid</h4>
+                <pre><code>.responsive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}</code></pre>
+                
+                <div class="tip">
+                    <strong>Tip:</strong> The <code>repeat(auto-fill, minmax(250px, 1fr))</code> pattern creates a responsive grid where items are at least 250px wide and as many fit as possible in each row.
+                </div>
+            </div>
+        </section>
+
+        <section id="responsive-design">
+            <h2>5. Responsive Web Design</h2>
+            <p>Responsive web design makes web pages look good on all devices. The design should adapt to different screen sizes and viewports.</p>
+            
+            <div id="media-queries">
+                <h3>5.1 Media Queries</h3>
+                <p>Media queries allow you to apply CSS styles based on various conditions, particularly the width of the browser window:</p>
+                
+                <pre><code>/* Base styles for all devices */
+body {
+    font-size: 16px;
+}
+
+/* Styles for tablets */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    .container {
+        width: 90%;
+    }
+}
+
+/* Styles for mobile phones */
+@media (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+    .container {
+        width: 100%;
+    }
+    .hide-on-mobile {
+        display: none;
+    }
+}</code></pre>
+                
+                <p>Media queries can also target other features:</p>
+                <pre><code>/* Target devices with a minimum height */
+@media (min-height: 800px) { ... }
+
+/* Target devices in landscape orientation */
+@media (orientation: landscape) { ... }
+
+/* Target devices with high-resolution displays */
+@media (min-resolution: 2dppx) { ... }
+
+/* Combine multiple conditions */
+@media (min-width: 768px) and (max-width: 1024px) { ... }</code></pre>
+            </div>
+            
+            <div id="mobile-first">
+                <h3>5.2 Mobile-First Approach</h3>
+                <p>Mobile-first means designing for mobile devices first, then progressively enhancing for larger screens:</p>
+                
+                <pre><code>/* Base styles for mobile devices */
+.container {
+    width: 100%;
+    padding: 10px;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Enhance for tablets */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+        margin: 0 auto;
+    }
+    
+    .nav {
+        flex-direction: row;
+    }
+}
+
+/* Enhance for desktops */
+@media (min-width: 1024px) {
+    .container {
+        width: 980px;
+    }
+}</code></pre>
+                
+                <div class="tip">
+                    <strong>Tip:</strong> Mobile-first is generally preferred because:
+                    <ol>
+                        <li>It forces you to prioritize content</li>
+                        <li>It typically results in cleaner code</li>
+                        <li>It often performs better on mobile devices</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div id="responsive-images">
+                <h3>5.3 Responsive Images</h3>
+                <p>Make images responsive by using CSS:</p>
+                
+                <pre><code>img {
+    max-width: 100%;
+    height: auto;
+}</code></pre>
+                
+                <p>For more advanced responsive images, you can use the <code>srcset</code> and <code>sizes</code> attributes:</p>
+                
+                <pre><code>&lt;img src="small.jpg"
+     srcset="small.jpg 500w,
+             medium.jpg 1000w,
+             large.jpg 1500w"
+     sizes="(max-width: 600px) 100vw,
+            (max-width: 1200px) 50vw,
+            33vw"
+     alt="Responsive image"&gt;</code></pre>
+                
+                <p>You can also use the <code>picture</code> element:</p>
+                
+                <pre><code>&lt;picture&gt;
+    &lt;source media="(max-width: 600px)" srcset="small.jpg"&gt;
+    &lt;source media="(max-width: 1200px)" srcset="medium.jpg"&gt;
+    &lt;img src="large.jpg" alt="Responsive image"&gt;
+&lt;/picture&gt;</code></pre>
+            </div>
+            
+            <div id="responsive-typography">
+                <h3>5.4 Responsive Typography</h3>
+                <p>Make your typography responsive using relative units:</p>
+                
+                <pre><code>html {
+    font-size: 16px;  /* Base font size */
+}
+
+h1 {
+    font-size: 2rem;  /* 2 times the root font size */
+}
+
+p {
+    font-size: 1rem;  /* Same as root font size */
+}
+
+.small-text {
+    font-size: 0.8rem;  /* 80% of root font size */
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;  /* Smaller base font on mobile */
+    }
+}</code></pre>
+                
+                <p>Using viewport units for fluid typography:</p>
+                
+                <pre><code>h1 {
+    font-size: calc(1.5rem + 2vw);  /* Scales with viewport width */
+}
+
+.hero-text {
+    font-size: 5vmin;  /* Uses the smaller of viewport width or height */
+}</code></pre>
+            </div>
+        </section>
+
+        <section id="advanced-css">
+            <h2>6. Advanced CSS</h2>
+            
+            <div id="css-transitions">
+                <h3>6.1 Transitions</h3>
+                <p>CSS transitions allow you to change property values smoothly over a specified duration:</p>
+                
+                <pre><code>.button {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    /* Define the transition */
+    transition-property: background-color, transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+    /* Shorthand */
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.button:hover {
+    background-color: darkblue;
+    transform: scale(1.05);
+}</code></pre>
+                
+                <div class="tip">
+                    <strong>Tip:</strong> Common properties to transition: <code>color</code>, <code>background-color</code>, <code>opacity</code>, <code>transform</code>, <code>width</code>, <code>height</code>, and <code>margin</code>.
+                </div>
+            </div>
+            
+            <div id="css-animations">
+                <h3>6.2 Animations</h3>
+                <p>CSS animations allow elements to gradually change from one style to another:</p>
+                
+                <pre><code>/* Define the keyframes */
+@keyframes slide-in {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Apply the animation */
+.animated-element {
+    animation-name: slide-in;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    
+    /* Shorthand */
+    animation: slide-in 1s ease-out 0s 1 normal forwards running;
+}</code></pre>
+                
+                <p>Multiple animations:</p>
+                
+                <pre><code>.multi-animated {
+    animation: 
+        slide-in 1s ease-out,
+        fade-in 2s ease;
+}</code></pre>
+            </div>
+            
+            <div id="css-variables">
+                <h3>6.3 CSS Variables (Custom Properties)</h3>
+                <p>CSS variables allow you to store and reuse values throughout your stylesheet:</p>
+                
+                <pre><code>:root {
+    /* Define variables in the root scope */
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --font-size-base: 16px;
+    --spacing-unit: 8px;
+}
+
+.button {
+    /* Use variables */
+    background-color: var(--primary-color);
+    color: white;
+    padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 3);
+    font-size: var(--font-size-base);
+}
+
+.button.secondary {
+    background-color: var(--secondary-color);
+}
+
+/* Change variables in media queries */
+@media (max-width: 768px) {
+    :root {
+        --font-size-base: 14px;
+        --spacing-unit: 6px;
+    }
+}</code></pre>
+                
+                <div class="tip">
+                    <strong>Tip:</strong> CSS variables are especially useful for theme switching (like dark mode).
+                </div>
+            </div>
+            
+            <div id="css-preprocessors">
+                <h3>6.4 CSS Preprocessors</h3>
+                <p>CSS preprocessors like Sass, Less, and Stylus extend CSS with features like variables, nesting, mixins, and functions:</p>
+                
+                <h4>Sass Example</h4>
+                <pre><code>// Variables
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$border-radius: 4px;
+
+// Mixins
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin button($bg-color) {
+    background-color: $bg-color;
+    color: white;
+    padding: 10px 20px;
+    border-radius: $border-radius;
+    
+    &:hover {
+        background-color: darken($bg-color, 10%);
+    }
+}
+
+// Usage
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    // Nesting
+    .header {
+        @include flex-center;
+        
+        .logo {
+            font-size: 2rem;
+            color: $primary-color;
+        }
+        
+        .nav {
+            ul {
+                display: flex;
+                list-style: none;
+                
+                li {
+                    margin: 0 10px;
+                }
+            }
+        }
+    }
+}
+
+.button {
+    @include button($primary-color);
+    
+    &.secondary {
+        @include button($secondary-color);
+    }
+}</code></pre>
+                
+                <div class="note">
+                    <strong>Note:</strong> While preprocessors are still popular, many of their features (like variables) are now available in standard CSS. For small projects, you might not need a preprocessor.
+                </div>
+            </div>
+        </section>
+
+        <section id="netflix-clone">
+            <h2>7. Building a Netflix Clone</h2>
+            <p>Now let's apply what we've learned to build a Netflix-like interface. We'll break this down into components and build them step by step.</p>
+            
+            <div id="netflix-structure">
+                <h3>7.1 Project Structure</h3>
+                <p>First, let's set up our project structure:</p>
+                
+                <pre><code>netflix-clone/
+│
+├── index.html
+├── css/
+│   └── styles.css
+├── js/
+│   └── main.js
+└── images/
+    ├── logo.png
+    ├── hero-bg.jpg
+    └── thumbnails/
+        ├── movie1.jpg
+        ├── movie2.jpg
+        └── ...
+</code></pre>
+                
+                <p>Let's start with the basic HTML structure:</p>
+                
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Netflix Clone&lt;/title&gt;
+    &lt;link rel="stylesheet" href="css/styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;!-- Navigation goes here --&gt;
+    &lt;/header&gt;
+    
+    &lt;main&gt;
+        &lt;section class="hero"&gt;
+            &lt;!-- Hero content goes here --&gt;
+        &lt;/section&gt;
+        
+        &lt;section class="movie-row"&gt;
+            &lt;h2&gt;Popular on Netflix&lt;/h2&gt;
+            &lt;div class="movie-slider"&gt;
+                &lt;!-- Movie thumbnails go here --&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+        
+        &lt;section class="movie-row"&gt;
+            &lt;h2&gt;Trending Now&lt;/h2&gt;
+            &lt;div class="movie-slider"&gt;
+                &lt;!-- Movie thumbnails go here --&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+        
+        &lt;section class="movie-row"&gt;
+            &lt;h2&gt;Watch Again&lt;/h2&gt;
+            &lt;div class="movie-slider"&gt;
+                &lt;!-- Movie thumbnails go here --&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+    
+    &lt;footer&gt;
+        &lt;!-- Footer content goes here --&gt;
+    &lt;/footer&gt;
+    
+    &lt;script src="js/main.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+            
+            <div id="netflix-header">
+                <h3>7.2 Creating the Header</h3>
+                <p>Let's build the Netflix header with navigation:</p>
+                
+                <pre><code>&lt;header class="netflix-header"&gt;
+    &lt;div class="netflix-logo"&gt;NETFLIX&lt;/div&gt;
+    &lt;nav class="netflix-navigation"&gt;
+        &lt;a href="#"&gt;Home&lt;/a&gt;
+        &lt;a href="#"&gt;TV Shows&lt;/a&gt;
+        &lt;a href="#"&gt;Movies&lt;/a&gt;
+        &lt;a href="#"&gt;New & Popular&lt;/a&gt;
+        &lt;a href="#"&gt;My List&lt;/a&gt;
+    &lt;/nav&gt;
+    &lt;div class="netflix-search"&gt;
+        &lt;input type="text" placeholder="Search..."&gt;
+    &lt;/div&gt;
+&lt;/header&gt;</code></pre>
+                
+                <p>CSS for the header:</p>
+                
+                <pre><code>.netflix-header {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transition: background-color 0.3s;
+}
+
+/* Make header background solid when scrolling */
+.netflix-header.scrolled {
+    background-color: #000;
+}
+
+.netflix-logo {
+    color: #e50914;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.netflix-navigation {
+    display: flex;
+    gap: 20px;
+}
+
+.netflix-navigation a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.netflix-navigation a:hover {
+    color: #ccc;
+}
+
+.netflix-search input {
+    background-color: #333;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    outline: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .netflix-navigation {
+        display: none;
+    }
+}</code></pre>
+                
+                <p>JavaScript for changing header background on scroll:</p>
+                
+                <pre><code>// Make header background solid when scrolling
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('.netflix-header');
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});</code></pre>
+            </div>
+            
+            <div id="netflix-hero">
+                <h3>7.3 Hero Section</h3>
+                <p>The hero section is the large featured content at the top:</p>
+                
+                <pre><code>&lt;section class="netflix-hero"&gt;
+    &lt;div class="netflix-hero-content"&gt;
+        &lt;h1&gt;Stranger Things&lt;/h1&gt;
+        &lt;p&gt;When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl.&lt;/p&gt;
+        &lt;div class="netflix-hero-buttons"&gt;
+            &lt;button class="netflix-button"&gt;&lt;i class="fas fa-play"&gt;&lt;/i&gt; Play&lt;/button&gt;
+            &lt;button class="netflix-button netflix-button-secondary"&gt;&lt;i class="fas fa-info-circle"&gt;&lt;/i&gt; More Info&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+                
+                <p>CSS for the hero section:</p>
+                
+                <pre><code>.netflix-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), 
+                url('https://assets.nflxext.com/ffe/siteui/vlv3/f841d4c7-10e1-40af-bcae-07a3f8dc141a/f6d7434e-d6de-4185-a6d4-c77a2d08737b/US-en-20220502-popsignuptwoweeks-perspective_alpha_website_medium.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    padding: 0 60px;
+    margin-top: 60px; /* To account for fixed header */
+}
+
+.netflix-hero-content {
+    max-width: 500px;
+    color: white;
+}
+
+.netflix-hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.netflix-hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.netflix-hero-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.netflix-button {
+    background-color: #e50914;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.netflix-button:hover {
+    background-color: #f40612;
+}
+
+.netflix-button-secondary {
+    background-color: rgba(109, 109, 110, 0.7);
+}
+
+.netflix-button-secondary:hover {
+    background-color: rgba(109, 109, 110, 0.9);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .netflix-hero {
+        padding: 0 20px;
+    }
+    
+    .netflix-hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .netflix-hero-content p {
+        font-size: 1rem;
+    }
+}</code></pre>
+            </div>
+            
+            <div id="netflix-grid">
+                <h3>7.4 Content Grid</h3>
+                <p>Now let's create the movie rows with horizontal scrolling:</p>
+                
+                <pre><code>&lt;section class="movie-row"&gt;
+    &lt;h2&gt;Popular on Netflix&lt;/h2&gt;
+    &lt;div class="movie-slider"&gt;
+        &lt;div class="movie-card"&gt;
+            &lt;img src="https://occ-0-1339-1340.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRsAw3xS7mGkLQgZ2pTceTyMI3nxB_PoR51Jm2Kg-WeSYsJL9pLJXJrn6uiLcGkEPSr7PnNUQQTjZUi1Ggn0OJV70rEYjnw4A7oZfUNt9Jt5vRZP9Nf2QsAiZkeLEIaS9cOH.jpg?r=c68" alt="Movie 1"&gt;
+        &lt;/div&gt;
+        &lt;div class="movie-card"&gt;
+            &lt;img src="https://occ-0-1339-1340.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABSNtJvu8215Gl8GlVv_EEDFMgltlMgvQpVdBDCV8nj5rKJHR8h5TmpJKbFj4F06_HcpCJCSJ3-1dkZk1JTwQXK5TquYjR82xG_wKLnXwuAzxA57EqYKmfH0wgJHjXz-ghX5s.jpg?r=aef" alt="Movie 2"&gt;
+        &lt;/div&gt;
+        &lt;div class="movie-card"&gt;
+            &lt;img src="https://occ-0-1339-1340.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABVfzPVNocvE237uuNIqQA9NpzEVBGQjFCFnzxPE76XAU7CMN-JfPh6Z5SdJXJNO-A0jh1mPXuLLnW7v1YR88-2Z1TpLYtGcHLlE.jpg?r=608" alt="Movie 3"&gt;
+        &lt;/div&gt;
+        &lt;div class="movie-card"&gt;
+            &lt;img src="https://occ-0-1339-1340.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABSHHiYhEVLLyTPmRUq-YvJemG2yEHYUd0IyLOBE6nmVQbKrjgEHzVvBydoQNQa2QX1DnqNTGUXt9iqt6ZHMnB3tE85plW4aO1r0.jpg?r=c68" alt="Movie 4"&gt;
+        &lt;/div&gt;
+        &lt;div class="movie-card"&gt;
+            &lt;img src="https://occ-0-1339-1340.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABcAK3UPwOxBFJdT2can5myGpRWkGqV3OdGwGr7tSqVPEKXw0Y3VcNkZ-3rAVzHNYHgZ9HV4PuZV4ZHSLm6P3L8cSjiJ0DRskPZYTF2WTcsn5R6y0HoWjz6yQy_89Bf9GYoJr.jpg?r=c68" alt="Movie 5"&gt;
+        &lt;/div&gt;
+        &lt;div class="movie-card"&gt;
+            &lt;img src="https://occ-0-1339-1340.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABWu45HUWpoxMXumfklAltQu6R0tZ7vXfckOkIaf9mannGQqI_x2WJIrZ7_weyCITTHEZJwLssjxZ0fFCQ5rRGe52qL-vwCiDcnQ.jpg?r=01d" alt="Movie 6"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+                
+                <p>CSS for the movie rows:</p>
+                
+                <pre><code>.movie-row {
+    padding: 20px 40px;
+    background-color: #000;
+    color: white;
+}
+
+.movie-row h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.movie-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px 0;
+    /* Hide scrollbar but keep functionality */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.movie-slider::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.movie-card {
+    min-width: 230px;
+    height: 130px;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    cursor: pointer;
+    position: relative;
+}
+
+.movie-card:hover {
+    transform: scale(1.1);
+    z-index: 1;
+}
+
+.movie-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}</code></pre>
+            </div>
+            
+            <div id="netflix-responsive">
+                <h3>7.5 Making it Responsive</h3>
+                <p>Let's add some additional responsive styles to make our Netflix clone work well on all devices:</p>
+                
+                <pre><code>/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    color: white;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-button {
+    display: none;
+    color: white;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Responsive media queries */
+@media (max-width: 1024px) {
+    .movie-card {
+        min-width: 200px;
+        height: 113px;
+    }
+}
+
+@media (max-width: 768px) {
+    .netflix-header {
+        padding: 15px 20px;
+    }
+    
+    .netflix-logo {
+        font-size: 1.5rem;
+    }
+    
+    .netflix-hero {
+        height: 60vh;
+    }
+    
+    .movie-row {
+        padding: 15px 20px;
+    }
+    
+    .movie-card {
+        min-width: 150px;
+        height: 85px;
+    }
+    
+    /* Show mobile menu button */
+    .mobile-menu-button {
+        display: block;
+    }
+    
+    /* Hide navigation by default */
+    .netflix-navigation {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #000;
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    /* Show navigation when active */
+    .netflix-navigation.active {
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    .netflix-hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .netflix-hero-buttons {
+        flex-direction: column;
+    }
+    
+    .movie-card {
+        min-width: 120px;
+        height: 68px;
+    }
+}</code></pre>
+                
+                <p>JavaScript for the mobile menu:</p>
+                
+                <pre><code>// Add mobile menu button to header
+const header = document.querySelector('.netflix-header');
+const nav = document.querySelector('.netflix-navigation');
+
+const mobileMenuButton = document.createElement('button');
+mobileMenuButton.className = 'mobile-menu-button';
+mobileMenuButton.innerHTML = '☰';
+header.insertBefore(mobileMenuButton, document.querySelector('.netflix-search'));
+
+// Toggle mobile menu
+mobileMenuButton.addEventListener('click', function() {
+    nav.classList.toggle('active');
+});</code></pre>
+                
+                <div class="note">
+                    <strong>Note:</strong> This is a simplified version of a Netflix interface. A complete clone would include additional features like user profiles, video previews, and more.
+                </div>
+            </div>
+            
+            <div class="netflix-example">
+                <h3>Sample Netflix-Style Interface Preview</h3>
+                <div style="background-color: #000; color: white; padding: 20px; border-radius: 5px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="color: #e50914; font-size: 2rem; font-weight: bold;">NETFLIX</div>
+                        <div style="display: flex; gap: 15px;">
+                            <a href="#" style="color: white; text-decoration: none;">Home</a>
+                            <a href="#" style="color: white; text-decoration: none;">TV Shows</a>
+                            <a href="#" style="color: white; text-decoration: none;">Movies</a>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 30px;">
+                        <h2 style="margin-bottom: 10px;">Popular on Netflix</h2>
+                        <div class="netflix-row">
+                            <div class="netflix-item">Movie 1</div>
+                            <div class="netflix-item">Movie 2</div>
+                            <div class="netflix-item">Movie 3</div>
+                            <div class="netflix-item">Movie 4</div>
+                            <div class="netflix-item">Movie 5</div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 30px;">
+                        <h2 style="margin-bottom: 10px;">Trending Now</h2>
+                        <div class="netflix-row">
+                            <div class="netflix-item">Movie 6</div>
+                            <div class="netflix-item">Movie 7</div>
+                            <div class="netflix-item">Movie 8</div>
+                            <div class="netflix-item">Movie 9</div>
+                            <div class="netflix-item">Movie 10</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="other-projects">
+            <h2>8. Other Project Ideas</h2>
+            <p>Now that you've learned how to build a Netflix-like interface, here are some other project ideas to practice your HTML and CSS skills:</p>
+            
+            <div class="project-card">
+                <h3>E-commerce Website</h3>
+                <p>Create a responsive e-commerce website with product listings, product details, shopping cart, and checkout pages.</p>
+                <p><strong>Key Features:</strong></p>
+                <ul>
+                    <li>Responsive product grid</li>
+                    <li>Product filtering and sorting</li>
+                    <li>Product details modal</li>
+                    <li>Shopping cart with JavaScript functionality</li>
+                </ul>
+            </div>
+            
+            <div class="project-card">
+                <h3>Portfolio Website</h3>
+                <p>Build a personal portfolio website to showcase your projects and skills.</p>
+                <p><strong>Key Features:</strong></p>
+                <ul>
+                    <li>Hero section with call-to-action</li>
+                    <li>Skills section with progress bars</li>
+                    <li>Project gallery with filtering</li>
+                    <li>Contact form with validation</li>
+                </ul>
+            </div>
+            
+            <div class="project-card">
+                <h3>Restaurant Website</h3>
+                <p>Create a website for a restaurant with menu, reservation form, and location information.</p>
+                <p><strong>Key Features:</strong></p>
+                <ul>
+                    <li>Image carousel for featured dishes</li>
+                    <li>Interactive menu with categories</li>
+                    <li>Reservation form with date picker</li>
+                    <li>Google Maps integration</li>
+                </ul>
+            </div>
+            
+            <div class="project-card">
+                <h3>Social Media Dashboard</h3>
+                <p>Build a dashboard interface similar to social media platforms.</p>
+                <p><strong>Key Features:</strong></p>
+                <ul>
+                    <li>Sidebar navigation</li>
+                    <li>Activity feed with cards</li>
+                    <li>User profiles with stats</li>
+                    <li>Dark/light theme toggle</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="best-practices">
+            <h2>9. Best Practices</h2>
+            <p>As you continue to develop your HTML and CSS skills, keep these best practices in mind:</p>
+            
+            <h3>HTML Best Practices</h3>
+            <ul>
+                <li><strong>Use semantic HTML:</strong> Choose the right elements for your content (e.g., <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;nav&gt;</code>).</li>
+                <li><strong>Maintain proper indentation:</strong> Keep your code readable with consistent indentation.</li>
+                <li><strong>Use meaningful class and ID names:</strong> Choose names that reflect the purpose of the element, not its appearance.</li>
+                <li><strong>Optimize images:</strong> Use appropriate image formats and sizes to improve page load times.</li>
+                <li><strong>Validate your HTML:</strong> Use the W3C Validator to ensure your code is error-free.</li>
+                <li><strong>Include proper meta tags:</strong> Add description, viewport, and other important meta tags.</li>
+                <li><strong>Ensure accessibility:</strong> Use alt attributes for images, proper ARIA attributes, and semantic structure.</li>
+            </ul>
+            
+            <h3>CSS Best Practices</h3>
+            <ul>
+                <li><strong>Follow a naming convention:</strong> Consider using methodologies like BEM (Block, Element, Modifier).</li>
+                <li><strong>Organize your CSS:</strong> Group related styles and use comments to separate sections.</li>
+                <li><strong>Minimize specificity:</strong> Avoid overly specific selectors that can cause issues later.</li>
+                <li><strong>Use shorthand properties:</strong> For example, use <code>margin: 10px 20px;</code> instead of setting each side separately.</li>
+                <li><strong>Avoid !important:</strong> Use it sparingly and only when absolutely necessary.</li>
+                <li><strong>Use relative units:</strong> Prefer rem, em, %, and vh/vw over pixels for better responsiveness.</li>
+                <li><strong>Implement mobile-first design:</strong> Start with styles for small screens, then add complexity for larger screens.</li>
+                <li><strong>Minimize HTTP requests:</strong> Combine CSS files and use CSS sprites for icons when appropriate.</li>
+                <li><strong>Use CSS preprocessors wisely:</strong> Don't overcomplicate your code with unnecessary nesting or variables.</li>
+            </ul>
+            
+            <h3>Performance Best Practices</h3>
+            <ul>
+                <li><strong>Minimize CSS and JS files:</strong> Remove unnecessary whitespace and comments in production.</li>
+                <li><strong>Optimize images:</strong> Compress images and use modern formats like WebP when possible.</li>
+                <li><strong>Lazy load images:</strong> Load images only when they're about to enter the viewport.</li>
+                <li><strong>Use CSS transitions instead of JS animations:</strong> When possible, for better performance.</li>
+                <li><strong>Avoid render-blocking resources:</strong> Load CSS in the head and JS before the closing body tag.</li>
+                <li><strong>Consider using CSS frameworks wisely:</strong> Only include the components you need.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h2>10. Additional Resources</h2>
+            <p>Here are some valuable resources to continue your HTML and CSS learning journey:</p>
+            
+            <h3>Documentation</h3>
+            <ul>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">MDN Web Docs - HTML</a>: Comprehensive HTML documentation</li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">MDN Web Docs - CSS</a>: Comprehensive CSS documentation</li>
+                <li><a href="https://www.w3schools.com/" target="_blank">W3Schools</a>: Beginner-friendly tutorials and references</li>
+                <li><a href="https://css-tricks.com/" target="_blank">CSS-Tricks</a>: Articles, tutorials, and guides for CSS</li>
+            </ul>
+            
+            <h3>Tools</h3>
+            <ul>
+                <li><a href="https://validator.w3.org/" target="_blank">W3C Markup Validation Service</a>: Check your HTML for errors</li>
+                <li><a href="https://jigsaw.w3.org/css-validator/" target="_blank">W3C CSS Validation Service</a>: Check your CSS for errors</li>
+                <li><a href="https://caniuse.com/" target="_blank">Can I Use</a>: Check browser compatibility for HTML/CSS features</li>
+                <li><a href="https://codepen.io/" target="_blank">CodePen</a>: Online editor for testing HTML, CSS, and JavaScript</li>
+                <li><a href="https://css-generator.com/" target="_blank">CSS Generator</a>: Generate CSS for gradients, shadows, and more</li>
+            </ul>
+            
+            <h3>Courses and Tutorials</h3>
+            <ul>
+                <li><a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a>: Free coding bootcamp with HTML and CSS curricula</li>
+                <li><a href="https://www.codecademy.com/" target="_blank">Codecademy</a>: Interactive courses on web development</li>
+                <li><a href="https://flexboxfroggy.com/" target="_blank">Flexbox Froggy</a>: A game for learning CSS flexbox</li>
+                <li><a href="https://cssgridgarden.com/" target="_blank">Grid Garden</a>: A game for learning CSS grid</li>
+                <li><a href="https://www.youtube.com/user/TraversyMedia" target="_blank">Traversy Media</a>: YouTube channel with web development tutorials</li>
+            </ul>
+            
+            <h3>CSS Frameworks and Libraries</h3>
+            <ul>
+                <li><a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>: Utility-first CSS framework</li>
+                <li><a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>: Popular CSS framework</li>
+                <li><a href="https://materializecss.com/" target="_blank">Materialize</a>: Framework based on Material Design</li>
+                <li><a href="https://bulma.io/" target="_blank">Bulma</a>: Modern CSS framework based on Flexbox</li>
+                <li><a href="https://animate.style/" target="_blank">Animate.css</a>: Library of CSS animations</li>
+            </ul>
+            
+            <div class="tip">
+                <strong>Final Tip:</strong> The best way to learn HTML and CSS is by building projects. Start with small projects and gradually increase complexity. Don't be afraid to examine the source code of websites you admire to learn new techniques.
+            </div>
+        </section>
+
+        <footer class="bg-gray-900 text-white py-10 mt-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center">
+                    <h3 class="text-xl mb-4">HTML & CSS Mastery Guide</h3>
+                    <p>This comprehensive guide was created to help you master HTML and CSS, from basics to building Netflix-like interfaces.</p>
+                    <p class="mt-4">Remember, practice is key! Build projects regularly to reinforce what you've learned.</p>
+                    <p class="mt-8 text-gray-400">© 2023 HTML & CSS Mastery Guide</p>
+                </div>
+            </div>
+        </footer>
+        
+        <a href="#" class="scroll-top" id="scrollTop">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/js/all.min.js"></script>
+    <script>
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+        });
+        
+        // Scroll to top button
+        const scrollTopButton = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopButton.style.display = 'flex';
+            } else {
+                scrollTopButton.style.display = 'none';
+            }
+        });
+        
+        scrollTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Make header background solid when scrolling
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.netflix-header');
+            if (header && window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else if (header) {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

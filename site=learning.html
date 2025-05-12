@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>PRACTICE</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        .link {
+            background-color: orange;
+        }
+
+        #inline {
+            background-color: yellow;
+        }
+
+        td {
+            font-weight: 900;
+            border: 1px solid black;
+        }
+
+        .bg-yellow {
+            background-color: brown;
+        }
+
+        .learnaboutcolors {
+            color: '#FFFFFF' !important;
+        }
+
+        #firstclass {
+            background-color: red;
+        }
+
+        .firstclass {
+            background-color: orange;
+        }
+
+        .firstclass p {
+            color: blue;
+            font-size: 40px;
+        }
+
+        /*Universal Selector*/
+        .text {
+            color: orange;
+            background-color: white !important;
+            font-family: 'Poppins', 'Courier New', Courier, monospace;
+        }
+
+        /*Pseudo Selector*/
+        a:visited {
+            color: black;
+            font-size: 25px;
+        }
+
+        .block a {
+            font-size: 50px;
+        }
+
+        .block a:visited {
+            color: darkgreen;
+        }
+
+        .block a:active {
+            background-color: red;
+        }
+
+        .block a:hover {
+            background-color: orange;
+        }
+
+        .block a:link {
+            color: red;
+        }
+
+        p:first-child {
+            background-color: orange;
+        }
+
+        .box {
+            background: skyblue;
+            color: white;
+        }
+
+        .box1 {
+            color: orange;
+            padding: 100px;
+            border: 20px solid black;
+            margin: 20px;
+            height: 300px;
+            box-sizing: border-box;
+            text-align: center;
+            /*means ke padding margin waghera mila ki itni height honi chaheye */
+        }
+
+        .box2 {
+            color: yellow;
+            margin: 2px;
+            border: 2px solid black;
+        }
+
+        /*fonts */
+        .fonth1 {
+            font-family: 'Poppins';
+        }
+
+        .font {
+            font-family: 'Poppins', 'Arial Narrow', Arial, sans-serif;
+            font-style: normal;
+            text-decoration: underline;
+            font-weight: 600;
+            font-size: 20px;
+        }
+
+        .fonts {
+            line-height: 55px;
+            letter-spacing: 4px;
+        }
+
+        h3 {
+            text-transform: uppercase;
+            text-decoration-line: underline;
+            text-decoration-color: aqua;
+            text-decoration-thickness: 4px;
+            text-indent: 35px;
+            text-align: center;
+            text-overflow: clip;
+        }
+
+        .lorem {
+            border: 2px solid red;
+            width: 42px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+
+<body>
+
+    <img src="pexels-bertellifotografia-29267513.jpg" alt="This is the Image Text" width="200px">
+
+    <a href="fontsize.html" class="visit">Visit To Font Size HTML File</a><br>
+
+    <a href="new.html" class="visit">Click this text to Visit New File</a>
+
+    <div class="lorem">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos a autem impedit, cupiditate
+        dolores tenetur esse laudantium rem dicta praesentium quam! Hic officia esse asperiores delectus possimus
+        incidunt aperiam sed autem labore ipsa adipisci quisquam doloremque atque reprehenderit est, ea natus illum
+        nisi!</div>
+
+    <div class="block">
+        <a href="https://vibes-bymhk.com" class="a">This Is The First Website</a>
+    </div>
+    <div class="box1">This is the Division of the Box Number 1</div>
+
+    <div class="box2">This is the Division of the Box Number 2</div>
+
+    <p class="font">This is the Text of The Font</p>
+
+    <p class="fonts">This is the Text Of The Fonts Of The Text</p>
+
+    <h3>This is the Text Heading H3</h3>
+
+
+    <p class="learnaboutcolors">This is the Text To Learn About Colors</p>
+    <p class="text">This is the Text With Class Text</p>
+
+
+    <pre>
+        THIS IS THE PRE TAG WHICH IS USED TO ENTER EVERYTHING IN THE TAG
+
+
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, saepe!</p>
+    </pre>
+
+    <div class="red bg-yellow">THIS IS THE CLASS OF RED WITH YELLOW BACKGROUND</div>
+
+    <ul type="rectangle">
+        <li>Banana</li>
+        <li>Mango</li>
+        <li>Orange</li>
+        <li>Panther</li>
+    </ul>
+
+    <ol type="I">
+        <li>Pink Panther</li>
+        <li>Orlando</li>
+        <li>Johar</li>
+        <li>Shahwar</li>
+    </ol>
+
+    <dl>
+        <dt>HTML
+        <dd>THIS IS HYPER TEXT MARKUP LANGUAGE MODEL OF THE CODING</dd>
+        </dt>
+        <dt>JAVASCRIPT
+        <dd>THIS IS THE JAVASCRIPT FRONTEND MODEL OF THE CLASS OF THE CODING</dd>
+        </dt>
+    </dl>
+
+
+
+    <div class="bacteria">
+        This is block level element
+    </div>
+    <a target="_blank" class="link" href="https://vibes-bymhk.com">This is inline element</a>
+    <span id="inline">This is inline element</span>
+    <table>
+        <caption>Employee Details</caption>
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Class
+                </th>
+                <th>
+                    Roll No
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Ali
+                </td>
+                <td>
+                    Twenty
+                </td>
+                <td>
+                    69
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Mubeen
+                </td>
+                <td>
+                    Sixty
+                </td>
+                <td>
+                    18
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Ashar
+                </td>
+                <td>
+                    Seventy
+                </td>
+                <td>
+                    19
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    total 3
+                </td>
+                <td>
+                    16
+                </td>
+                <td>
+                    15
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    Home
+                </li>
+                <li>
+                    Services
+                </li>
+                <li>
+                    Market
+                </li>
+                <li>
+                    Products
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <aside>this is the aside of main section</aside>
+        <section>this is the section of the main sectino
+            <p>Lorem.</p>
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus!</p>
+            <a href="https://vibes-bymhk.com">Open Vibes By MHK</a>
+        </section>
+        <div>
+            This is the Division of The Main Tag
+
+        </div>
+    </main>
+    <footer>
+        Copyright &copy; CWH | ALL RIGHTS RESERVED
+    </footer>
+
+
+    <form action="post">
+        <div>
+            <label for="text">Enter Your User Name</label>
+            <input type="text" name="text" id="text" placeholder="Enter User Name">
+        </div>
+        <div>
+            <label for="email">Enter Your Email</label>
+            <input type="email" name="email" id="email" placeholder="Enter Your Email">
+        </div>
+        <div>
+            <input type="radio" name="gender" id="male" value="men">
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="women" value="women">
+            <label for="women">Women</label>
+        </div>
+        <div>
+            <input type="checkbox" name="subscribe" id="subscribe">
+            <label for="subscribe">Subscribe For Newsletter</label>
+        </div>
+        <div>
+            <select name="fruits" id="fruits">
+                <option value="apple">Apple</option>
+                <option value="banana">Banana</option>
+                <option value="cherry">Cherry</option>
+                <option value="strawberry">Strawberry</option>
+                <option value="mango">Mango</option>
+            </select>
+        </div>
+        <div>
+            <label for="comment">Enter Your Comment!</label>
+            <textarea rows="15" cols="80" name="comment" id="comment" placeholder="Enter Your Comment!"></textarea>
+        </div>
+        <input type="submit" value="submit" form="post">
+    </form>
+
+    <video src="video.mp4" autoplay controls width="500" muted></video>
+
+    <audio src="audio.mp3" autoplay controls muted></audio>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/nkaAJYfRDVk?si=mCM4XIM7EHIqeWqV"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+</body>
+
+</html>

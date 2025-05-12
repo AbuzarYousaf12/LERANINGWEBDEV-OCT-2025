@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', 'Courier New', Courier, monospace;
+        }
+        body{
+            background-color: black;
+        }
+        .main {
+            background-image: url('/assets/images/bg.jpg');
+            background-size: max(1200px, 100vw);
+            height: 644px;
+            width: 100vw;
+            position: relative;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            max-width: 70vw;
+            margin: auto;
+        }
+
+        nav img {
+            position: relative;
+            z-index: 10;
+        }
+
+        nav button {
+            position: relative;
+            z-index: 10;
+        }
+
+        .main .hero {
+            font-family: 'Martel Sans', sans-serif;
+            height: calc(100% - 100px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            position: relative;
+            gap: 23px;
+            padding: 0 30px;
+        }
+
+        .hero> :nth-child(1) {
+            font-size: 2.5rem;
+            font-weight: bolder;
+            text-align: center;
+        }
+
+        .hero> :nth-child(2) {
+            font-size: 1.1rem;
+            font-weight: 300;
+            text-align: center;
+        }
+
+        .hero> :nth-child(3) {
+            font-size: 1.1rem;
+            font-weight: 300;
+            text-align: center;
+        }
+
+        .main input {
+            padding: 7px 101px 8px 14px;
+            background-color: rgba(23, 23, 23, 0.7);
+            border: 1px solid rgba(99, 96, 96, 0.7);
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .hero-buttons .btn {
+            padding: 5px 13px;
+            background-color: rgba(229, 9, 20, 0.7);
+            border: 1px solid rgba(226, 226, 226, 0.7);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .box {
+            height: 644px;
+            width: 100%;
+            opacity: 0.69;
+            position: absolute;
+            top: 0;
+            background-color: black;
+        }
+
+        .btn {
+            background-color: rgba(23, 23, 23, 0.7);
+            border: 1px solid rgba(99, 96, 96, 0.7);
+            color: white;
+            font-size: 14px;
+            padding: 4px 8px;
+        }
+
+        .btn-sm {
+            background-color: rgba(255, 0, 0, 0.7);
+            font-size: 14px;
+        }
+
+        .seperation {
+            height: 7px;
+            background-color: rgb(46, 44, 44);
+            position: relative;
+            z-index: 20;
+        }
+
+        .first {
+            display: flex;
+            justify-content: center;
+            max-width: 70vw;
+            margin: auto;
+            color: rgb(255, 255, 255);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .secImg {
+            position: relative;
+        }
+
+        .secImg img {
+            width: 555px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .secImg video {
+            position: absolute;
+            top: 51px;
+            right: 0;
+            width: 555px;
+
+        }
+
+        section.first>div :nth-child(1) {
+            font-size: 48px;
+            font-weight: bolder;
+        }
+
+
+        section.first>div :nth-child(2) {
+            font-size: 24px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <nav>
+            <span><img width="103" src="/assets/images/logo.svg" alt=""></span>
+            <div>
+                <button class="btn">English</button>
+                <button class="btn btn-sm">Sign In</button>
+            </div>
+        </nav>
+        <div class="box">
+        </div>
+        <div class="hero">
+            <span>
+                Enjoy big movies, hit series and more from ₹ 149.
+            </span>
+            <span>
+                Join today. Cancel anytime.
+            </span>
+            <span>
+                Ready to watch? Enter your email to create or restart your membership.
+            </span>
+            <div class="hero-buttons">
+                <input type="text" placeholder="Email Address">
+                <button class="btn btn-red">Get Started ></button>
+            </div>
+        </div>
+    </div>
+    <div class="seperation"></div>
+    <section class="first">
+        <div>
+            <span>
+                Enjoy on your TV.
+            </span>
+            <span>
+                Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.
+            </span>
+        </div>
+        <div class="secImg">
+            <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png" alt="">
+            <video src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-in-0819.m4v"
+                autoplay loop muted></video>
+        </div>
+    </section>
+    <div class="seperation"></div>
+
+</body>
+
+</html>

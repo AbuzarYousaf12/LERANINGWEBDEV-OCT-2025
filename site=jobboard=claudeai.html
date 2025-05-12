@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RozgaarPK - Pakistan's Premier Job Board</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* ==================== CSS VARIABLES ==================== */
+        :root {
+            /* Colors */
+            --primary-color: #01796F;
+            --primary-light: #e7f5f3;
+            --primary-dark: #005f59;
+            --secondary-color: #FFA500;
+            --accent-color: #FF6347;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --text-muted: #888888;
+            --bg-light: #ffffff;
+            --bg-off-white: #f9f9f9;
+            --bg-light-gray: #f5f5f5;
+            --border-color: #eaeaea;
+            
+            /* Flag colors */
+            --pk-green: #01411C;
+            --pk-white: #ffffff;
+            
+            /* Typography */
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+            /* Spacing */
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-xxl: 3rem;
+            
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 20px;
+            --radius-full: 9999px;
+            
+            /* Box Shadows */
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* ==================== RESET & BASE STYLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-family);
+        }
+
+        body {
+            color: var(--text-dark);
+            background-color: var(--bg-light-gray);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom: var(--spacing-sm);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.75rem; }
+        h4 { font-size: 1.5rem; }
+        h5 { font-size: 1.25rem; }
+        h6 { font-size: 1rem; }
+
+        p {
+            margin-bottom: var(--spacing-md);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ==================== LAYOUT STYLES ==================== */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+
+        .section {
+            padding: var(--spacing-xxl) 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            gap: var(--spacing-lg);
+        }
+
+        /* ==================== COMPONENT STYLES ==================== */
+        /* Button Styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e69500;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-lg {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+        }
+
+        .btn i {
+            margin-right: 0.5rem;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: var(--spacing-md);
+            position: relative;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(1, 121, 111, 0.2);
+        }
+
+        .form-control::placeholder {
+            color: var(--text-muted);
+        }
+
+        /* Badge Styles */
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-primary {
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+        }
+
+        .badge-secondary {
+            background-color: #FFF5E6;
+            color: var(--secondary-color);
+        }
+
+        .badge-featured {
+            background-color: #FFE6DC;
+            color: var(--accent-color);
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: var(--bg-light);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-body {
+            padding: var(--spacing-lg);
+        }
+
+        .card-footer {
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-top: 1px solid var(--border-color);
+            background-color: var(--bg-off-white);
+        }
+
+        /* ==================== HEADER STYLES ==================== */
+        .header {
+            background-color: var(--bg-light);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo-flag {
+            width: 30px;
+            margin-right: 0.5rem;
+        }
+
+        .logo span.accent {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .nav-link {
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 1rem;
+            right: 1rem;
+            height: 2px;
+            background-color: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            transform: scaleX(1);
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .toggle-menu {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            background: linear-gradient(to right, rgba(1, 121, 111, 0.9), rgba(1, 121, 111, 0.7)), url('/api/placeholder/1600/900');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: var(--spacing-xxl) 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-xl);
+            opacity: 0.9;
+        }
+
+        .search-box {
+            background-color: white;
+            padding: var(--spacing-md);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .search-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            gap: var(--spacing-md);
+        }
+
+        .search-input-group {
+            position: relative;
+        }
+
+        .search-input-group i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        .search-input {
+            padding-left: 2.5rem;
+        }
+
+        /* ==================== FEATURED JOBS SECTION ==================== */
+        .featured-jobs {
+            background-color: var(--bg-light);
+        }
+
+        .jobs-grid {
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        }
+
+        .job-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .job-card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .company-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background-color: var(--bg-light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: var(--spacing-md);
+        }
+
+        .company-logo img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+        }
+
+        .job-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .company-name {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .job-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .job-meta-item {
+            display: flex;
+            align-items: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .job-meta-item i {
+            margin-right: var(--spacing-xs);
+            color: var(--secondary-color);
+        }
+
+        .job-description {
+            color: var(--text-light);
+            margin-bottom: var(--spacing-md);
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .job-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin-top: auto;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .job-tag {
+            padding: 0.25rem 0.75rem;
+            background-color: var(--bg-light-gray);
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* ==================== TOP COMPANIES SECTION ==================== */
+        .companies-grid {
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        }
+
+        .company-card {
+            text-align: center;
+            padding: var(--spacing-lg);
+        }
+
+        .company-card-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--spacing-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--bg-light-gray);
+            border-radius: var(--radius-full);
+            padding: var(--spacing-md);
+        }
+
+        .company-card-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .company-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .company-jobs {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        /* ==================== CATEGORIES SECTION ==================== */
+        .categories-section {
+            background-color: var(--bg-off-white);
+        }
+
+        .categories-grid {
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+
+        .category-card {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            background-color: var(--bg-light);
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        .category-card:hover::before {
+            width: 100%;
+        }
+
+        .category-card:hover {
+            color: white;
+        }
+
+        .category-card:hover .category-count {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-full);
+            background-color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: var(--spacing-md);
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .category-card:hover .category-icon {
+            background-color: white;
+        }
+
+        .category-info {
+            flex: 1;
+        }
+
+        .category-card h4 {
+            margin-bottom: var(--spacing-xs);
+            transition: color 0.3s ease;
+        }
+
+        .category-count {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            background-color: var(--bg-light-gray);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
+
+        /* ==================== HOW IT WORKS SECTION ==================== */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+        }
+
+        .step-card {
+            text-align: center;
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            background-color: var(--bg-light);
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            box-shadow: var(--shadow-md);
+        }
+
+        .step-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-color);
+        }
+
+        .step-card h4 {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .step-card p {
+            color: var(--text-light);
+        }
+
+        /* ==================== CTA SECTION ==================== */
+        .cta-section {
+            background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: var(--spacing-xxl) 0;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .cta-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-xl);
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        /* ==================== TESTIMONIALS SECTION ==================== */
+        .testimonials-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-card {
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            background-color: var(--bg-light);
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            margin: 0 auto var(--spacing-md);
+            border: 3px solid var(--primary-light);
+        }
+
+        .testimonial-quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-md);
+            position: relative;
+        }
+
+        .testimonial-quote::before,
+        .testimonial-quote::after {
+            content: '"';
+            color: var(--primary-color);
+            font-size: 2rem;
+            line-height: 0;
+            vertical-align: middle;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .testimonial-role {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .testimonial-company {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .testimonial-navigation {
+            display: flex;
+            justify-content: center;
+            margin-top: var(--spacing-lg);
+            gap: var(--spacing-sm);
+        }
+
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: var(--radius-full);
+            background-color: var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-dot.active {
+            background-color: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        /* ==================== FOOTER STYLES ==================== */
+        .footer {
+            background-color: var(--pk-green);
+            color: white;
+            padding: var(--spacing-xl) 0 var(--spacing-md);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .footer-logo {
+            color: white;
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-logo span.accent {
+            color: var(--secondary-color);
+        }
+
+        .footer-description {
+            opacity: 0.8;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-full);
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--secondary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-heading {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+            padding-bottom: var(--spacing-sm);
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        .footer-links li {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: var(--spacing-sm);
+        }
+
+        .contact-info li {
+            display: flex;
+            margin-bottom: var(--spacing-md);
+            opacity: 0.8;
+        }
+
+        .contact-info i {
+            margin-right: var(--spacing-sm);
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            min-width: 24px;
+        }
+
+        .footer-subscribe {
+            display: flex;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-subscribe input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: var(--radius-md) 0 0 var(--radius-md);
+            font-size: 0.9rem;
+        }
+
+        .footer-subscribe button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0 1.5rem;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            transition: all 0.3s ease;
+        }
+
+        .footer-subscribe button:hover {
+            background-color: #e69500;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* ==================== RESPONSIVE STYLES ==================== */
+        @media (max-width: 992px) {
+            .search-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .steps-container {
+                gap: var(--spacing-xl);
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .toggle-menu {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: var(--bg-light);
+                flex-direction: column;
+                padding: var(--spacing-md);
+                box-shadow: var(--shadow-md);
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: clip-path 0.4s ease-in-out;
+                z-index: 99;
+            }
+            
+            .nav-links.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            
+            .hero {
+                padding: var(--spacing-xl) 0;
+            }
+            
+            .search-box {
+                padding: var(--spacing-sm);
+            }
+            
+            .jobs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .companies-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .auth-buttons {
+                display: none;
+            }
+            
+            .mobile-auth-buttons {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                gap: var(--spacing-sm);
+                margin-top: var(--spacing-sm);
+            }
+            
+            .mobile-auth-buttons .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 var(--spacing-md);
+            }
+            
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .companies-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="navbar">
+                <a href="#" class="logo">
+                    <svg class="logo-flag" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="24" height="24" fill="#01411C"/>
+                        <circle cx="15" cy="12" r="6" fill="#FFFFFF"/>
+                        <path d="M16.2 8.5L17.5 12.5L14 10H16L12.5 13L16.2 8.5Z" fill="#01411C"/>
+                    </svg>
+                    Rozgaar<span class="accent">PK</span>
+                </a>
+                
+                <nav>
+                    <ul class="nav-links" id="nav-links">
+                        <li><a href="#" class="nav-link active">Home</a></li>
+                        <li><a href="#" class="nav-link">Jobs</a></li>
+                        <li><a href="#" class="nav-link">Companies</a></li>
+                        <li><a href="#" class="nav-link">Categories</a></li>
+                        <li><a href="#" class="nav-link">Blog</a></li>
+                        <li><a href="#" class="nav-link">Contact</a></li>
+                        
+                        <!-- Mobile auth buttons - only visible on mobile -->
+                        <div class="mobile-auth-buttons">
+                            <button class="btn btn-outline">Login</button>
+                            <button class="btn btn-primary">Post a Job</button>
+                        </div>
+                    </ul>
+                </nav>
+                
+                <!-- Desktop auth buttons -->
+                <div class="auth-buttons">
+                    <button class="btn btn-outline">Login</button>
+                    <button class="btn btn-primary">Post a Job</button>
+                </div>
+                
+                <!-- Mobile menu toggle -->
+                <button class="toggle-menu" id="toggle-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Find Your Dream Job in Pakistan</h1>
+                <p>Discover thousands of job opportunities with top companies across Pakistan</p>
+                
+                <div class="search-box">
+                    <form class="search-form">
+                        <div class="search-input-group">
+                            <i class="fas fa-search"></i>
+                            <input type="text" class="form-control search-input" placeholder="Job title, keywords, or company">
+                        </div>
+                        <div class="search-input-group">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <input type="text" class="form-control search-input" placeholder="City, province, or region">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-search"></i> Search Jobs
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Jobs Section -->
+    <section class="section featured-jobs" id="featured-jobs">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Jobs</h2>
+                <p>Handpicked opportunities from top employers across Pakistan</p>
+            </div>
+            
+            <div class="jobs-grid" id="jobs-grid">
+                <!-- Jobs will be loaded dynamically -->
+            </div>
+            
+            <div class="text-center" style="margin-top: var(--spacing-xl);">
+                <a href="#" class="btn btn-outline btn-lg">
+                    <i class="fas fa-th-list"></i> View All Jobs
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Job Categories Section -->
+    <section class="section categories-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Popular Job Categories</h2>
+                <p>Explore opportunities by industry and specialization</p>
+            </div>
+            
+            <div class="categories-grid">
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="category-info">
+                        <h4>Information Technology</h4>
+                        <span class="category-count">1,429 Jobs</span>
+                    </div>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="category-info">
+                        <h4>Finance & Banking</h4>
+                        <span class="category-count">872 Jobs</span>
+                    </div>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <div class="category-info">
+                        <h4>Healthcare & Medical</h4>
+                        <span class="category-count">642 Jobs</span>
+                    </div>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="category-info">
+                        <h4>Education & Training</h4>
+                        <span class="category-count">541 Jobs</span>
+                    </div>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <div class="category-info">
+                        <h4>Sales & Marketing</h4>
+                        <span class="category-count">493 Jobs</span>
+                    </div>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="category-info">
+                        <h4>Engineering & Construction</h4>
+                        <span class="category-count">327 Jobs</span>
+                    </div>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <div class="category-info">
+                        <h4>Logistics & Transportation</h4>
+                        <span class="category-count">298 Jobs</span>
+                    </div>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="category-info">
+                        <h4>Hospitality & Tourism</h4>
+                        <span class="category-count">241 Jobs</span>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="text-center" style="margin-top: var(--spacing-xl);">
+                <a href="#" class="btn btn-outline">
+                    <i class="fas fa-th"></i> Browse All Categories
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Top Companies Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Top Companies Hiring</h2>
+                <p>Leading employers looking for talent across Pakistan</p>
+            </div>
+            
+            <div class="companies-grid">
+                <div class="card company-card">
+                    <div class="company-card-logo">
+                        <img src="/api/placeholder/80/80" alt="Company Logo">
+                    </div>
+                    <h4>Systems Limited</h4>
+                    <div class="company-jobs">42 Open Positions</div>
+                </div>
+                
+                <div class="card company-card">
+                    <div class="company-card-logo">
+                        <img src="/api/placeholder/80/80" alt="Company Logo">
+                    </div>
+                    <h4>HBL Bank</h4>
+                    <div class="company-jobs">38 Open Positions</div>
+                </div>
+                
+                <div class="card company-card">
+                    <div class="company-card-logo">
+                        <img src="/api/placeholder/80/80" alt="Company Logo">
+                    </div>
+                    <h4>Jazz Pakistan</h4>
+                    <div class="company-jobs">27 Open Positions</div>
+                </div>
+                
+                <div class="card company-card">
+                    <div class="company-card-logo">
+                        <img src="/api/placeholder/80/80" alt="Company Logo">
+                    </div>
+                    <h4>Packages Limited</h4>
+                    <div class="company-jobs">24 Open Positions</div>
+                </div>
+                
+                <div class="card company-card">
+                    <div class="company-card-logo">
+                        <img src="/api/placeholder/80/80" alt="Company Logo">
+                    </div>
+                    <h4>Netsol Technologies</h4>
+                    <div class="company-jobs">19 Open Positions</div>
+                </div>
+                
+                <div class="card company-card">
+                    <div class="company-card-logo">
+                        <img src="/api/placeholder/80/80" alt="Company Logo">
+                    </div>
+                    <h4>Lucky Cement</h4>
+                    <div class="company-jobs">16 Open Positions</div>
+                </div>
+                
+                <div class="card company-card">
+                    <div class="company-card-logo">
+                        <img src="/api/placeholder/80/80" alt="Company Logo">
+                    </div>
+                    <h4>Engro Corporation</h4>
+                    <div class="company-jobs">14 Open Positions</div>
+                </div>
+                
+                <div class="card company-card">
+                    <div class="company-card-logo">
+                        <img src="/api/placeholder/80/80" alt="Company Logo">
+                    </div>
+                    <h4>Telenor Pakistan</h4>
+                    <div class="company-jobs">12 Open Positions</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How It Works Section -->
+    <section class="section categories-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>How RozgaarPK Works</h2>
+                <p>Simple steps to find your perfect job opportunity</p>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h4>Create an Account</h4>
+                    <p>Register with your details and build your professional profile to stand out.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h4>Explore Opportunities</h4>
+                    <p>Search for jobs that match your skills, experience, and location preferences.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <h4>Apply with Ease</h4>
+                    <p>Submit applications directly through our platform with just a few clicks.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h4>Get Hired</h4>
+                    <p>Connect with employers, attend interviews, and secure your dream job.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonial Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Success Stories</h2>
+                <p>Hear from professionals who found their perfect career match through RozgaarPK</p>
+            </div>
+            
+            <div class="testimonials-container">
+                <div class="testimonial-card active" id="testimonial-1">
+                    <div class="testimonial-avatar">
+                        <img src="/api/placeholder/80/80" alt="User Avatar">
+                    </div>
+                    <div class="testimonial-quote">
+                        I had been searching for a job in the IT sector for months with no luck. Within two weeks of using RozgaarPK, I received three interview calls and landed my dream position at a leading tech company in Islamabad.
+                    </div>
+                    <div class="testimonial-author">Asad Mahmood</div>
+                    <div class="testimonial-role">Software Engineer</div>
+                    <div class="testimonial-company">Systems Limited</div>
+                </div>
+                
+                <div class="testimonial-navigation">
+                    <div class="testimonial-dot active" data-id="testimonial-1"></div>
+                    <div class="testimonial-dot" data-id="testimonial-2"></div>
+                    <div class="testimonial-dot" data-id="testimonial-3"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Take the Next Step in Your Career?</h2>
+                <p class="cta-subtitle">Join thousands of professionals finding new opportunities across Pakistan every day</p>
+                
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-user-plus"></i> Create an Account
+                    </a>
+                    <a href="#" class="btn btn-outline btn-lg" style="background-color: rgba(255,255,255,0.1); color: white; border-color: rgba(255,255,255,0.3);">
+                        <i class="fas fa-briefcase"></i> Post a Job
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="#" class="footer-logo">
+                        Rozgaar<span class="accent">PK</span>
+                    </a>
+                    <p class="footer-description">
+                        Pakistan's premier job board connecting talented professionals with top employers nationwide.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Find Jobs</a></li>
+                        <li><a href="#">Employers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">For Job Seekers</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Create Account</a></li>
+                        <li><a href="#">Browse Jobs</a></li>
+                        <li><a href="#">Job Alerts</a></li>
+                        <li><a href="#">Career Advice</a></li>
+                        <li><a href="#">Resume Builder</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">For Employers</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Post a Job</a></li>
+                        <li><a href="#">Browse Candidates</a></li>
+                        <li><a href="#">Pricing Plans</a></li>
+                        <li><a href="#">Featured Jobs</a></li>
+                        <li><a href="#">Recruitment Solutions</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Blue Area, Islamabad, Pakistan</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+92 51 2345678</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@rozgaarpk.com</span>
+                        </li>
+                    </ul>
+                    
+                    <h4 class="footer-heading">Newsletter</h4>
+                    <div class="footer-subscribe">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 RozgaarPK. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const toggleMenu = document.getElementById('toggle-menu');
+        const navLinks = document.getElementById('nav-links');
+        
+        toggleMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            toggleMenu.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Job Data
+        const jobsData = [
+            {
+                id: 1,
+                title: "Senior Software Engineer",
+                company: "Systems Limited",
+                location: "Lahore",
+                type: "Full-time",
+                salary: "PKR 150,000 - 250,000",
+                posted: "3 days ago",
+                logo: "/api/placeholder/60/60",
+                description: "We are looking for an experienced Software Engineer proficient in JavaScript, React, and Node.js to join our growing team.",
+                tags: ["JavaScript", "React", "Node.js"],
+                featured: true
+            },
+            {
+                id: 2,
+                title: "UX/UI Designer",
+                company: "10Pearls",
+                location: "Karachi",
+                type: "Full-time",
+                salary: "PKR 120,000 - 180,000",
+                posted: "1 day ago",
+                logo: "/api/placeholder/60/60",
+                description: "Join our creative team to design intuitive and engaging user experiences for web and mobile applications.",
+                tags: ["UI Design", "Adobe XD", "Figma"],
+                featured: true
+            },
+            {
+                id: 3,
+                title: "Financial Analyst",
+                company: "HBL Bank",
+                location: "Islamabad",
+                type: "Full-time",
+                salary: "PKR 100,000 - 150,000",
+                posted: "5 days ago",
+                logo: "/api/placeholder/60/60",
+                description: "Seeking a detail-oriented Financial Analyst to support our financial planning and analysis team.",
+                tags: ["Finance", "Analysis", "Banking"],
+                featured: false
+            },
+            {
+                id: 4,
+                title: "Marketing Manager",
+                company: "Jazz Pakistan",
+                location: "Islamabad",
+                type: "Full-time",
+                salary: "PKR 180,000 - 250,000",
+                posted: "2 days ago",
+                logo: "/api/placeholder/60/60",
+                description: "Lead our marketing initiatives and develop strategies to enhance our brand presence across Pakistan.",
+                tags: ["Marketing", "Strategy", "Digital"],
+                featured: true
+            },
+            {
+                id: 5,
+                title: "DevOps Engineer",
+                company: "Netsol Technologies",
+                location: "Lahore",
+                type: "Full-time",
+                salary: "PKR 160,000 - 220,000",
+                posted: "4 days ago",
+                logo: "/api/placeholder/60/60",
+                description: "Looking for a skilled DevOps Engineer to optimize our CI/CD pipeline and cloud infrastructure.",
+                tags: ["AWS", "Docker", "Jenkins"],
+                featured: false
+            },
+            {
+                id: 6,
+                title: "HR Manager",
+                company: "Engro Corporation",
+                location: "Karachi",
+                type: "Full-time",
+                salary: "PKR 140,000 - 200,000",
+                posted: "1 week ago",
+                logo: "/api/placeholder/60/60",
+                description: "Oversee all HR functions including recruitment, employee relations, and policy development.",
+                tags: ["HR", "Management", "Recruitment"],
+                featured: true
+            }
+        ];
+        
+        // Testimonials Data
+        const testimonialsData = [
+            {
+                id: "testimonial-1",
+                avatar: "/api/placeholder/80/80",
+                quote: "I had been searching for a job in the IT sector for months with no luck. Within two weeks of using RozgaarPK, I received three interview calls and landed my dream position at a leading tech company in Islamabad.",
+                name: "Asad Mahmood",
+                role: "Software Engineer",
+                company: "Systems Limited"
+            },
+            {
+                id: "testimonial-2",
+                avatar: "/api/placeholder/80/80",
+                quote: "RozgaarPK completely transformed my job search experience. The platform's user-friendly interface and targeted job recommendations helped me find the perfect position in finance sector.",
+                name: "Fatima Khan",
+                role: "Financial Analyst",
+                company: "Bank Alfalah"
+            },
+            {
+                id: "testimonial-3",
+                avatar: "/api/placeholder/80/80",
+                quote: "As someone returning to the workforce after a career break, I was worried about finding opportunities. RozgaarPK not only helped me find a job that values my experience but also provided resources to update my skills.",
+                name: "Mohammad Ali",
+                role: "Marketing Specialist",
+                company: "Unilever Pakistan"
+            }
+        ];
+        
+        // Load Jobs
+        function loadJobs() {
+            const jobsGrid = document.getElementById('jobs-grid');
+            
+            // Filter featured jobs
+            const featuredJobs = jobsData.filter(job => job.featured);
+            
+            // Clear existing content
+            jobsGrid.innerHTML = '';
+            
+            // Add job cards
+            featuredJobs.forEach(job => {
+                const jobCard = document.createElement('div');
+                jobCard.className = 'card job-card';
+                
+                jobCard.innerHTML = `
+                    <div class="card-body">
+                        <div class="job-card-header">
+                            <div class="company-logo">
+                                <img src="${job.logo}" alt="${job.company} Logo">
+                            </div>
+                            <div>
+                                <span class="badge badge-featured">Featured</span>
+                            </div>
+                        </div>
+                        
+                        <h3 class="job-title">${job.title}</h3>
+                        <div class="company-name">${job.company}</div>
+                        
+                        <div class="job-meta">
+                            <div class="job-meta-item">
+                                <i class="fas fa-map-marker-alt"></i> ${job.location}
+                            </div>
+                            <div class="job-meta-item">
+                                <i class="fas fa-briefcase"></i> ${job.type}
+                            </div>
+                            <div class="job-meta-item">
+                                <i class="fas fa-rupee-sign"></i> ${job.salary}
+                            </div>
+                            <div class="job-meta-item">
+                                <i class="fas fa-clock"></i> ${job.posted}
+                            </div>
+                        </div>
+                        
+                        <p class="job-description">${job.description}</p>
+                        
+                        <div class="job-tags">
+                            ${job.tags.map(tag => `<span class="job-tag">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary" onclick="applyForJob(${job.id})">Apply Now</button>
+                        <button class="btn btn-outline" style="float: right;" onclick="saveJob(${job.id})">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                    </div>
+                `;
+                
+                jobsGrid.appendChild(jobCard);
+            });
+        }
+        
+        // Apply for Job
+        function applyForJob(jobId) {
+            alert(`Application started for job ID: ${jobId}. In a real app, this would open an application form.`);
+        }
+        
+        // Save Job
+        function saveJob(jobId) {
+            alert(`Job ID: ${jobId} saved to your favorites. In a real app, this would be saved to your account.`);
+            const bookmarkBtn = event.target.closest('.btn');
+            bookmarkBtn.innerHTML = '<i class="fas fa-bookmark"></i>';
+            bookmarkBtn.style.color = 'var(--primary-color)';
+        }
+        
+        // Handle Testimonials
+        function setupTestimonials() {
+            const dots = document.querySelectorAll('.testimonial-dot');
+            
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    // Remove active class from all dots
+                    dots.forEach(d => d.classList.remove('active'));
+                    
+                    // Add active class to clicked dot
+                    dot.classList.add('active');
+                    
+                    // Get testimonial ID
+                    const testimonialId = dot.getAttribute('data-id');
+                    
+                    // Find testimonial data
+                    const testimonial = testimonialsData.find(t => t.id === testimonialId);
+                    
+                    if (testimonial) {
+                        // Update testimonial content
+                        const testimonialCard = document.querySelector('.testimonial-card');
+                        testimonialCard.innerHTML = `
+                            <div class="testimonial-avatar">
+                                <img src="${testimonial.avatar}" alt="${testimonial.name}">
+                            </div>
+                            <div class="testimonial-quote">
+                                ${testimonial.quote}
+                            </div>
+                            <div class="testimonial-author">${testimonial.name}</div>
+                            <div class="testimonial-role">${testimonial.role}</div>
+                            <div class="testimonial-company">${testimonial.company}</div>
+                        `;
+                    }
+                });
+            });
+        }
+        
+        // Initialize Application
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load featured jobs
+            loadJobs();
+            
+            // Setup testimonials
+            setupTestimonials();
+            
+            // Add scroll event for header
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('.header');
+                if (window.scrollY > 50) {
+                    header.style.backgroundColor = 'var(--bg-light)';
+                    header.style.boxShadow = 'var(--shadow-md)';
+                } else {
+                    header.style.backgroundColor = 'var(--bg-light)';
+                    header.style.boxShadow = 'var(--shadow-sm)';
+                }
+            });
+            
+            // Newsletter subscription
+            const subscribeButton = document.querySelector('.footer-subscribe button');
+            if (subscribeButton) {
+                subscribeButton.addEventListener('click', function() {
+                    const emailInput = document.querySelector('.footer-subscribe input');
+                    if (emailInput && emailInput.value) {
+                        alert(`Thank you for subscribing with ${emailInput.value}! You'll now receive job alerts and career tips.`);
+                        emailInput.value = '';
+                    } else {
+                        alert('Please enter your email address to subscribe.');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

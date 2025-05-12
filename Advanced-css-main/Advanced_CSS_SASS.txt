@@ -1,0 +1,1832 @@
+This is a crash course for CSS and SASS. (Based on a project)
+
+Basic Starter CSS setup: This will reset the default browser setting of your page onload
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+// This will reset the default browser setting for margin and padding
+//For box-sizing: border-box; This means the paddings and margins will not be 
+added to the defined size of the box element
+
+
+    body {
+        font-family:"Lato", sans-serif; ;
+        font-weight: 400;
+        line-height: 1.7;
+        padding: 30px;
+        color: #777;
+    }
+
+//The above sets your preferred style for the body element which is inherited by all the child elements if no 
+other style is defined for the element. NOTE: Padding is not inherited by all the child elements.
+
+NOTE: For this project we are using the BEM - BEM (Block, Element, Modifier) is a component-based approach to web development. The idea behind it is to divide the user interface into independent blocks. This makes interface development easy and fast even with a complex UI, 
+     and it allows reuse of existing code without copying and pasting.
+     to learn about this method visit - https://en.bem.info/methodology/quick-start/
+
+
+Building the header:
+
+    .header {
+        height: 95vh;
+        background-image: linear-gradient(to right bottom, 
+        rgba(255, 255, 255, 0.8), 
+        rgba(0, 0, 0, 0.8)),
+        url(../img/bg.jpg);
+        background-size: cover;
+        background-position: top;
+
+        clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+        position: relative;
+    }
+
+//The above defines the style of the header. Without a defined width, it assumes the width of the container.
+//Tha background image features a color gradient overlayed on the background image.
+//With background-size set to cover, the image adjust without losing pixels to fit the container.
+//background-position: top; The image is adjusted to show more of the top side of the image.
+//The clip-path property is used to clip images in a specific way. 
+//The polygon we use has four sides(x y, x y, x y, x y) The x and y represents axis. So we set the starting point of the polygon
+//to 0 0(no movement), te next side in a clockwise direction we set the x to 100% because we need the image to
+//go 100% in the x direction from the starting point to the second side of the polygon and y to zero.
+//for the 3rd side we set the x to 100% as well and the y to 75% because we want the image to be clip at this point.
+//the 4th side the x is set to zero and the y to 100% from origin.
+
+NOTE: for clip-path resources visit: https://bennettfeely.com/clippy/
+
+hmtl structure for the logo: Since image is an inline element, it's better to wrap the img with a div.
+
+    <div class="logo-box">
+        <img src="#" alt="logo" class="logo">
+    </div>
+
+//This will make the styling easy.
+
+styling The logo:
+
+position: To use this the parent element of the box should have it's position relative so tha the positions
+defined for the box will be in relation to the parent element.
+
+With the logo-box we set the position of the logo in the header and with class logo, we define the size of the logo.
+
+    .header__logo-box {
+        position: absolute;
+        top: 40px;
+        left: 40px;
+    }
+
+    .header__logo {
+        height: 35px;
+    }
+
+//You can always play with these numbers
+
+Heading: For SEO pupose, the h1 is the most important heading. So it is used to define the heading of the web page.
+for this project, we split the heading into two using a span element for styling purposes.
+    <div class="text-box">
+        <h1 class="heading-primary>
+            <span class="heading-primary-main">The main title</span>
+            <span class="heading-primary-sub">The sub-main title</span>
+        </h1>
+    </div>
+   
+
+Styling the heading: The heading-primary class will style the whole heading while the span classes will style the
+individual parts of the heading.
+
+    .heading-primary {
+        color: #;
+        text-transform: uppercase;
+    }
+
+To have the individual parts of the heading occupying separate line we give the display property block.
+
+    .heading-primary-main {
+        display: block;
+        font-size: ;
+        font-weight: ;
+        letter-spacing: ;
+    }
+
+    .heading-primary-sub {
+        display: block;
+        font-size: ;
+        font-weight: ;
+        letter-spacing: ;
+    }
+
+To position the heading in the center, we style the text-box.
+
+    .header__text-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+The above style in the text-box is how to center an element in the parent container using positioning.
+
+//We styled the box after styling the heading text but the box style should be put above the heading style to follow
+//the html order.
+
+NOTE: Always wrap parts of a section to be styled separately in a div.
+
+Adding animation to the heading text: Using @keyframes we can add animation to a css element.
+
+    @keyframes moveInLeft {
+        0% {
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+
+        80% {
+            transform: translateX(20px); 
+        }
+
+        100% {
+           opacity: 1;
+            transform: translateX(0); 
+        }
+    }
+
+We define the % to be a point in the animation time. You can whatever point from 0 - 100. To apply this animation to a css element
+we add the animation property to it's styling. animation: <animation name> <animation duration> <animation timing fxn>
+Since we are animating the heading text we add this animation property to the heading text.
+
+NOTE: Browser is optmized for opacity and transform property.
+NOTE: The 80% point is added for bouncing effect. The over moves at 80% and returns to 0 at 100%.
+
+    .heading-primary-main {
+        display: block;
+        font-size: ;
+        font-weight: ;
+        letter-spacing: ;
+        animation: moveInLeft .2s ease-in;
+    } 
+
+For the sub heading we can dd a moveInRight animation to show a movement in the opposite direction.
+to do this, we define properties that are exact opposite to the the moveInLeft animation.
+
+
+    .heading-primary-sub {
+            display: block;
+            font-size: ;
+            font-weight: ;
+            letter-spacing: ;
+            animation: moveInRight .2s ease-out;
+            
+        }
+
+//to fix the shake in the animation we use a property backface-visibility and set it to hidden. This is added
+the heading itself
+
+      .heading-primary {
+        color: #;
+        text-transform: uppercase;
+        backface-visibility: hidden;
+    }
+
+
+//for more animations visit: https://animista.net/
+
+Adding the search button:  Since the search button is right below the heading we can have it in the same box as the heading.
+
+
+    <div class="text-box">
+        <h1 class="heading-primary>
+            <span class="heading-primary-main">The main title</span>
+            <span class="heading-primary-sub">The sub-main title</span>
+        </h1>
+
+        <a href="#" class="btn btn-primary">Your preferred text</a>
+    </div>
+
+You can do this with both a link or button or both combined but for easy styling we used the link.
+
+Styling the search button:
+
+    .btn:link,
+    .btn:visited {
+        text-decoration: none;
+        text-transform: uppercase;
+        display: inline-block;
+        padding: 15px 40px;
+        border-radius: 100px;
+        transition: all .2s;
+        position: relative;
+    }
+
+
+    .btn-primary {
+        background-color: #;
+        color: #;
+    }
+
+
+//In order to have the paddings and margins behave properly when applied to an inline element,
+//we change the display property to inline-block.
+//the .btn is a general class for all our button in this page to make the styling less voluminous.
+//we the used the .btn-primary or any other name to mean specific buttons and give them their specific styling.
+//transition property is always added in the initial state not where the transform is defined.
+
+To have the button in the center of the container, we add text-align property to the container since it's an inline element.
+
+    .text-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+To add animation to the button we can choose to add it to the hover pseudo class.
+
+    .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0(<x-direction>) 10px(<y-direction>) 20px(<blur>) rgba(0, 0, 0, 0.5); //rgba to add transparency to the color
+    }
+
+    .btn:active {
+         transform: translateY(-1px);
+    }
+//This will add a bounce effect to the button on hover and click events.
+
+Adding the ::after pseudo element to animate the button a give it a blink effect. with this we can create an
+element just like the parent element the button with just css.
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .2s;
+}
+
+.btn-primary::after {
+    background-color: #;
+
+}
+
+
+//The content property is very important for the after pseudo element to appear on the page.
+//To position the after pseudo element behind the parent element we use the absolute positioning with the btn
+//as the parent element set to position relative.
+
+Now that we have the after pseudo element, we can animate it on hover
+
+    btn:hover::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+    }
+
+//The opacity 0 is added for a fade-out effect.
+
+we can always add an animation on load just like the headings.
+
+    @keyframes moveInBtn {
+
+        0%{
+            transform: translateY(30px);
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0)
+        }
+        
+    }
+
+//To have this animation apply to chosen button, we can add an extra class to the element say .btn-animated
+
+    .btn-animated {
+        animation: moveInBtn 0.2s easeIn 0.75(<animation delay>);
+        animation-fill-mode: backwards;
+    }
+
+//animation-fill-mode: backwards we start the animation on load from 0%. This way the button doesn't appear first before animating.
+
+
+Using Sass:
+
+First we install node-sass as our compiler. To do that we use `npm install node-sass --save-dev`
+
+//--save-dev will add the node-sass as a developer dependency in our package.json file.
+//NOTE: You must have node.js installed before this.
+
+create a folder for the sass files and in the folder create the main.scss file.
+//we will be using scss for our sass in this project.
+
+In the package.json file add a compiler script that we compile our sass codes in the style.css file
+
+Under scripts add - `"compile:sass:" "sass/main.scss css/style.css -w"
+
+//The -w will make Node.js to watch for changes in our files and compile on save
+
+This way scss code we write in our sass files will be automatically compiled by node.js.
+
+NOTE: We will be creating files and folders to house different aspect of our styling using the - 7 in 1 pattern
+
+Sass we can nest codes using `&` to make it make more sense. This way keep maintaining the BEM method.
+
+e.g .header {
+        height: 95vh;
+        background-image: linear-gradient(to right bottom, 
+        rgba($color-, 0.8), 
+        rgba($color-, 0.8)),
+        url(../img/bg.jpg);
+        background-size: cover;
+        background-position: top;
+
+        clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+        position: relative;
+
+        &__logo {
+
+        }
+
+        &__text-box {
+
+        }
+
+    }
+
+
+NOTE: You can do this with blocks and elements and it's modifiers.
+
+//This way we can have all the styling for the header and child elements in one giant code block.
+//'&' is used to nest a selector/pseudo selector inside parent selector. Once the '&" is used, it means
+//the selector where the nesting is happening is carried into the selector name where th '&" appeared.
+//as in the above '&__logo" means .header__logo
+    
+Creating the folders: This folders will contain partials so that they can be imported in the main.scss. The filename for
+partials starts with `_`
+    1. bass: - For low level bases such as reset, html, body elements - _base.scss
+        files for base folder: _base.scss, _animation.scss, _typography.scss, _utilities.scss
+    2. abstract: - for _variables.scss, _mixins.scss, _functions.scss
+
+    3. Components: reuseable components are stored here. 
+
+    4. Layout: Here we have the global header, footer etc
+
+    5. Pages: for specific pages.
+
+    6. Themes:
+
+    7: Vendors: 
+
+NOTE: With @import we import this partials in the main.scss file `@import base/base`  The <foldername>/<file name>
+//The `_` in the scss file name is omitted from the @import line. Sass will automatically know it's partial. 
+//for each file created, you must import it in the main.scss file for to be recognized.
+
+Next is to move the codes to each specific file. Animation in _animation.scss, typography in _typography.scss
+
+Building grid system:
+
+First create a row and put the columns inside the row.
+
+    <div class="row">
+        <div class="col-1-of-2">
+            1st half of two equal columns
+        </div> 
+        <div class="col-1-of-2">
+            2nd half of two equal columns
+        </div>
+    </div>
+
+//A row containing two equal columnsof equal halves
+
+    <div class="row">
+        <div class="col-1-of-3">
+            1st part of 3 equal columns
+        </div> 
+        <div class="col-1-of-3">
+            2nd part of 3 equal columns
+        </div> 
+        <div class="col-1-of-3">
+            3rd part of 3 equal columns
+        </div>
+    </div>
+
+//A row containing 3 equal columns of equal parts
+
+<div class="row">
+        <div class="col-1-of-3">
+            1st part of 3 equal columns
+        </div> 
+        <div class="col-2-of-3">
+            2nd stretching through 2 equal equal columns
+        </div> 
+    </div>
+
+//A row containing 2 columns witch 1 stretching through 2 parts
+
+<div class="row">
+        <div class="col-1-of-4">
+            1st part of 4 equal columns
+        </div> 
+        <div class="col-1-of-4">
+            2nd part of 4 equal columns
+        </div> 
+        <div class="col-1-of-4">
+            3rd part of 4 equal columns
+        </div> 
+        <div class="col-1-of-4">
+            4th part of 4 equal columns
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-1-of-4">
+            1st part of 4 equal columns
+        </div> 
+        <div class="col-1-of-4">
+            2nd part 
+        </div> 
+        <div class="col-2-of-4">
+            3rd part 
+        </div> 
+    </div> 
+    
+    <div class="row">
+        <div class="col-1-of-4">
+            1st part 
+        </div> 
+        <div class="col-3-of-4">
+            2nd part
+        </div>  
+    </div>
+
+    //from the class name you will see how much of space each column occupies in the row.
+
+Styling: This is layout so it goes into the layout folder. _grid.scss
+
+    .row {
+        margin: 0 auto;
+        max-width: $grid-width;
+
+        &not(:last-child) {
+            margin-bottom: $gutter-vertical;
+        }
+        
+    }
+
+//In the typography, define the custom font size for the html in rem. Default browser font size is 16px,
+//we can set 1 rem to be 10 px by making font-size: 62%; for html.
+//create variables in the variables file to represent the margins for the row.
+//since we don't want margin-bottom on the last child of the row we use the not() pseudo class.
+//in the above, it means every other child except the last child.
+
+
+Now we can style the columns:
+
+width of the column = 100% of the width of the row minus the horizontal gutter divided by the number of columns in that row.
+If there are columns occupying more than one column space by the division, the column space will be = column
+space times number of columns in that row the column is going to occupy.
+
+e.g  .row {
+        margin: 0 auto;
+        max-width: $grid-width;
+
+        &not(:last-child) {
+            margin-bottom: $gutter-vertical;
+        }
+        
+    
+
+        .col-of-2 {
+            width: calc((100% - #{$gutter-horizontal}) / 2);
+            background-color: #;
+            float: left;
+
+            &:not(:last-child){
+                margin-right: $gutter-horizontal;
+            }
+        }
+    }
+
+//When you float element, the height collapses and becomes zero. To correct this, we use the clearfix method.
+//This appends a pseudo element after the element that clears this error.
+
+In the _mixins.scss we write rhe clearfix method and add include it where appropriate.
+NOTE: You can write a mixin for codes that you use repeatedly and have them included wherever needed.
+
+    @mixin clearfix {
+        &::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    }
+
+//You must include the content property or the pseudo element will not show.
+//This display property for this always table
+//the clear property is what does the actual work and set to both it will clear both left and right float
+
+Now can include it in the grid inside the row.
+
+.row {
+        margin: 0 auto;
+        max-width: $grid-width;
+
+        &not(:last-child) {
+            margin-bottom: $gutter-vertical;
+        }
+        
+        @include clearfix;
+
+        .col-of-2 {
+            width: calc((100% - #{$gutter-horizontal}) / 2);
+            background-color: #;
+            float: left;
+
+            &:not(:last-child){
+                margin-right: $gutter-horizontal;
+            }
+        }
+    }
+Using the similar method as above we can now code up the rest of column setup.
+Also to maintain a dry we can style the cols same time since they have similar style using attribute selector.
+
+    [class^="col-"]
+
+NOTE: class^="col-" all classes that start with "col-"
+      class*="col-" all classes that contains "col-"
+      class$="col-" all classes that ends with "col-"
+for more on this checkout https://www.w3schools.com/css/css_attribute_selectors.asp
+
+Building the About Section:
+
+For the purpose semantics, we start the rest of the body in the <main></main>
+
+<main>
+    <section class="section-about">
+        <h2 class="heading-secondary> 
+            This contains about section heading
+        </h2>
+    
+    </section>
+
+
+
+</main>
+
+//section about is styled in the _home.scss
+
+    .section-about {
+        background-color: $;
+        padding: 25rem 0;
+        margin-top: -20vh
+    }
+
+    //the margin-top is because of the clip path that cut our header. 95-75 = 20, so we moved the about section
+    //up by 20vh(-20vh) 
+
+    STyling the heading-secondary:
+    This is done in the _typography.scss file
+
+    .heading-secondary {
+        font-size: 3.5rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        background-image: linear-gradient(to right, $color, $color);
+        -webkit-background-clip: text;
+        color: transparent;
+
+    }
+
+//linear-gradient only works with background-image. With that we can mix two colors for the text by using the background
+//clip property. This will clip the background inside the text and by setting the color to transparent, the text will
+//only show the color of the background.
+
+Adding the hover effect:
+
+.heading-secondary {
+        font-size: 3.5rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        display: inline-block;
+        background-image: linear-gradient(to right, $color, $color);
+        -webkit-background-clip: text;
+        color: transparent;
+        letter-spacing: .2rem;
+        transition: all .2s;
+
+        &:hover {
+            transform: skewY(2deg) skewX(15deg) scale(1.1);
+            text-shadow: .5rem 1rem 2rem rgba($color-black, .2) 
+        }
+
+    }
+
+NOTE: All color variables should be defined in the _variables.scss file
+
+
+Adding a utility class:
+
+
+<main>
+    <section class="section-about">
+
+        <div class="u-center-text">
+            <h2 class="heading-secondary> 
+                This contains about section heading
+            </h2>
+        </div>
+        
+    
+    </section>
+
+
+
+</main>
+
+Styling the utility class "u-center-text":
+
+This is done in the _utilities.scss.
+
+    .u-center-text {
+        text-align: center;
+    }
+
+//by this we center the text in the parent that's now an inline-block element. It gets centered in the parent element.
+
+Using grid to implement the two columns we have in the about section:
+
+we use the row and col-1-of-2 for both sides. //remove the background color we used for test.
+
+    <div class="col-1-of-2">
+        Text content
+
+    <div class="col-1-of-2">
+        img composition
+
+With a utility class we create different margin-bottoms so that when needed we can just apply it.
+For this section we add the .u-margin-bottom-big
+
+//Good to have margin-bottom-med, margin-bottom-small
+
+    .u-margin-bottom-big {
+        margin-bottom: 8rem;
+    }
+
+In the text content section we can start adding some text elements
+
+     <div class="col-1-of-2">
+        //Text content
+        <h3 class="heading-tertiary">
+        <p class="paragraph" > lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor
+        
+        <h3 class="heading-tertiary">
+        <p class="paragraph" > lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor
+    //representing two headers
+
+
+Styling the heading tertiary: 
+
+    .heading-tertiary {
+        font-size: 1.6rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .paragraph {
+        font-size: 1.6rem;
+
+        &:not(:last-child) {
+            margin-bottom: 3rem;
+        }
+    }
+
+//You can always add more styling to suit your desire
+
+To the h3 class we add a u-margin-bottom-small
+
+//you can set your med and small to be 4 rem and 1.5rem or your preferred values
+
+Adding the about button:
+
+Right after the last paragraph - <a href="#" class="btn-text">learn more &rarr;</a>
+
+//for more resources on html special symbols - https://codingheroes.io/resources/
+
+Styling the btn-text:
+    .btn-text {
+
+        &:visited,
+        &:link {
+            font-size: 1.6rem;
+        color: $color-primary;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: 1px solid $color-primary;
+        transition: all .2s;
+        } 
+
+        &:hover {
+            background-color: $color-primary;
+            text-color: $color-;
+            box-shadow: 0 1rem 2rem rgba($color-black, .2);
+            transform: translateY(-2px);
+        }
+
+        &:active {
+            box-shadow: 0 0.5rem 1rem rgba($color-black, .2);
+            transform: translateY(0);
+        }       
+    }
+
+//you can create a _variable for font-size: 1.6rem since it's repeatedly used.
+
+
+Adding and styling the imgs of the about section:
+//still in the row we enter the 2nd col-1-of-2
+
+    <div class="col-1-of-2">
+        <div class="composition">
+            <img src="" class="composition__photo composition__photo--p1">
+            <img src="" class="composition__photo composition__photo--p2">
+            <img src="" class="composition__photo composition__photo--p3">
+
+//composition is the block and photo represents the element and p1 is the modifier BEM
+
+To style the composition block, we create the _composition.scss file in the components folder and import it in the main file - @import "components/composition"
+
+    .composition {
+        position: relative;
+
+        &__photo {
+            width: 50%;
+            box-shadow: 0 1.5rem 4rem rgba($color-black, 0.2);
+            border-radius: 2px;
+            position: absolute;
+            outline-offset: 2rem;
+
+
+            &--p1 {
+            top: -2rem;
+            left: 0;
+        }  
+        
+            &--p2 {
+                top: 2rem;
+                right: 0;
+            }  
+            
+            &--p3 {
+                top: 10rem;
+                left: 20%;
+            }
+
+            &:hover {
+                outline: 1.5rem solid $color-;
+                transition: scale(1.1);
+                box-shadow: 0 2rem 4rem rgba($color-black, 0.5);
+                z-index: 50;
+
+            }
+
+
+        }
+
+      &:hover &__photo:not(:hover) {
+        transition: scale(0.9)
+      }  
+
+    }
+
+
+//z-index brings the hover image to front putting other behind. NOTE: the :hover is inside &__photo bc the hover effect is applied to the photos
+ /outlined is used instead of border bc of the space between the images and the outlined. With outline, you can add outline-offset to the photos and
+ //have space between the images and the outline.
+ //the second hover is put inside the composition block. This means on hover of the composition block, the photo not hovered should do the following.
+ //play around with numbers to see the effect.
+
+
+ Building the features section: 
+ For the icons for this section visit: https://linea.io
+
+ We first include the icon font in our html <link rel".......href="css/icon-font.css"
+ //meaning we have the icon-font css in our css folder
+
+Html structure of the features section:
+
+    <section class="section-features>
+        <div class="row">
+            <div class="col-1-of-4">
+                <div class="feature-box">
+                    <i class="feature-box__icon icon-preferredIcon"></i>
+                    <h3 class="heading-tertiary u-margin-bottom-small"> some text</h3>
+                    <p class="feature-box__text"> some text </p>
+            
+            
+            <div class="col-1-of-4">
+                <div class="feature-box">
+                    <i class="feature-box__icon icon-preferredIcon"></i>
+                    <h3 class="heading-tertiary u-margin-bottom-small"> some text</h3>
+                    <p class="feature-box__text"> some text </p> 
+            
+            
+            <div class="col-1-of-4">
+                <div class="feature-box">
+                    <i class="feature-box__icon icon-preferredIcon"></i>
+                    <h3 class="heading-tertiary u-margin-bottom-small"> some text</h3>
+                    <p class="feature-box__text"> some text </p>
+
+            
+            <div class="col-1-of-4">
+                <div class="feature-box">
+                    <i class="feature-box__icon icon-preferredIcon"></i>
+                    <h3 class="heading-tertiary u-margin-bottom-small"> some text</h3>
+                    <p class="feature-box__text"> some text </p>
+
+//since it's 4 columns, we repeat 4 times. Change the icon to fit the purpose
+
+
+//to the h3 we add a utility class u-margin-bottom-small to create a margin between it and the paragraph element.
+
+Styling the features section: 
+first create a _feature-box.scss file in the components folder since it's a component and include it in the main.scss file.
+In the home.scss add style the section-features.
+    .section-features {
+        padding: 20rem 0;
+         background-image: linear-gradient(to right bottom, 
+        rgba($color-, 0.8), 
+        rgba($color-, 0.8)),
+        url(../img/bg-lg.jpg);
+        background-size: cover;
+        transform: skewY(-7deg);
+        margin-top: -10rem;
+
+        & > * {
+            transform: skewY(7deg);
+        }
+    }
+
+//used skew to give similar inclination like the header. We can also do that we clip path as we did with header.
+//With the direct child selector, we selected all the direct child of the section and skewed it in the opposite direction "& > *" this way we
+//reversed the first skew that was added on all the children of the section.
+//we can also do this by adding the opposite skew to the .feature-box instead but if we want to add another feature in the
+//section outside the feature-box, we wil have to do the same for that feature. So the above is better.
+//margin-top is added to cover the space that appeared as a result of the skew we applied to the section. With -10rem we pushed the section up.
+
+
+Styling the feature-box:
+    .feature-box {
+        background-color: rgba($color-, 0.8);
+        font-size: 1.5rem;
+        padding: 2.5rem;
+        text-align: center;
+        border-radius: 0.3rem;
+        box-shadow: 0 1.5rem 4rem rgba($color-, 0.15);
+        transition all .2s;
+
+        &__icon {
+            font-size: 6rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            background-image: linear-gradient(to right, $color, $color);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        &:hover {
+            transform: translateY(-1.5rem) scale(1.03);
+        }
+
+    }
+
+Tours section:
+html structure 
+
+    <section class="section-tours">
+        <div class="u-margin-bottom-big u-center-class">
+            <h2 class="heading-secondary">some text </h2>
+
+        <div class="row>
+            <div class="col-3-of-1">
+
+            <div class="col-3-of-1">
+
+            <div class="col-3-of-1">
+Styling the tours section:
+    .section-tours {
+        background-color: $color-;
+        padding: 25rem 0;
+        margin-top: -10rem;
+    }
+//again margin-top to cover the empty space.
+
+For the cards that will occupy the columns, we create a fil in components folder and import it in the main.scss file.
+In the column 
+    <div class="col-1-of-3">
+        <div class="card">
+            <div class="card__side card__side--front">
+
+            <div class="card__side card__side--back-1">
+                    
+//since the cards have different designs we add modifiers to every card
+
+Styling the card:
+In the _card.scss file in components we style the cards
+    .card {
+        perspective: 1500;
+        -moz-perspective: 1500;
+        position: relative;
+        height: 52rem;
+
+        &__side {
+            height: 52rem;
+            transition: all .2s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            backface-visibility: hidden;
+            border-radius: 0.3rem;
+            box-shadow: 0 1.5rem 4rem rgba($color-, .15)
+
+            &__front {
+                
+            }
+            
+            &__back {
+                transform: rotateY(180deg);
+
+                &-1 {
+                    background-image: linear-gradient(to right bottom, $color-, $color-);
+                }
+            }
+        }
+
+        &:hover &__side--front {
+            transform: rotateY(-180deg)
+        }  
+        
+        &:hover &__side--back {
+            transform: rotateY(0)
+        }
+    }
+
+//perspective is used to add smooth effect to the rotation transition    
+//height is added to the card because once you set position property, the height collapses
+//overflow is added ao that the image doesn't cover the card shape.
+
+Structuring the front:
+    <div class="card__side card__side--front">
+        <div class="card__img card__img--1">
+            &nbsb;
+        <h4 class="card__heading">
+
+        <div class="card__details">
+Styling the front:
+    Under .card
+        &__img {
+            background-size: cover;
+            height: 23rem;
+            background-blend-mode: screen;
+            clip-path: polygon();
+            border-top-left-radius: 0.3rem;
+            border-top-right-radius: 0.3rem;
+
+
+            &--1 {
+                background-image: linear-gradient(to right bottom, $color-, $color-),
+                url(img location)
+            }
+        &__heading {
+            font-size: 2.8rem;
+            font-weight: 300;
+            color: $color-;
+            position: absolute;
+            top: 12rem;
+            right: 2rem;
+            text-align: right;
+            width: 75%;
+        }    
+        }
+
+
+
+//add webkit to the clip for older browsers.
+//adjust the width of the heading to have the heading text in two separate lines or user a modifier and define
+//the width of the heading of each card to break the text into two if you can't find a common with that can do that
+
+To have a box decoration break in the h4 we add a span to separate the heading text.
+
+    under .card__side--front
+    <h4 class="card__heading>
+        <span class="card__heading-span card__heading-span--1">heading text </span>
+
+
+styling:
+    under .card
+        &__headin-span {
+            padding: 1rem 2rem;
+            box-decoration-break: clone;
+            &--1 {
+                background-image: linear-gradient(to right bottom, rgba($color-, 0.8), rgba($color-, 0.8))
+            }
+        }
+
+//with the box-decoration-break, we have the padding applying to each line of text separately. You can also achieve this
+//by using two spans to separate the text like the case of the heading in the header section.
+//box-decoration-break is better cause it takes less line of code.
+//manually added the border top radius because the clip path property overrides the overflow property we used earlier.
+
+
+For card__details:
+structure:
+
+    <div class="card__details">
+        <ul class="">
+            <li>Some text</>
+            <li>Some text</>
+            <li>Some text</>
+            <li>Some text</>
+
+styling:
+    under .card
+        &__details {
+            padding: 3rem;
+            ul {
+                list-style: none;
+                width: 80%;
+                margin: 0 auto;
+
+                li {
+                    text-align: center;
+                    font-size: 1.6rem;
+                    padding: 1rem;
+
+                    &:not(:last-child){
+                        border-bottom: 1px solid $color-;
+                    }
+                }
+            }
+        }
+
+Building the back of the card:
+
+structure:
+    <div class="card__side--back card__side--back--1">
+        <div class="card__cta">
+            <div class="card__price-box">
+                <div class="card__price-only">Only</div>
+                <div class="card__price-value">$</div>
+
+            <a href="#" class="btn btn--secondary">Some text </a>
+
+
+styling:
+    under .card
+        &__cta {
+            @include center-item;
+            width: 90%;
+            text-align: center;
+        }
+
+        &__price-box {
+            text-align: center;
+            color: $color-;
+            margin: 8rem;
+
+        }
+        
+        &__price-only {
+            text-transform: uppercase;
+            font-size: 1.5rem;
+        }
+        
+        &__price-value {
+          font-size: 6rem;
+          font-weight: 100;   
+        }
+
+//center-item, a mixin for centering item using positioning.
+
+NOTE you can create the rest of the cards under the col in the row.
+
+Adding the button:
+structure:
+    under the tours .section-tours
+
+        <div class="u-center-text u-margin-top-big">
+            <a href="#" class="btn btn-tertiary">SOme text
+
+Styling: 
+change the color of btn-primary since every thing is the same
+
+Building the testimonial section:
+
+structure:
+    <section class="section-stories">
+        <div class="u-center-text u-margin-bottom-big">
+            <h2 class="heading-secondary">Some text
+
+        <div class="row">
+            <div class="story">
+                <figure class="story__shape">
+
+                <div class="story__text">
+                    <h3 class="heading-tertiary margin-bottom-small">Some text
+                    <p> some text 
+
+
+Styling: 
+In the _home.scss
+        .section-stories {
+            padding: 15rem 0;
+
+        }
+In the Components folder add _story.scss and import in the main.scss file.
+
+        .story {
+            width: 75%;
+            margin: 0 auto;
+            box-shadow: ;
+            background-color: rgba($color-, 0.60);
+            border-radius: 0.3rem;
+            padding: 6rem;
+            font-size: $default-font-size;
+            transform: skewX(-12deg)
+
+            &__shape {
+                width: 15rem;
+                height: 15rem;
+                background-color: ;
+                float: left;
+                shape-outside: circle(50% at 50% 50%);
+                clip-path: circle(50% at 50% 50%);
+                transform: translateX(-3rem);
+                position: relative;
+            }
+        }
+
+
+//for the shape outside to work, the element has to be floated
+//we float left so the text will flow around the shape.
+//add webkit to shape outside and clip-path for other browsers.
+//Transform used to add space between the shape and the text instead of margin bc it's the best way to do it on 
+//a floated element
+//position relative so that the story caption position is relative to the shape as parent element.
+//You can not add opacity direct to the element as it will be inherited by all the children of the element
+//to do that we add the opacity to background color instead.
+
+Add image now - <div class="story">
+                <figure class="story__shape">
+                    <img src="" alt="" class="story__image">
+                    <figcaption class="story__caption">some text
+
+styling: 
+
+        under .story
+            &__image {
+                height: 100%;
+                transform: translateX(-3rem) scale(1.4);
+                transition: all 0.2s;
+            }
+
+            &__text {
+                transform: skweX(12deg)
+            }
+
+            &__figcaption {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, 20%)
+                color: ;
+                font-size: 1.7rem;
+                opacity: 0;
+                transition: all 0.2s;
+                backface-visibility: hidden;
+            }
+
+            &:hover &__captions {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+
+            &:hover &__image {
+                transform: translateX(-3rem) scale(1);
+                filter: blur(3px) brightness(80%);
+            }
+
+
+//you can house the content of the shape in a div and skew them once. This wil reverse the effect of the skew
+//that was added in the story section.
+//transform to bring it down a bit to add to the effect of moving up when hovered.
+//when element miss behave becauseof transition, backface-visibility can correct it.
+//translate added to image to position it in the center.
+
+Duplicate for more testimonies and add the button text.
+    in the section Tours
+        <div class="u-margin-top-big u-center-text>
+            <a href="#" class="btn btn-text> some text &rarr;
+
+
+
+Adding background video:
+    structure:
+    Inside the section
+        <div class="bg-video">>
+            <video class="bg-video__content autoplay muted loop">
+                <source src="video location" type="video/mp4 or whatever type">
+                <source src="video location" type="video/webm or whatever type">
+
+Styling: 
+create a _bg-video.scss file in the components folder
+    .bg-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        overflow: hidden;
+
+        &__content {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+
+//To the parent which is the .section-tours add position relative and remove the background color
+//object-fit to fit the video in the section and with overflow with hid the extras.
+
+
+Building the Booking section:
+structure: 
+    <section class="section-book">
+        <div class="row">
+            <div class="book">
+
+Styling the section:
+    In the home.scss
+    .section-book {
+        padding: 15rem 0;
+        background-image: linear-gradient(to right bottom, $color-, $color);
+
+    }
+
+    .book {
+        background-image: linear-gradient
+        (105deg, rgba($color-, .9) 0%, 
+        rgba($color-same-color, .9) 50%, 
+        transparent 50%), 
+        url(image location);
+        background-size: cover;
+        height: 50rem;
+        box-shadow: 0 1.5rem 4rem rgba($color. 0.2)
+    }
+
+//for the linear gradient, we used deg instead of direction to have angle to the distribution of the color and transparency.
+
+For the form:
+    <div class="book">
+        <div class="book__form">
+            <form action="#" class="form">
+                <div class="u-center-text u-margin-bottom>
+                    <h2 class="heading-secondary>Some text</h2>
+
+                <div class="form__grp">
+                    <input type="text" class="form__input" placeholder="Full Name" id="name" required>
+                    <label for="name" class="form__label">Some text</label>
+                
+                
+                <div class="form__grp">
+                    <input type="email" class="form__input" placeholder="Email Address" id="email" required>
+                    <label for="email" class="form__label">Some text</label>
+
+//We used the id to link the input and the label.
+
+
+Styling:
+Create a _form.scss in the components folder and import it in the main.scss
+        .form {
+            width: 50%;
+            padding: 6rem;
+
+            &__grp {
+
+                &:not(last-child) {
+                    margin-bottom: 2rem;
+                }
+            }
+
+            &__input {
+                font-size: 1.6rem;
+                font-family: inherit;
+                color: inherit;
+                padding: 1.5rem 2rem;
+                border-radius: 0.2rem;
+                background-color: rgba($color, .15);
+                border: none;
+                border-bottom: 2px solid transparent;
+                width: 90%;
+                display: block;
+                transition: all .3s;
+
+                &:focus {
+                    outline: none;
+                    box-shadow: 0 1rem 2rem rgba($color-, 0.2);
+                    border-bottom: 2px solid $color-;
+                }
+                
+                &:focus:invalid {
+                    border-bottom: 2px solid $color-different;
+                }
+
+                &::webkit-input-placeholder {
+                    color: $color-;
+                
+                }
+            }
+
+
+            &__label {
+                font-size: 1.2rem;
+                font-weight: 700;
+                margin-left: 2rem;
+                margin-top: 0.7rem;
+                display: block;
+                transition: all .3s;
+            }
+
+            &__input:placeholder-shown + &__label {
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-4rem)
+            }
+        }
+
+//Input elements don't inherit font properties which is why we add them manually by using the "inherit" value.
+//with the focus invalid state we give a different color to the input when the input is invalid and another color
+//when it's valid.
+// + is an adjacent sibling selector. The sibling on the left has to be on top in the html for this to work.
+// for all sibling selector in cases where the sibling we want to select is not the adjacent sibling, we
+//use ~   &__input:placeholder-shown ~ &_label {}
+//we set the opacity to add transition to the label and visibility to ensure the element is not on the page when
+//the placeholder is still showing.
+
+
+Adding the radio buttons:
+
+Structure: Another form group
+    <div class="form__grp">
+        <div class="form__radio-grp">
+            <input type="radio" class="form__radio-input" id="small" name="size">
+            <label class="form__radio-label" for="small">
+                <span class="form__radio-btn"></span>
+                Some text </label>
+        
+        
+        <div class="form__radio-grp">
+            <input type="radio" class="form__radio-input" id="large" name="size">
+            <label class="form__radio-label" for="large">
+                <span class="form__radio-btn"></span>
+                Some text </label>
+
+//name added so that the radio group can be linked together.
+
+Styling: In css you cannot style radio buttons so we improvise with the span button. We make our own button
+in the label and hide the radio buttons so that when the label is clicked our button will be selected like the radio btn.
+
+    In the .form
+
+        &__radio-grp {
+            width: 50%;
+            display: inline-block;
+        }
+
+        &__radio-input {
+                display: none;
+            }
+
+        &__radio-label {
+            font-size: 1.6rem;
+            cursor: pointer;
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        &__radio-btn {
+            height: 3rem;
+            width: 3rem;
+            border: 3px solid $color;
+            border-radius: 50%;
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            &::after {
+                content: "";
+                display: block;
+                height: 1rem;
+                width: 1rem;
+                border-radius: 50%;
+                background-color: $color-same;
+                opacity: 0;
+                transition: opacity .2s;
+
+                @include center-item;
+
+            }
+
+            &__radio-input:checked ~ &__radio-label &__radio-btn::after {
+                opacity: 1;
+            }
+
+        }
+
+//because the radio-btn is not a direct child of te radio-input, we first selected the sibling of the radio input
+//which is radio-label that the radio-btn is a direct child of then, select the radio-btn after pseudo element
+//Then we hide te radio input with display none.
+NOTE: What we did here with the radio button can be applied also to checboxes.
+
+Adding the button: 
+Create a new form group and add a real button element there so that it can send the form content
+    <div class="form__grp">
+        <button class="btn secondary" Some text &rarr;</button>
+
+Styling: To style the button we add to the btn style
+        &,
+        &:visited,
+        &:link {
+
+            //for button Element
+
+            border: none;
+            cursor: pointer;
+        }
+
+        &:active,
+        &:focus {
+            outline: none;
+        }
+
+//for the active state we added the focus so that te same style will apply and removed the outline.
+//add important to the utility classes so that it will not be overridden by any other property.
+//add '&" to include btn class in the styling
+
+Building the footer:
+
+Structure - Outside the main bc we are done with the main section for now
+    <footer class="footer">
+        <div class="footer__logo-box u-margin-bottom-big">
+            <img src="logo location" alt="logo" class="footer__logo">
+        <div class="row">
+            <div class="col-1-of-2">
+                <div class="footer__nav">
+                    <ul class="footer__nav--list">
+                        <li class="footer__nav--item"><a href="#" class="footer__nav--link">Some text</a></li>
+                        <li class="footer__nav--item"><a href="#" class="footer__nav--link">Some text</a></li>
+                        <li class="footer__nav--item"><a href="#" class="footer__nav--link">Some text</a></li>
+                        <li class="footer__nav--item"><a href="#" class="footer__nav--link">Some text</a></li>
+                        <li class="footer__nav--item"><a href="#" class="footer__nav--link">Some text</a></li>
+            <div class="col-1-of-2">
+                <div class="footer__copyright">
+                    <p class="footer__copyright--text">
+                        some text <a href="#" class="footer__nav--link">Some text</a> 
+                        some text <a href="#" class="footer__nav--link">Some text</a> 
+                    </p>
+
+Styling: 
+We first create a layout  _footer.scss in the layout folder and import it in the main.scss file.
+
+    .footer{
+        background-color: $color-;
+        padding: 0 10rem;
+        color: $same as link text;
+
+        &__logo-box {
+            text-align: center;
+
+        }
+
+        &__logo {
+            width: 15rem;
+            height: auto;
+        }
+
+        &__nav {
+            border-top: 1px solid $color;
+            padding-top 2rem;
+            display: inline-block;
+
+
+            &--list {
+                list-style: none;
+
+            }
+
+            &--item {
+                display: inline-block;
+
+                &:not(:last-child) {
+                    margin-right: 1.5rem;
+                }
+
+            }
+
+            &--link {
+
+                &:link,
+                &:visited {
+                    color: $color-;
+                    background-color: $same with footer;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    display: inline-block;
+                    transition: all .2s;
+                }
+
+                &:hover,
+                &:active {
+                    color: $color-;
+                    box-shadow: 0 1rem 2rem rgba($color, 0.2)
+                    transform: rotate(5deg) scale(1.5);
+                }
+
+            }
+        }
+
+        &__copyright {
+            border-top: 1px solid $color;
+            padding-top 2rem;
+            display: inline-block;
+            width: 80%;
+            float: right;
+
+            &--text {
+                color: $same as link text;
+
+            }
+             
+        }
+    }
+
+
+//for inline elements text-align will always center them.
+//we set display inline in the nav to have the border-top not stretch past the nav items.
+// you can have color defined in the footer for the child elements to inherit or define in each element.
+
+Building the Navigation: 
+
+Structure: Before the header 
+    <div class="navigation">
+        <input type="checkbox" name="navi-toggle" class="navigation__checkbox" id="navi-toggle" />
+        <label for="navi-toggle" class="navigation__button">
+        <div class="navigation__background">&nbsp;</div>
+
+        <nav class="navigation__nav">
+            <ul class="navigation__list">
+                <li class="navigation__item"><a href="#" class="navigation__link"><span class="navigation__link--fav"><Use i to add a favicon /></span>Some text</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link"><span class="navigation__link--fav"><Use i to add a favicon /></span>Some text</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link"><span class="navigation__link--fav"><Use i to add a favicon /></span>Some text</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link"><span class="navigation__link--fav"><Use i to add a favicon /></span>Some text</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link"><span class="navigation__link--fav"><Use i to add a favicon /></span>Some text</a></li>
+
+Styling: Add a _navigation.scss file in the layout folder and import in the main.scss file.
+
+    .navigation {
+
+        &__checkbox {
+            display: none;
+        }
+
+        &__button {
+            background-color: $color-white;
+            height: 7rem;
+            width: 7rem;
+            border-radius: 50%;
+            position: fixed;
+            top: 6rem;
+            right: 6rem;
+            z-index: 3000;
+            box-shadow: 0 1rem 3rem rgba($color, 0.2)
+            text-align: center;
+            cursor: pointer;
+        }
+
+        &__background {
+            height: 6rem;
+            width: 6rem;
+            border-radius: 50%;
+            position: fixed;
+            top: 6.5rem;
+            right: 6.5rem;
+            background-image: radial-gradient($color, $color);
+            z-index: 2000;
+            transition: transform .2s cubic-bezier(0.);
+        }
+
+        &__nav {
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 2500;
+            opacity: 0;
+            width: 0;
+            transition: all .8s;
+           
+        }
+
+        &__list {
+            @include center-item;
+            list-style: none;
+            text-align: center;
+            width: 100%;
+
+        }
+
+        &__item {
+            margin: 1rem;
+        }
+
+        &__link {
+
+            &:link,
+            &:visited {
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-size: 3rem;
+            font-weight: 300;
+            color: $color;
+            text-decoration: none;
+            text-transform: uppercase;
+            background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color 50%);
+            background-size: 220%;
+            transition: all .2s;
+
+            &--fav {
+                style it;
+            }
+            }
+
+            &:hover,
+            &:active {
+                background-position: 100%;
+                color: $color;
+                transform: translateX(1rem)
+            }
+           
+        }
+
+        &__checkbox:checked ~ &__background {
+            transform: scale(80);
+        }
+        
+        &__checkbox:checked ~ &__nav {
+            opacity: 1;
+            width: 100%
+        }
+
+        
+    }
+
+//z-index only works on elements that have their position defined.
+//for the navigation item animation, the trick is with the background size. As we increase or reduce the background size,
+//first color occupies more space to the right or second color occupies more space to the left when we reduce the value.
+//In the link and visited state we set the value to 200 so that the first color will occupy the whole space.
+//Again we used the deg instead of the direction to define angle inclination for the color.
+//In the hover and active state, we set the background position to 100% so that the background image can be shifted to
+//the left by 100% making the first color occupy the whole of the space. 
+//in the first project the first color is set to transparent.
+//we used opacity and width to hide the nav instead of display: none because you can not animate display: none;
+//You can get your desired cubic-bezier transition animation function from https://cubic-bezier.com/#.17,.67,.83,.67
+//setting the nav position to left or right will determine where the nav animation starts from.
+
+Adding the toggle button:
+Structure:
+    <label for="navi-toggle" class="navigation__button">
+        <span class="navigation__icon">&nbsp;</span>
+
+Styling: 
+    &__icon {
+        position: relative;
+        margin-top: 3rem;
+
+
+        &,
+        &::before,
+        &::after {
+            width: 3rem;
+            height: 0.2rem;
+            background-color: $color;
+            display: inline-block;
+            
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            transition: all .2s;
+
+        }
+
+        &::before {top: -.8rem};
+        &::after {top: .8rem};
+
+        &__button:hover &__icon::before {top: -1rem};
+        &__button:hover &__icon::after {top: 1rem};
+
+        &__checkbox:checked + &__button &__icon {
+            background-color: transparent;
+        }
+        
+        &__checkbox:checked + &__button &__icon::before {
+            top: 0;
+            transform: rotate(135deg)
+        }
+        
+        &__checkbox:checked + &__button &__icon {
+            top: 0;
+            transform: rotate(-135deg);
+        }
+    }
+
+
+Building the pop up:
+Structure:
+    Anywhere in the Html
+        <div class="popup">
+            <div class="popup__content">
+                <div class="popup__left">
+                    <img src="img location" alt="" class="popup__img">
+                    <img src="img location" alt="" class="popup__img">
+                <div class="popup__right">
+                    <h2 class="heading-secondary"> Some text 
+                    <h3 class="heading-tertiary"> Some text &ndash;</h3>
+                    <p class="popup__text">Some text
+                    <a href="#" class="btn btn-secondary">Book now
+
+
+
+Styling: In the component file add _popup.scss and import in the main.scss file
+
+    .popup {
+        height: 100vh;
+        width: 100%;
+        background-color: rgba($color-, 0.8);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 6000;
+
+
+        &__content {
+            @include center-item;
+
+            width: 75%;
+            background-color: rgba($color, 0.2);
+            box-shadow: 0 2rem 4rem rgba($color, 0.2);
+            border-radius: 0.3rem;
+        }
+
+        &__left {
+
+        }
+
+        &__right {
+
+        }
+
+        &__img {
+
+        }
+
+        &__text {
+            
+        }
+    }
+
+
+Responsive images: 
+This is used to set the right image size to the right screen size. There are ways of doing this which includes:
+
+Density switching in html using srcset: This way we can add two images to target different devices with different resolutions.
+By adding the density, the browser will choose which image to display using the device resolution.
+    <img srcset="img/location.png 1x, img/location.png 2x" alt="" class="">
+
+This way the browser will select which image to display using the device resolution.
+
+Art direction: This is telling a browser to use a particular image on a particular screen width and another image
+on another screen width. With this we can add css media queries to the html
+    <picture class="">
+        <source 

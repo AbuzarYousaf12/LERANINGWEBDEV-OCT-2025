@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script src="ano3.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', Courier, monospace;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            background-color: #1E293C;
+            color: white;
+            display: flex;
+            padding: 19px 30px;
+            justify-content: space-between;
+        }
+
+        nav span {
+            width: 30%;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 40%;
+        }
+
+        nav input {
+            width: 30%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+            cursor: pointer;
+            font-size: 22px;
+            font-weight: 600;
+            padding-top: 10px;
+
+        }
+
+        main.product {
+            flex: 1;
+            /* Allow main to grow and fill the space */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 50px 180px;
+            gap: 40px;
+            background-color: #F4F4F4;
+        }
+
+        .images .main-img {
+            width: 700px;
+            height: 740px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .description {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            width: 35%;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 1px 4px 4px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .description h1 {
+            font-size: 39px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333333;
+            font-weight: 700;
+        }
+
+        .description p {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333333;
+        }
+
+        .quantity {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .quantity input {
+            width: 50px;
+            text-align: center;
+            margin: 0 10px;
+            font-size: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .quantity button {
+            background-color: #1E293C;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 11px;
+            width: 100%;
+            font-size: 26px;
+            margin: auto;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .rating {
+            font-size: 28px;
+            color: gold;
+        }
+
+        .add-to-bag {
+            background-color: #1E293C;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 11px;
+            width: 100%;
+            font-size: 26px;
+            margin: auto;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .offer {
+            background-color: #F4F4F4;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 17px 0;
+        }
+
+        .offer p:first-child {
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .offer p {
+            font-size: 22px;
+        }
+
+        .offer button {
+            background-color: #1E293C;
+            color: white;
+            padding: 10px 20px;
+            color: white;
+            font-size: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .search-input {
+            background-image: url('https://cdn-icons-png.flaticon.com/512/622/622669.png');
+            background-size: 20px;
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 10px;
+            font-size: 18px;
+        }
+
+        .imges img {
+            cursor: pointer;
+            width: 126px;
+            height: 126px;
+            margin: 2px 4px;
+        }
+
+        .add-to-bag:hover,
+        .offer button:hover {
+            background-color: #334155;
+            transition: background-color 0.3s;
+        }
+
+        .offer button:hover {
+            background-color: orange;
+            transition: 0.1s;
+        }
+
+        footer button {
+            padding: 20px;
+            font-size: 25px;
+            font-weight: 700;
+            border-radius: 10px;
+            box-shadow: 1px 2px 3px 4px rgba(65, 56, 56, 0.2);
+            animation: animate 3s ease-in-out 0s 3 alternate;
+        }
+
+        @keyframes animate {
+            0% {
+                color: orange;
+            }
+
+            50% {
+                color: black;
+                translate: (180deg);
+            }
+
+            100% {
+                color: white;
+            }
+        }
+
+        @media screen and (max-width: 1143px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                margin: auto;
+            }
+
+            .search-input {
+                width: 40vw;
+
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media screen and (max-width: 990px) {
+            main.product {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            main.product .main-img {
+                width: 100%;
+                height: auto;
+            }
+
+            main.product .description {
+                width: 100%;
+            }
+        }
+
+
+        /* .product {
+            width: 80vw;
+            gap: 40px;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+        } */
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <span>TIMELESS WATCHES</span>
+            <input class="search-input" type="search" name="Search" id="Search" placeholder="Search...">
+            <ul>
+                <li>Shop</li>
+                <li>New Arrivals</li>
+                <li>Brands</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+
+        </nav>
+    </header>
+    <main class="product">
+        <div class="images">
+            <img class="main-img" src="pexels-ferarcosn-190819.jpg" alt="Watch Image">
+            <div class="imges">
+                <img src="photo-1517463700628-5103184eac47.jfif" alt="Watch Image">
+                <img src="photo-1517463700628-5103184eac47.jfif" alt="Watch Image">
+                <img src="photo-1517463700628-5103184eac47.jfif" alt="Watch Image">
+                <img src="photo-1517463700628-5103184eac47.jfif" alt="Watch Image">
+                <img src="photo-1517463700628-5103184eac47.jfif" alt="Watch Image">
+            </div>
+        </div>
+
+        <div class="description">
+            <h1>Elegant Luxury Watch</h1>
+            <p><strong>PRESTIGE TIME CO.</strong></p>
+            <p style="font-weight: bolder; font-size: 28px;">$499.99</p>
+            <p style="padding-top: 20px; font-weight: 500;">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Nisi, saepe suscipit accusantium, ratione itaque molestiae obcaecati quia sit harum iste m</p>
+            <div class="rating">
+                ★★★★☆
+            </div>
+            <div class="quantity">
+                <button>-</button>
+                <input type="number" value="1" min="1" max="10"
+                    style="width: 50px; text-align: center; margin: 0 10px;">
+                <button>+</button>
+            </div>
+            <button class="add-to-bag">Add to Bag</button>
+            <div class="offer">
+                <p>Limited-Time Offer!</p>
+                <p>Get an additional 10% off your first purchase when you sign up for our newsletter.</p>
+                <button class="sign-up">Sign Up Now</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- /*ANIMATION AND KEYFRAMES LEARNING*/  -->
+    <footer
+        style="background-color: black; text-align: center; display: flex; justify-content: center; align-items: center; height: 200px;">
+        <button style="cursor: pointer; align-self: center; margin: 100px 0px;">ANIMATION BUTTON</button>
+    </footer>
+</body>
+
+</html>

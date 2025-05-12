@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register & Login Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #1f1f38, #2c2c6c, #4db5ff);
+        }
+
+        .main {
+            width: 350px;
+            height: 530px;
+            background: #2c2c6c;
+            overflow: hidden;
+            border-radius: 10px;
+            border: 2px solid #2c2c6c;
+            box-shadow: 5px 20px 50px #4db5ff;
+        }
+
+        #check {
+            display: none;
+        }
+
+        .register {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        label {
+            color: #fcfbfb;
+            font-size: 2.3em;
+            display: flex;
+            justify-content: center;
+            margin: 60px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .5s ease-in-out;
+        }
+
+        input {
+            width: 60%;
+            height: 20px;
+            background: #f2f0f0;
+            display: flex;
+            justify-content: center;
+            margin: 20px auto;
+            padding: 10px;
+            border: 2px solid #2c2c6c;
+            outline: none;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 60%;
+            height: 40px;
+            margin: 10px auto;
+            display: block;
+            justify-content: center;
+            color: #f2f0f0;
+            background: #2c2c6c;
+            font-size: 1em;
+            font-weight: bold;
+            margin-top: 20px;
+            outline: none;
+            border: 2px solid #4db5ff;
+            border-radius: 5px;
+            transition: .2s ease-in;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1f1f38;
+        }
+
+        .login {
+            height: 460px;
+            background: #4db5ff;
+            border-radius: 60% / 10%;
+            transform: translateY(-180px);
+            transition: .9s ease-in-out;
+        }
+
+        .login label {
+            color: #2c2c6c;
+            transform: scale(.9);
+        }
+
+        #check:checked~.login {
+            transform: translateY(-500px);
+        }
+
+        #check:checked~.login label {
+            transform: scale(1);
+        }
+
+        #check:checked~.register label {
+            transform: scale(.6);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <input type="checkbox" id="check" aria-hidden="true">
+        <div class="register">
+            <form action="">
+                <label for="check" aria-hidden="true">Register</label>
+                <input type="text" name="text" placeholder="Enter Your Name" required>
+                <input type="email" name="email" placeholder="Enter Your Email" autocomplete="off" required>
+                <input type="password" name="password" placeholder="Enter Your Password" required>
+                <input type="password" name="c_password" placeholder="Confirm Your Name" required>
+                <button>Register</button>
+            </form>
+        </div>
+        <div class="login">
+            <form action="">
+                <label for="check" aria-hidden="true">Login</label>
+                <input type="email" name="email" placeholder="Enter Your Email" autocomplete="off" required>
+                <input type="password" name="password" placeholder="Enter Your Password" required>
+                <button>Login</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

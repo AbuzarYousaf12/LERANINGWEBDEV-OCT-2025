@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transitions and Animations Mastery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            display: grid;
+            gap: 30px;
+            grid-template-columns: repeat(3, 1fr);
+            width: 80%;
+            margin-top: 50px;
+        }
+
+        .box {
+            width: 150px;
+            height: 150px;
+            background-color: teal;
+            margin: 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            transition: transform 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .box:hover {
+            transform: scale(1.1);
+            background-color: #ff6347;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Transition on hover for text color */
+        .text-box {
+            width: 150px;
+            height: 150px;
+            background-color: purple;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .text-box:hover {
+            color: gold;
+        }
+
+        /* Multiple Properties Transition */
+        .multi-transition-box {
+            width: 150px;
+            height: 150px;
+            background-color: darkcyan;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.5s ease;
+        }
+
+        .multi-transition-box:hover {
+            background-color: coral;
+            transform: rotate(20deg);
+            color: darkblue;
+        }
+
+        /* Transition with delay */
+        .delayed-box {
+            width: 150px;
+            height: 150px;
+            background-color: tomato;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            transition: transform 0.5s ease 0.5s; /* 0.5s delay */
+        }
+
+        .delayed-box:hover {
+            transform: translateY(50px);
+        }
+
+        /* Border radius transition */
+        .radius-box {
+            width: 150px;
+            height: 150px;
+            background-color: mediumseagreen;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            transition: border-radius 0.3s ease;
+        }
+
+        .radius-box:hover {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="box">Hover Me</div>
+        <div class="text-box">Text Hover</div>
+        <div class="multi-transition-box">Multiple</div>
+        <div class="delayed-box">Delayed</div>
+        <div class="radius-box">Radius</div>
+    </div>
+
+</body>
+
+</html>

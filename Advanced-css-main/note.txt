@@ -1,0 +1,325 @@
+First css rule is to do a universal reset.
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #777;    
+}
+
+NOTE: The font related settings are done in the body because of css inheritance.
+
+NOTE: write a mixin for centering element using position -  
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+Note: box-sizing: border-box - This will prevent the padding and margin to be added to the total width
+height of the specified for the box.
+
+To add an icon to a website title <link rel="shortcut icon" type="image/png" href="img location"/>
+
+"cover" ensures the image covers the whole length no matter the screen size
+"top" for background position keeps the top fixed when moving between screen sizes. The top is not cropped.
+Other options include - bottom, center, right, left. Depending on the most catchy part of the image, you set
+your background position.
+
+NOTE: animation-fill-mode: backwards; will make the animation to start from the initial set value upon load.
+This prevents the object first showing up before animation.
+
+
+Pillars of CSS:
+1. Responsiveness
+2. Maintainable and scalable
+3. Web performance.
+
+cascading value for specificity (0,0,0,0) - inline, ID, classes, element and pseudo-element.
+If there is a tie, then the last declared CSS value wins.
+Cascading - selecting which value should take precedence depending on specificity.
+
+
+
+
+BEM - 
+B-Block: Stand alone component that's meaningful on it's own. e.g "header". Every element inside a Block
+should have their class name start with the block name followed by double underscore. "header__logo".
+You can a Block inside a block. a h1 can be a block in a header. Blocks like this most have modifiers like
+in our index.html heading-primary is a block inside header which is followed by two modifiers
+"heading-primary--main" and "heading-primary--sub". As you have noticed, modifiers are written with double
+dashes.
+class B is written with simple class name. The class name is carried by both the element and the modifier. "class: composition"
+
+E-element: This is the second part of the BEM model. This represents the elements in the block. A double underscore is added to the block name.
+as start of the element name. Both combine to form one class name so that when you see it you will identify the block the element is attached to.
+"class: composition__photo" 
+
+
+M-Modifier: This is the third part of the BEM model. This represents the modifier added to the element to specific changes to particular Es.
+Modifiers are added to the element with a double dash "class: composition__photo--p1" This a modifier to the photo element in the composition block
+
+NOTE: Stand-alone(Block) components are reusable inside the project
+
+
+SASS - CSS preprocessor
+Main Features - variables: to have reusable values
+              - Nesting: allows us to nest selectors inside one another to have less code.
+              - Operators: for mathematical operations inside css
+              - partials and Imports: allows to write css in different files and import them in other files
+              - Mixins: to write reusable css codes.
+              - functions: to produce reusable values
+              - Extends: to make selectors inherit declarations that are common to all of them
+
+NOTE: SCSS is preferred over SASS syntax because of it's similar to normal css
+
+Variable: starts with a "$" sign e.g $color-primary: red;
+Nesting: selecting element inside another element by having the element selector inside the parent element
+selector. 
+    .nav{
+            background-color: $color-primary;
+            li{
+            list-style-type: none;
+            }
+    }
+
+You can use "&" to avoid repetition of selectors when Nesting. for the above eg li{
+    list-style-type: none;
+    &:first-child{
+        margin:0;
+    }
+}
+
+"&" as used above will carry forward the selector path to the new selector. Best use scenario is a pseudoclass selector.
+NOTE: If you are selecting an element inside the parent, you do not have to "&"
+
+NOTE: clear-fix method when using float. This used to fix margin issues when float is used. Best practice is to
+have it nested inside the parent using a pseudo selector
+&::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+functions: css functions allow you to do make changes by just declaring the function and not write the
+css properties. eg
+&:hover {
+    background-color: darken($color-secondary, 5%)
+  }
+the css function in the above is "darken" which darkens the background colorby 5% on hover without having
+you write the properties.
+
+to write your own functions - @function <function name> ($a, $b){
+    @return $a + $b;
+}
+
+Mixin: this is like a function with a name. You declare the mixin with "@mixin". syntax:
+    @mixin clearfix {
+        &::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+    }
+with the above, we now have a reusable mixin(function with a name) called "clearfix" 
+to apply this mixin anywhere in the css you use "@include <mixin name>"
+mixin is very helpful in maintain DRY method.
+
+You can have mixins with argument to specify certain variables. The argument is added with a "$" 
+    @mixin style-link-text($color){
+        text-decoration; none;
+        text-transform; uppercase;
+        color: $color;
+    }
+
+To apply the mixin above with the argument - @include style-link-text(<color variable name>)
+
+Extend: starts with "%" then the name. eg %btn-placeholder
+Helps with DRY code. To apply the above in any element - @extend %btn-placeholder.
+With extend the properties and not carried into the element as in mixin but the selector is what is added
+to the properties at the point of declaration of the extend.
+        %btn-placeholder {
+            padding: 10px;
+            display: inline-block;
+            text-align: center;
+            border-radius: 100px;
+            width: $width-btn;
+            @include style-link-text($color-text-light);
+
+        }
+If we extend the above to any element, the properties declared above are not carried into the element
+by the compiler rather the selector is applied to the declared properties.
+
+.btn-main {
+    &:link {
+        @extend %btn-placeholder;
+    }
+}
+
+Complied css - .btn-main:link {
+                                    padding: 10px;
+                                    display: inline-block;
+                                    text-align: center;
+                                    border-radius: 100px;
+                                    width: 150px; //from width variable
+                                    text-decoration: none; //from @include
+                                    text-transform: uppercase; //from @include
+                                    color: #eee; //from @include
+                            }
+
+
+How to use SASS in your local machine:
+
+- Install Node
+- initialize node in your working directory
+- Install node-sass with npm <npm install node-sass --save-dev>
+
+Sass compiler script: you write this in the package.json file in the script section.
+ "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+
+  To run the compiler - npm run compile:sass
+
+  <sass/main.scss> refers to the location of the scss file while <css/style.css> refers to the location of the
+  style.css file. The -w will make node watch whatever changes we make in the sass and compile automatically.
+  NOTE: On my machine I have to save twice for the compiler to render without error.
+
+
+
+  CSS 7-1 Architecture: 
+  You have seven folders inside the sass folder housing different scss files(partials) starting with "_" 
+  for different purposes.
+  This helps for division of labour, order and to know where what is.
+    - abstracts: contains -  _functions.scss, _variables.scss, _mixins.scss
+    - base: contains - _animations.scss, _bases.scss, _typography.scss, _utilities.scss
+    - components: all scss for reusable blocks go in here e.g "_buttons.scss"
+    - layouts: for layouts like header 
+    - pages: contains all the scss for different pages you want to style differently. 
+
+Responsive design: 
+- Use fluid grids and layout: Floats, flexboxes and grids.
+    Flexbox: perfect for one direction row.
+    Grid: 2 dimensional grid.
+    Floats: Older and supported by more browsers
+- Use flexible and responsive image (define )
+- Media queries
+
+NOTE: To center a block element in another block element - <margin: 0 auto;>
+NOTE: CSS properties is processed by the browser line by line. All this being equal, one property with different values will have
+the last value as the value that will show up.
+NOTE: The "not" pseudo class - <selector:not(:last-child) {}> the "last-child" refers to the last child of the parent element. When "not" is
+used, every other child of the element is selected except the element in the "()". You can use for any element instance.
+NOTE: clearfix mixin is applied to the row not column.
+
+Some special selectors - [] with this you can select any atribute. [class^="col-"] meaning all class that start with "col-"
+    [class*="col"] all class that contains "col", [class$="col-"] all class that ends with "col-"
+
+To set background image as text color: after adding the background image(could be a linear-gradient) you use: -webkit-background-clip: text;
+and set the color to transparent- color: transparent;
+
+Utility class: used to perform some css task like centering text etc. They are reusable and placed in  _utilities.scss in the base folder.
+e.g class: "u-center-text" this class will only have one duty and that is to center text in a div. 
+.u-center-text {
+text-align: center;
+}
+
+
+NOTE: When using position to arrange elements in a block. The block position property should be set to "relative" so that the elements will have
+position relative to the block. The elements position property is set to "absolute". With this all the elements will be stacked together.
+The you can use top, bottom, right, left to define the position each element occupies in the block.
+
+
+NOTE: To style a composition like image, have al the images in one div.
+
+Perspective: Can be added to a transform property to change the perspective of the animation.
+When using this, you add the perspective property to the parent element.
+
+NOTE: Perspective may not work on Mozilla browsers. You can correct that with - <-moz-perspective>
+
+To use linear-gradient as you text color, you set it with background-image not background-color.
+If you want to apply padding to each box of a one sentence text element and you don't want to style them separately by using span, 
+you can do that by using the box-decoration-beak and set the property to clone. This will have your padding added to each block of the sentence.
+e.g The main(block 1)
+        creator (block 2)
+
+NOTE: margin 0 auto; This works when centering a block element in a block element.
+
+
+To wrap text around image or shape you use the "shape-outside" css property.  
+        -webkit-shape-outside: circle(50%);
+        shape-outside: circle(50%);
+
+
+How to divide background into two sides with linear gradient: 
+     background-image: linear-gradient(105deg, rgba($color-white, .9) 0%,
+    rgba($color-white, .9), 50%,
+    transparent 50%
+    ),
+    url(../img/nat-10.jpg); //because of the transparent side the image will occupy oneside of the background.
+
+Sibling selector (+, ~): The "+" is known as adjacency Sibling selector. When used, the sibling right after the first sibling selected is selected.
+ 
+                 &__input:placeholder-shown + &__label {
+        
+            }
+
+"~" general sibling selector: used when there are other siblings before the sibling you want to select.
+
+                &__input:placeholder-shown ~ &__label {
+        
+             }
+
+
+Creating the navigation:
+The toggle button is built with <input checkbox>
+Create a circle for the nav background -
+
+NOTE: z-index only works on elements that have their position defined.
+
+display: table 
+This can be used to divide a div and give same height to the div content. The parent div is set to "display: table"
+while the children is set to display: table-cell;
+This way the div content are set a cell in a table and are apportioned equal height. 
+This is good option in case where float doesn't get the job done.
+To have items aligned in the center you use the vertical-align attribute and set to middle. Table properties work here.
+"vertical-align: middle"
+
+NOTE: You cannot have two same properties on an element at the same time. The last declared takes precedence.
+
+
+
+Responsive Design:
+When setting media query width, em is preferred cause 1em remains 16px no matter the browser default font-size setting.
+Write the media query as a mixin for easy reusable and cleaner code.
+
+"@content" - this is used as an argument to represent the css properties to be adopted by a mixin whenever it is added.
+Instead of writing all the css properties inside the mixin, you have them written in the corresponding css file. With the
+"@content" argument in the mixin, the properties defined under the mixin in the css file will be adopted by the mixin.
+
+Using a break-point "$breakpoint" in media query mixin - This is like adding an argument to the mixin. This way you can have multiple
+break-points defined inside one giant mixin.
+With the $breakpoint, "@if" is to test for the truthy or falsy in the argument just like logical operators in js.
+This is followed by a variable to represent the targeted screen size.
+
+        @mixin screen-sizes ($breakpoint) {
+            @if $breakpoint == phone {
+                @media (max-width: 37.5em) {@content}
+                }
+
+            @if $breakpoint == tab-port {
+                @media (max-width: 56.25em) {@content}
+            } 
+        }
+
+
+You can use one mixin per screen size -
+        @mixin phone-screen {
+            @media (max-width: 37.5em) {@content}
+        }

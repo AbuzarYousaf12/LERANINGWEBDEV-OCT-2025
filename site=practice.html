@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+
+
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+
+
+        nav ul {
+            display: flex;
+            background-color: aquamarine;
+        }
+
+        nav ul li {
+            list-style: none;
+            padding: 3px 20px 3px 20px;
+        }
+
+
+
+
+
+        th {
+            border: 1px solid black;
+        }
+
+        td {
+            border: 1px solid black;
+        }
+
+
+
+
+
+        .box {
+            border: 1px solid black;
+        }
+
+        .box1 {
+            color: yellow;
+        }
+
+        .box2 {
+            color: brown;
+        }
+
+        .box3 {
+            color: orange;
+        }
+
+        #boxes {
+            color: aqua;
+            background-color: red;
+        }
+
+
+
+
+
+        .box-shadow {
+            background-color: orange;
+            padding: 10px;
+            margin: 25px;
+            box-shadow: 3px 3px 3px 3px red;
+            box-shadow: inset 3px 4px 20px 5px blue;
+            border: 10px solid black;
+            border-radius: 100px;
+            outline: 13px solid orange;
+            outline-offset: 15px;
+            border-style: dotted;
+        }
+
+        .text-shadow {
+            text-shadow: 4px 8px 3px aqua;
+            color: red;
+            font-weight: 800;
+            font-size: 28px;
+            text-decoration: dashed;
+            text-decoration-line: underline;
+            text-align: center;
+        }
+
+        .outline {
+            outline: 3px solid brown;
+            outline-offset: 13px;
+        }
+
+
+
+
+
+        .colors {
+            margin-bottom: 30px;
+            color: aqua;
+            color: #ec2121;
+            color: rgb(red, green, blue);
+            color: rgb(27, 255, 6);
+            color: rgba(red, green, blue, alpha);
+            color: rgba(179, 179, 179, 0.5);
+            color: hsl(hue, saturation, lightness);
+            color: hsl(103, 100%, 50%);
+            color: hsla(hue, saturation, lightness, alpha);
+            color: hsla(0, 60%, 60%, 0.9);
+
+
+
+
+
+            font-weight: 900;
+            font: bold;
+            font-size: 20px;
+            text-decoration: dotted;
+            text-decoration-line: overline;
+            text-decoration-color: red;
+            text-decoration-thickness: 4px;
+            line-height: 40px;
+            text-transform: capitalize;
+            /*First Letter Capitalize */
+            text-transform: uppercase;
+            /*ALL Letter Capitalize */
+            text-transform: lowercase;
+            /*All Letter Lowercase */
+            font-family: 'Poppins', 'Courier New', Courier, monospace;
+            text-align: center;
+            letter-spacing: 5px;
+            text-shadow: 13px 13px 13px #000000;
+            color: linear-gradient(red, blue, yellow);
+            ;
+        }
+
+
+
+
+        .colors:hover {
+            color: orange;
+            cursor: pointer;
+            background: linear-gradient(to right, orange, red, pink, black, grey, yellow, blue, green);
+        }
+
+
+
+
+
+        .background-colors {
+            padding: 25px;
+            color: red;
+            font: bold;
+            font-weight: bolder;
+            font-size: 30px;
+            background: linear-gradient(red, blue, yellow);
+            background: linear-gradient(to right, red, yellow);
+            background: linear-gradient(to left, red, yellow);
+            background: radial-gradient(circle, red, yellow);
+            background: radial-gradient(circle, brown, pink);
+            background: linear-gradient(to left, orange, blue, black, pink, orange, white, red, grey, yellow);
+        }
+
+
+
+
+
+        .everything-about-colors {
+            color: #b14e37;
+            color: rgb(115, 151, 115);
+            color: black;
+            color: rgba(255, 0, 0, 0.5);
+            color: hsl(240, 32%, 86%);
+            color: hsla(0, 61%, 85%, 0.5);
+            color: currentColor;
+            background: linear-gradient(to right, red, yellow);
+            background: radial-gradient(circle, red, yellow);
+            background: radial-gradient(circle, brown, pink);
+            background: linear-gradient(to left, orange, blue);
+            border: 1px solid black;
+            font: bold;
+            font-weight: 900;
+            color: orange;
+            padding: 10px;
+            margin: 15px;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Courier New', Courier, monospace;
+            line-height: 120px;
+            letter-spacing: 2px;
+            text-align: center;
+            text-decoration-line: underline;
+            text-decoration-thickness: 4px;
+            text-decoration-style: dashed;
+            text-decoration-color: black;
+            text-shadow: #b14e37;
+            text-transform: uppercase;
+        }
+
+        .everything-about-colors:hover {
+            color: blue;
+            cursor: pointer;
+            background: radial-gradient(circle, red, yellow);
+            font-weight: 500;
+            text-decoration-thickness: 2px;
+        }
+
+
+
+
+        .learning-sizes-box1 {
+            width: 100vw;
+            background-color: aqua;
+            height: 80vh;
+        }
+
+        .learning-sizes-box2 {
+            width: 80vw;
+            background-color: aqua;
+            height: 20vh;
+            margin: 24px auto;
+        }
+
+        .learning-font-size1 {}
+
+        .learning-font-size2 {
+            font-size: 16px;
+            font-size: 2em;
+            font-size: 2rem;
+            font-size: 254%;
+            font-size: 10vh;
+            /*Not Used in Font Sizing*/
+            font-size: 7vw;
+            /*Not Used in Font Sizing*/
+        }
+
+
+
+
+        .learning-list-styles {
+            display: flex;
+            margin-bottom: 40px;
+        }
+
+        .learning-list-styles li {
+            /* list-style: decimal;  */
+            /* list-style: "😊"; */
+            /* background-color: yellow; */
+            /* list-style-position: inside; */
+            /* border: 1px solid black; */
+            /* list-style: disc inside; */
+            /* list-style: inside url("https://tinyjpg.com/images/social/website.jpg"); */
+            /* list-style-image: url("https://tinyjpg.com/images/social/website.jpg"); */
+            /* list-style: none;   */
+            padding-left: 40px;
+        }
+
+
+
+
+
+        .displaybox {
+            padding: 20px;
+            border: 1px solid blue;
+            margin: 20px;
+            /* display: inline-block; */
+            display: flex;
+            /* flex-direction: column; */
+        }
+
+        .displaybox1 {
+            /* visibility: hidden; */
+            /* display: none;  */
+        }
+
+
+
+
+
+        .overflow-box {
+            border: 2px solid black;
+            margin: 90px;
+            width: 60px;
+            height: 200px;
+            /* overflow: auto; */
+            /* overflow: scroll; */
+            /* overflow-y: hidden; */
+            /* overflow-x: hidden; */
+            /* overflow-y: visible; */
+            border: 2px solid black;
+            /* overflow: scroll;  */
+            /* overflow: auto; Overflow agr hoga to auto scroll ajayega */
+            /* white-space: nowrap; YE EIK HI LINE ME RHEGA NICHE NAE AYEGA */
+            /* text-overflow: ellipsis; IS SE ... AJAYEGA  */
+            /* overflow: auto;  */
+            /* overflow-x: hidden;  */
+            /* overflow-y: scroll; */
+            overflow: auto;
+            /* text-overflow: ellipsis;  */
+        }
+
+
+
+
+
+        /* //SELECTORS IN HTML & CSS  */
+
+        /* UNIVERSAL SELECTOR */
+        /* *{
+            margin: 0;
+            padding: 0;
+        } */
+
+        /* ID SELECTOR  */
+        /* #idselector{
+            color: orange;
+            background-color: #b14e37;
+            border: 2px solid grey;
+        } */
+
+        /* CLASS SELECTOR  */
+        /* .classselector {
+            background-color: orange;
+            color: yellow;
+            border: 2px solid orange;
+            outline: 2px;
+            margin: auto;
+        } */
+
+
+        .daba:first-child {
+            background-color: red;
+        }
+
+        .daba::first-line {
+            color: yellow;
+        }
+
+        .daba::first-letter {
+            font-size: 40px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .dabas * {
+            color: orange;
+            border: 1px solid black;
+        }
+
+
+
+        .dabases * {
+            color: orange;
+            border: 2px solid black;
+        }
+
+        p,
+        a,
+        .dabase,
+        [data-color="primary"] {
+            margin-top: 40px;
+            padding: 20px;
+        }
+
+
+        .dabase:nth-child(odd) {
+            background-color: blue;
+        }
+
+        .dabase:nth-last-child(1) {
+            background-color: grey;
+        }
+
+        /* //PSEDUO ELEMENTS */
+
+        .dabases:before {
+            content: "Harry is Good";
+            color: yellow;
+        }
+
+        .dabases:after {
+            content: "Code With Harry";
+            color: #ec2121;
+        }
+
+        .dabases::selection {
+            color: aqua;
+        }
+
+        ::selection {
+            color: black;
+        }
+
+        .dabase::first-letter {
+            color: black;
+            font-size: 50px;
+            font-family: 'Poppins', 'Courier New', Courier, monospace;
+        }
+
+        input::placeholder {
+            color: blue;
+            font-size: 20px;
+        }
+
+
+
+
+        /* //FLEXBOX IN CSS */
+        .container {
+            border: 2px solid red;
+            display: flex;
+            height: 80vh;
+            /* justify-content: center;  */
+            align-items: center;
+            /*AGR EIK LINE HE TO ALIGN ITEMS KA ISTAMAL KERTE HN AUR AGR ZIADA HEN TO ALIGN CONTENT KA USE KERENGE */
+            /* flex-direction: column-reverse; */
+            flex-wrap: wrap;
+            /* //NEW CONTENT NICHE AYEGA PHIR NAYA CONTENT NICHE AYEGA AND SO ON */
+            align-content: flex-start;
+            flex-flow: row wrap;
+            gap: 30px;
+            row-gap: 30px;
+            column-gap: 30px;
+            gap: 50px 30px;
+        }
+
+        .item {
+            /* flex-grow: 1;  */
+            height: 92px;
+            width: 92px;
+            border: 2px solid black;
+            /* margin: 4px; */
+            background-color: blueviolet;
+        }
+
+        /* //ITEM PROPERY ORDER PROPERTY JISKA SAB SE KAM ORDER HOGA WO PEHLE AYGA JISKA SAB SE ZIADA ORDER HOGA WO END ME AYGA */
+        .order-1 {
+            order: 1;
+        }
+
+        .order-2 {
+            order: 2;
+        }
+
+        .order-3 {
+            order: 3;
+        }
+
+
+        /* //FLEX GROW JITNA ITEM GROW KEREGA UTNA USKA HOGA SIZE GROW UTNI JAGA LEGA  */
+        .item1 {
+            flex-grow: 2;
+            flex-shrink: 2;
+            /*IS ITEM ME SHRINK USE HUA HE TO YE DOUBLE SPEED SE SHRINK HOGA KIO KE ISME FLOW SHRINK 2 HE */
+            align-self: flex-end;
+            /*KHUD KO ALIGN KERNE END PER YA START PER */
+        }
+
+
+
+
+
+        /* //GRIDS IN CSS */
+
+        .gridcontainer {
+            margin: 15px;
+            border: 2px solid black;
+            display: grid;
+            grid-template-columns: 120px 100px;
+        }
+
+        .griditem {
+            border: 2px solid red;
+            height: 55px;
+            width: 55px;
+        }
+
+
+
+
+        /* //OBJECT FIT AND OBJECT COVER IN CSS */
+        .object-fit-container {
+            width: 466px;
+            height: 468px;
+            border: 2px solid black;
+            /* background-color: aliceblue; */
+            object-fit: contain;
+            /* background-image: url(joshua-hanson-e616t35Vbeg-unsplash.jpg);  IMAGE AGR BARI HE TO*/
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1zwhySGCEBxRRFYIcQgvOLOpRGqrT3d7Qng&s);
+            /*BACKGROUND CHOTI HOTO */
+            background-position: center center;
+            /* IMAGE KA ASPECT RATIO CHANGE KIE BAGHER CENTER ME DIKHAYEGA */
+            background-repeat: no-repeat;
+            /* IMAGE KO REPEAT NAHI KEREGA */
+            background-repeat: repeat-x;
+            /* IMAGE KO X ME REPEAT KEREGA */
+            background-clip: border-box;
+        }
+
+        .imagec {
+            width: 466px;
+            height: 468px;
+            object-fit: contain;
+            /* PORA IMAGE DIKHEGE JAGA BESHAQ KHALI RHE */
+            object-fit: cover;
+            /* IMAGE PORA AREA COVER KEREGA CUT WAGHERA AREA WAGHERA REMOVE HOGA */
+            object-position: bottom right;
+            /* YE WALA AREA DIKHAO AGR COVER HE TO KATNA TO PEREGA TO AREA RIGHT WALA DIKHAYEGA */
+            object-fit: contain;
+            object-fit: scale-down;
+            /*OBJECT AGR FIT HE TO USKI ASPECT RATIO MAINTAIN KEREGEA */
+            object-fit: fill;
+            /* YE BHI OBJECT IMAGE KO FILL KERDEGA BOX ME */
+        }
+
+
+
+
+        /* // FILTERS IN CSS */
+
+        .filters-container {}
+
+        .filters {
+            width: 640px;
+            filter: blur(10px);
+            /* IMAGE KO BLUE KERNE KELEYE USE HOTA HE */
+            filter: brightness(220%);
+            /* IMAGE KO BRIGHT KERNE KELEYE USE HOTA HE */
+            filter: contrast(200%);
+            /* IMAGE KO CONTRAST KERNE KELEYE USE HOTA HE */
+            filter: grayscale(120%);
+            /* IMAGE KO GRAY KERNE KELEYE USE HOTA HE */
+            filter: hue-rotate(90deg);
+            /* IMAGE KO HUE KERNE KELEYE USE HOTA HE */
+            filter: sepia(140%);
+            /* IMAGE KO SEPIA KERNE KELEYE USE HOTA HE */
+            filter: invert(100%);
+            /* IMAGE KO INVERT / KHATARNAK BANANE KELEYE USE HOTA HE */
+            filter: opacity(0.7);
+            /* IMAGE KO OPACITY KERNE KELEYE USE HOTA HE */
+            filter: saturate(940%);
+            /* IMAGE KO SATURATE KERNE KELEYE USE HOTA HE */
+        }
+
+
+
+
+        /* // TRANSFORM PROPERTY IN CSS */
+        * {
+            margin: 10px;
+            /* padding: 20px;  */
+        }
+        .transform-property {
+            height: 80vh;
+            width: 100vw;
+            background-color: beige;
+            border: 2px solid black;
+        }
+
+        .transform-box {
+            height: 50px;
+            width: 50px;
+            border: 2px solid purple;
+            background-color: red;
+            /* transform: rotate(0.5turn); ROTATE KERNE KELEYE USE HOTA HE  */
+            /* transform: rotateZ(120deg); ROTATE KERNE KELEYE USE HOTA HE */
+            /* transform: rotateY(90deg); ROTATE KERNE KELEYE USE HOTA HE  */
+            /* transform: rotateX(90deg); ROTATE KERNE KELEYE USE HOTA HE  */
+            /* transform: scale(1.6); TRANSFORM SCALE YANI SIZE BARA KERNE KELEYE USE HOTA HE */
+            /* transform: scaleX(2.4); TRANSFORM SCALE YANI SIZE BARA KERNE KELEYE USE HOTA HE */
+            /* transform: skew(5deg); SIDE SE PAKAR KE KHENCH DENA SKEW MTLB SIDE SE KHENCH DENA */
+            /* transform: skewX(5deg); SIDE SE PAKAR KE KHENCH DENA SKEW MTLB SIDE SE KHENCH DENA */
+            /* transform: translate(34%, 34%); TRANSFORM TRANSLATE YANI POSITION CHANGE KERNE KELEYE USE HOTA HE  */
+            /* transform: translate(40%) skew(5deg) rotate(90deg) scale(1.6); MULTIPLE TRANSLATE PROPERTIES USE KERNE KA TARIKA */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+
+
+        /* //TRANSITION PROPERTY IN CSS */
+        .transition-container {
+            width: 100vw;
+            height: 80vh;
+            background-color: beige;
+            border: 2px solid black;
+        }
+        .transition-box {
+            background-color: aqua;
+            width: 4vw;
+            height: 4vh;
+            /* // TRANSITION PROPERTIES IN CSS  */
+            transition-property: transform; /* ALL BHI KERSKTE HN AUR COLOR, TRANSFORM IS TARAH BHI KERSKTE HN */
+            transition-duration: 3s;
+            transition-timing-function: ease-in-out;
+            transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition-delay: 1s;
+        }
+        .translate {
+            transform: translateX(10vw) translateY(10vh) scale(2);
+            color: blue;
+        }
+
+
+
+
+        /* // ANIMATINS IN CSS  */
+        .animation-container {
+            background-color: rgb(9, 106, 106);
+            height: 80vh;
+            width: 30vw;
+        }
+        .animation-box{
+            width: 34px;
+            height: 45px;
+            background-color: aqua;
+            animation: harryKaAnimation;
+            animation-duration: 1s;
+            animation-iteration-count: 3;
+            animation-timing-function: cubic-bezier(0, 1.29, 1, -0.06);
+            animation-timing-function: ease-in;
+            animation-direction: alternate-reverse; /*EIK DAFA AGE EIK DAFA PICHE*/
+            animation-direction: normal;
+            animation-fill-mode: forwards; /*AGAR ANIMATION KHTM HO JAYE TO BHI WAHI RHEGA JO LAST ME HOGA */
+            animation-play-state: paused; /*AGAR ANIMATION KO PAUSE KERNA HO TO USE KERTE HN JAHA PAUSE KERNA HO WAHA BROWSER ME*/
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            animation: harryKaAnimation 1s ease-in-out 0s 1 normal forwards;
+        }
+
+        @keyframes harryKaAnimation {
+            from {
+                
+            }
+            to {
+                transform: translateX(1400px);
+                background-color: red;
+            }
+        }
+
+
+
+
+        .container-grid{
+            border: 2px solid black;
+            display: grid;
+            grid-template-columns: [pehla] 120px [dosra] 100px [t]; /* YANI 2 COLOUMS HONGE EIK 120 PX KA AUR DOSRA 100 PX KA */
+             grid-template-rows: 100px 100px 100px; /* YANI 2 ROWS HONGE EIK 100 PX KA AUR DOSRA 100 PX KA AUR 3RD BHI 100 PX KA */
+
+            /* // EIK DABA IN GRID GRID CELL KEHLATA HE  */
+
+
+
+            /* // AGR ME DO LINES HORIZONTAL AUR 2 LINES VERTICAL LON YANI 4 DABE TO WO GRID AREA KEHLATA HE  */
+
+
+            /* // 2 GRIDS KO LELEN TO JITNE BHI SPACE HOGI WO GRID TRACK KEHLAYAGA YANI AGR MENE 3 COULOUMS LIN AUR 2 ROWS LIN TO AGR 2ND COLOUM KO LON PORA TO WO GRID TRACK KEHLAYEGA  */
+
+
+
+        }
+        .items-grid{
+            border: 2px solid red;
+            width: 55px;
+            height: 55px;
+        }
+        .item-grid-4{
+            grid-column: 1 / 3; /* YANI 1ST COLUMN SE LE KER 3RD COLUMN TAK */
+            grid-row: 1 / 3; /* YANI 1ST ROW SE LE KER 3RD ROW TAK */
+            background-color: blue;
+            grid-row: 1/2;
+            grid-column: pehla/t; /* YANI 1ST COLUMN SE LE KER 3RD COLUMN TAK */
+        }
+        .item-grid-1{
+            grid-column: 1 / 3; /* YANI 1ST COLUMN SE LE KER 3RD COLUMN TAK */
+            grid-row: 1 / 3; /* YANI 1ST ROW SE LE KER 3RD ROW TAK */
+            background-color: rgb(255, 255, 255);
+
+            /* //DOSRA TARIKA  */
+            grid-row-start: 1; /* YANI 1ST ROW SE START HOGA */
+            grid-row-end: 2; /* YANI 2ND ROW TAK HOGA */
+        }
+
+
+
+
+
+
+        .grid-container{
+            border: 2px solid black;
+            display: grid;
+            grid-template-areas: "nav nav nav" "side article article" "footer footer footer";
+        }
+        .grid-items{
+            border: 2px solid red;
+            height: 55px;
+        }
+        .item-no-1{
+            grid-area: nav;
+            background-color: aqua;
+        }
+        .item-no-2{
+            grid-area: side;
+            background-color: aliceblue;
+        }
+        .item-no-3{
+            grid-area: article;
+            background-color: blueviolet;
+        }
+        .item-no-4{
+            grid-area: footer;
+            background-color: rgb(223, 223, 255);
+        }
+        .item-no-5{
+            grid-area: nav;
+            background-color: rgb(182, 182, 185);
+        }
+
+
+
+
+        .grid-containerfr{
+            width: 80vw;
+            height: 100vh;
+            align-items: center;
+            justify-items: center;
+            border: 2px solid black;
+            display: grid;
+            /* grid-template-columns: 1fr 1fr 1fr; YANI 3 COLOUMS HONGE 1 FRACTION KA */
+
+            /* //DOSRA TARIKA AGR ZIADA COLOUMS BANANE HON TO  */
+
+            /* grid-template-columns: repeat(3, 1fr); YANI 3 COLOUMS HONGE 1 FRACTION KA */
+
+            grid-template-columns: repeat(4, minmax(100px, 1fr)); /* YANI 4 COLOUMS HONGE 1 FRACTION KA JO MINIMUM HE WO JAYEGA 100 AUR MAXIMUM CHALAJAYEGA 1FR FR MTLB CALCULATE HOGA IS WIDTH KO 4 HISON ME DIVIDE KEREGA AGR TO 4 DAFA HE 1FR*/
+
+
+            grid-template-columns: repeat(4, 40px); /* YANI 4 COLOUMS HONGE 40PX KA */
+
+
+            /* gap: 34px; GAP USE KERNE KELEYE ISTEMAL HOTA HE */
+            row-gap: 10px; /*ROW ME GAP USE KERNE KELEYE ISTEMAL HOTA HE*/ 
+            column-gap: 44px; /*COLUMN ME GAP USE KERNE KELEYE ISTEMAL HOTA HE*/
+            align-items: center;
+            justify-content: center;
+            justify-items: center;
+        }
+        .grid-itemss{
+            border: 2px solid red;
+            height: 55px;
+            width: 55px;
+        }
+        .item-no2{
+            align-self: flex-start; /*YANI ITEM KO START ME ALIGN KERNE KELEYE USE HOTA HE*/
+            justify-self: end; /*YANI ITEM KO END ME ALIGN KERNE KELEYE USE HOTA HE*/
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-containerfr">
+        <div class="grid-itemss item-no1">1</div>
+        <div class="grid-itemss item-no2">2</div>
+        <div class="grid-itemss item-no3">3</div>
+        <div class="grid-itemss item-no4">4</div>
+        <div class="grid-itemss item-no5">5</div>
+    </div>
+
+
+
+
+
+
+    <div class="grid-container">
+        <div class="grid-items item-no-1">1</div>
+        <div class="grid-items item-no-2">2</div>
+        <div class="grid-items item-no-3">3</div>
+        <div class="grid-items item-no-4">4</div>
+        <div class="grid-items item-no-5">5</div>
+    </div>
+
+
+
+
+
+    <div class="container-grid">
+        <div class="items-grid item-grid-1">1</div>
+        <div class="items-grid">2</div>
+        <div class="items-grid">3</div>
+        <div class="items-grid item-grid-4">4</div>
+        <div class="items-grid">5</div>
+    </div>
+
+
+
+
+
+
+    <div class="animation-container">
+        <div class="animation-box">
+
+        </div>
+    </div>
+
+
+
+
+
+    <div class="transition-container">
+        <div class="transition-box translate">
+
+        </div>
+    </div>
+
+
+
+
+
+    <div class="transform-property">
+        <div class="transform-box">
+            box
+        </div>
+    </div>
+
+
+
+
+
+    <div class="filters-container">
+        <img class="filters" src="joshua-hanson-e616t35Vbeg-unsplash.jpg" alt="">
+    </div>
+
+
+
+
+
+    <div class="object-fit-container">
+        <!-- <img class="imagec" src="joshzua-hanson-e616t35Vbeg-unsplash.jpg" alt=""> -->
+    </div>
+
+
+
+
+
+    <!-- //GRIDS IN CSS  -->
+    <div class="gridcontainer">
+        <div class="griditem">1</div>
+        <div class="griditem">2</div>
+        <div class="griditem">3</div>
+        <div class="griditem">4</div>
+        <div class="griditem">5</div>
+        <div class="griditem">6</div>
+    </div>
+
+
+
+
+
+    <!-- //FLEXBOX IN CSS  -->
+    <div class="container">
+        <div class="item order-3">1</div>
+        <div class="item item1">2</div>
+        <div class="item">3</div>
+        <div class="item order-1">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+        <div class="item">10</div>
+        <div class="item">11</div>
+        <div class="item">12</div>
+        <div class="item">13</div>
+        <div class="item">14</div>
+        <div class="item">15</div>
+        <div class="item">16</div>
+        <div class="item order-2">17</div>
+        <div class="item">18</div>
+        <div class="item">19</div>
+        <div class="item">20</div>
+        <div class="item">21</div>
+        <div class="item">23</div>
+        <div class="item">24</div>
+        <div class="item">25</div>
+        <div class="item">26</div>
+        <div class="item">27</div>
+        <div class="item">28</div>
+        <div class="item">29</div>
+        <div class="item">30</div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+
+
+
+
+
+
+    <div class="dabases">
+        <div data-color="primary" class="dabase">I am first box</div>
+        <div class="dabase">I am a box</div>
+        <div class="dabase">I am a box</div>
+        <input type="text" name="name" id="name" placeholder="Enter Your Name">
+    </div>
+
+
+
+
+
+
+    <div class="dabas">
+        <div class="daba">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque accusamus vel ipsam.
+            Mollitia, facilis voluptate. Culpa, dignissimos sed! Numquam, nisi non magnam possimus commodi eum omnis
+            sunt expedita nostrum odio ab obcaecati repudiandae error? Ut laborum nam quasi reprehenderit qui sit
+            suscipit incidunt, quisquam fuga cupiditate excepturi fugit dolorum dolores iure explicabo, quibusdam cumque
+            esse itaque. Asperiores veritatis accusamus sint cupiditate qui similique eius perspiciatis accusantium
+            excepturi, facere eos sunt corporis quia nostrum eveniet eligendi et suscipit doloribus enim saepe velit
+            placeat necessitatibus id? Minima animi, consequatur quis voluptatibus numquam exercitationem et quos
+            aspernatur? Deserunt, iure quasi minima voluptate quo quae. Expedita nobis tempore quis, sint quod
+            repellendus quasi iure maxime sed accusamus optio odit molestias. Fuga atque cumque impedit iusto commodi et
+            quisquam expedita! Ab nesciunt est repellendus eaque, ex tempora quod vel, quia ipsa illo magni quam error.
+            Officia voluptate ipsam, asperiores maxime quia in fugit architecto necessitatibus pariatur assumenda sequi
+            aliquid, aperiam eveniet nostrum a totam, alias obcaecati perspiciatis aut. Tenetur, adipisci eveniet, animi
+            impedit neque quidem quisquam eum porro minima veniam dolores. Consequatur velit mollitia et ipsa labore
+            impedit dicta officiis est animi itaque, beatae nemo, quis facere vel recusandae aspernatur quos nostrum
+            alias doloribus fugit libero ipsum? Molestiae deleniti iure dolor facilis porro eos explicabo repellendus
+            atque, delectus sint laboriosam voluptate necessitatibus nihil odio consequatur sapiente veniam voluptatem?
+            Expedita ipsam beatae quae cupiditate voluptatibus amet officiis non natus quia placeat, obcaecati, veniam
+            sed dolor ipsum incidunt laborum nisi velit, qui cumque minus inventore animi adipisci. Minima libero
+            necessitatibus quia voluptates totam quisquam nulla error inventore iusto illum! Atque id sapiente nemo
+            commodi ex aliquam maxime explicabo facere nam adipisci, architecto magni aperiam, est asperiores placeat!
+            Cum maiores odit doloribus, quibusdam ratione explicabo voluptates provident aspernatur dolorum consequatur
+            optio deserunt excepturi et, magni harum culpa numquam! Ad repudiandae nisi culpa aliquam eum sint quos
+            beatae dolores dolor ipsum tempore modi numquam autem, in nulla exercitationem ea doloremque officiis.
+            Asperiores enim expedita delectus fugit recusandae, vel neque unde totam officiis tempore necessitatibus,
+            tenetur odit saepe molestiae rerum nam, quod nesciunt sapiente aut id illum veritatis sed ipsum temporibus.
+            Esse, adipisci ea? Ut amet nemo dolor totam ullam. Natus reprehenderit quidem magnam in voluptatum quod
+            harum cupiditate ratione reiciendis magni, quo voluptatem animi expedita dolorum, modi, repudiandae delectus
+            aspernatur quos nihil porro facilis nemo? Ex esse cupiditate natus sed culpa a sequi itaque molestias fuga
+            eligendi, quae laudantium eaque, laboriosam dicta nihil magni labore blanditiis voluptate. Facilis ex nam
+            quibusdam! Non similique, sed dignissimos dolores ab eum illo sit magni perspiciatis quaerat sequi neque
+            officia voluptate, soluta omnis ut nisi tenetur animi. Expedita atque voluptatum iure distinctio dolor
+            repellendus dolorem autem vero aspernatur, dolores cumque corrupti libero mollitia necessitatibus ut
+            provident, iste deserunt!</div>
+        <div class="daba">Hey I am a Box</div>
+        <div class="daba">Hey I am a Box</div>
+    </div>
+
+
+
+
+
+
+    <div class="overflow-box">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi accusantium excepturi quam iusto soluta,
+        itaque neque, explicabo, eum alias cum totam architecto quidem odio tenetur recusandae? Praesentium asperiores
+        deserunt, quae debitis fuga, quisquam alias corporis, quos voluptate ipsam nihil veniam rerum expedita similique
+        temporibus porro?
+    </div>
+
+
+
+
+
+    <div class="displaybox displaybox1">
+        I am a box
+    </div>
+    <div class="displaybox">
+        I am also a box
+    </div>
+    <div class="displaybox">
+        I am also another box
+    </div>
+    <span>
+        I am a good
+    </span>
+    <span>Boy</span>
+
+
+
+
+
+    <nav class="learning">
+        <ul class="learning-list-styles">
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+            <li>Services</li>
+            <li>Products</li>
+        </ul>
+    </nav>
+
+
+
+
+
+    <div class="learning-sizes-box1">
+        <p class="learning-font-size1">This is The Para To Learn Font Size</p>
+    </div>
+    <div class="learning-sizes-box2">
+        <p class="learning-font-size2">This is Another Para To Learn Font Sizes</p>
+    </div>
+
+
+
+
+
+
+    <p class="everything-about-colors">This Para Is To Learn About Colors</p>
+    <p class="background-colors">This is the Text To Learn About Background Colors</p>
+    <p class="colors">This is the Text To Learn About Colors</p>
+    <a target="_blank" href="https://vibes-bymhk.com">Go To My First Website</a>
+
+
+
+
+
+    <div class="outline">This is a Box With Outline</div>
+    <p class="text-shadow">This is a Text</p>
+    <div class="box-shadow">This is a box</div>
+
+
+
+
+
+
+    <div class="box box1">This is a Box</div>
+    <div class="box box2">This is another Box</div>
+    <div class="box box3">This is also another Box</div>
+
+
+    <div id="boxes">This is a Box With ID</div>
+
+
+
+
+
+
+
+
+    <ul>
+        <li>Home</li>
+        <li>Service</li>
+        <li>About</li>
+        <li>Contact</li>
+    </ul>
+    <ol>
+        <li>Name</li>
+        <li>Class</li>
+        <li>Roll Number</li>
+        <li>School</li>
+    </ol>
+    <dl>
+        <dt>HTML:</dt>
+        <dd>HYPER TEXT MARKUP LANGUAGE</dd>
+        <dt>CSS:</dt>
+        <dd>CASCADING STYLE SHEET</dd>
+    </dl>
+
+
+
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Class</th>
+                <th>Roll No</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="3">Aziz</td>
+                <td colspan="2">Nine</td>
+                <td>Sixty</td>
+            </tr>
+            <tr>
+                <td>Abid</td>
+                <td>Two</td>
+                <td rowspan="2">Nine</td>
+            </tr>
+            <tr>
+                <td>Faraz</td>
+                <td>Three</td>
+                <td>Four</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Three</td>
+                <td>Fourteen</td>
+                <td>Nineteen</td>
+            </tr>
+        </tfoot>
+    </table>
+
+
+
+
+
+    <header>
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>Services</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <img width="220px" height="220px" src="MainBefore.jpg" alt="Blog Image">
+            <p>This is a section of Blog</p>
+        </section>
+        <aside>This is The Section of Aside</aside>
+    </main>
+    <footer>
+        Copyright &copy; | Code With Harry - All Rights Reserved
+    </footer>
+
+
+
+
+
+    <form action="post">
+        <div>
+            <label for="name">Enter Your Name</label>
+            <input type="text" name="text" id="name" placeholder="Enter Your Username">
+        </div>
+        <div>
+            <input type="radio" name="gender" id="male" value="male">
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="female" value="female">
+            <label for="female">Female</label>
+        </div>
+        <div>
+            <input type="checkbox" name="subscribe" id="subscribe">
+            <label for="subscribe">Subscribe For Newsletter</label>
+        </div>
+        <div>
+            <label for="comment">Enter Your Comment</label><br>
+            <textarea cols="40" rows="30" name="comment" id="comment" placeholder="Enter Your Comment"></textarea>
+        </div>
+        <div>
+            <select name="fruits" id="fruits">
+                <option value="apple">Apple</option>
+                <option value="banana">Banana</option>
+                <option value="cherry">Cherry</option>
+                <option value="mango">Mango</option>
+                <option value="pineapple">Pineapple</option>
+            </select>
+        </div>
+    </form>
+</body>
+
+</html>
