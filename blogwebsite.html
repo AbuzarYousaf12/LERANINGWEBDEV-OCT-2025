@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sophia Ellis</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            background-color:#DBD6C4;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Courier New', Courier, monospace;
+        }
+
+        nav {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            padding: 22px 85px;
+        }
+
+        .brand {
+            justify-content: start;
+            display: flex;
+        }
+
+        .brand span {
+            font-size: 24px;
+            font-style: italic;
+            font-weight: 800;
+        }
+
+        .nav-center {
+            justify-content: center;
+            display: flex;
+        }
+
+        nav ul li {
+            font-size: 18px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            gap: 30px;
+            cursor: pointer;
+        }
+
+        nav ul li::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 4px;
+            background-color: #7E6B50;
+            margin-top: 4px;
+            transition: 0.4s ease-in;
+
+        }
+
+        nav ul li:hover::after {
+            width: 100%;
+        }
+
+        .icons {
+            justify-content: end;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .brand .second {
+            color: #A69A79;
+        }
+
+        .icons img {
+            width: 30px;
+            cursor: pointer;
+            color: orange;
+        }
+
+        .btn {
+            cursor: pointer;
+            padding: 15px 30px;
+            border: 1px solid #A69A79;
+            font-size: 18px;
+            letter-spacing: 3px;
+            color: black;
+        }
+
+        .btn:hover {
+            background-color: #7E6B50;
+            color: white;
+            transition: 0.3s ease-in-out;
+        }
+
+        .landing-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 200px 150px;
+            gap: 40px;
+        }
+
+        .landing-page span {
+            display: flex;
+            font-size: 28px;
+            font-weight: 300;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .landing-page img {
+            width: 40px;
+        }
+
+        .landing-page h1 {
+            font-size: 60px;
+            text-align: center;
+            font-weight: 400;
+            padding: 0px 200px;
+            line-height: -4px;
+        }
+
+        .landing-page p {
+            font-size: 18px;
+            text-align: center;
+            padding: 10px 350px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .icons-box img {
+            width: 50px;
+        }
+
+        .icons-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            padding-bottom: 80px;
+            /* ← yeh zaroori hai */
+            /* optional: thoda andar karne ke liye */
+        }
+
+        .images {
+            display: flex;
+            gap: 40px;
+        }
+
+        .icons-box h1 {
+            font-size: 60px;
+        }
+
+        .icons-box h2 {
+            color: #A2936D;
+            font-size: 60px;
+        }
+
+        .imges {
+            display: flex;
+            gap: 50px;
+        }
+
+        .cont {
+            display: flex;
+            font-size: 22px;
+            gap: 50px;
+            padding: 15px 0px;
+        }
+
+        .blogs {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .blogs h1 {
+            font-size: 48px;
+            margin-bottom: 60px;
+        }
+
+        .blogs {
+            background-color: #DFDCCF;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .blog-item {
+            border: 1px solid #7E6B50;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .blog-item img {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .blog-item h3 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .blog-item button {
+            padding: 10px 25px;
+            font-size: 16px;
+            color: #7E6B50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            letter-spacing: 1px;
+            padding-bottom: 35px;
+        }
+
+        .blog-item:hover {
+            transform: translateY(-8px);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <!-- COLOUMN 1  -->
+            <div class="brand">
+                <span> Sophia <span class="second">Ellis&copy;</span></span>
+            </div>
+
+            <!-- COLOUMN 2  -->
+
+            <ul class="nav-center">
+                <li>Home</li>
+                <li>Blog</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+
+            <!-- COLOUMN 3  -->
+
+            <div class="icons">
+                <img src="images/insta.webp" alt="instagram">
+                <img src="images/fbicon.webp" alt="facebook">
+                <img src="images/linkedin.png" alt="linkedin">
+                <img src="images/X_logo.jpg" alt="x">
+                <button class="btn">SUBSCRIBE</button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="landing-page">
+            <span><img src="5275881.png" alt="">I'M SOPHIA!</span>
+            <h1>Welcome to My Journey of Discovery and Growth</h1>
+            <p>A marketing professional passionate about exploring the world, embracing technology, enhancing personal
+                growth, and nurturing wellness.</p>
+            <button class="btn sec">GET INSPIRED</button>
+        </section>
+        <section class="content">
+            <div class="images">
+                <img src="hero-img-01.jpg" alt="image1">
+                <img src="hero-img-02.jpg" alt="image2">
+                <img src="hero-img-03.jpg" alt="iamge3">
+            </div>
+            <div class="icons-box">
+                <span>
+                    <h1>Over 30K people in my</h1>
+                    <h2>Network</h2>
+                </span>
+                <div class="seconddiv">
+                    <div class="imges">
+                        <img src="images/insta.webp" alt="instagram">
+                        <img src="images/fbicon.webp" alt="facebook">
+                        <img src="images/linkedin.png" alt="linkedin">
+                        <img src="images/X_logo.jpg" alt="x">
+                    </div>
+                    <div class="cont">
+                        <p>12K+</p>
+                        <p>08K+</p>
+                        <p>13K+</p>
+                        <p>09K+</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="blogs">
+            <h1 style="background: none;">My Featured Blogs</h1>
+            <div class="grid">
+                <div class="blog-item blog-1">
+                    <img src="post-free-01.jpg" alt="">
+                    <h3>The Future of Wearable Tech: Innovations Shaping Our Lives</h3>
+                    <button>READ MORE</button>
+                </div>
+                <div class="blog-item blog-2">
+                    <img src="post-free-02.jpg" alt="">
+                    <h3>The Future of Wearable Tech: Innovations Shaping Our Lives</h3>
+                    <button>READ MORE</button>
+                </div>
+                <div class="blog-item blog-3">
+                    <img src="post-free-03.jpg" alt="">
+                    <h3>The Future of Wearable Tech: Innovations Shaping Our Lives</h3>
+                    <button>READ MORE</button>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
