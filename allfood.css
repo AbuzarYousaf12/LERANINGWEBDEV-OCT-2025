@@ -428,6 +428,9 @@
             .subscribe {
                 justify-content: center;
             }
+            .book {
+                padding: 50px 40px;
+            }
             .book-now {
                 display: flex;
                 flex-direction: column;
@@ -476,7 +479,10 @@
                 width: 30vw;
                 margin-top: 40px;
             }
-            
+            .subscribe {
+                background-size: cover;
+                height: 100vh;
+            }
         }
         @media screen and (max-width: 890px) {
             .landing-page {
@@ -529,7 +535,7 @@
             }
 
             .about .imag img {
-                width: 95vw;
+                width: 90vw;
             }
 
             .about .heroooo {
