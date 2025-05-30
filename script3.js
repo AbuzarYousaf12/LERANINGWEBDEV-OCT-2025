@@ -41,9 +41,18 @@ let a = 1;
 
 
 // WHILE LOOP
-let z = 5;
-while (z<6) {
+// let z = 0;
+// while (z<6) {
+//     console.log(z)
+//     z++;
+    
+// }
+
+
+// DO WHILE LOOP BHT ZIADA KAM ISTEMAL HOTA HE
+
+let z = 0;
+do {
     console.log(z)
     z++;
-    
-}
+} while (z<6);
