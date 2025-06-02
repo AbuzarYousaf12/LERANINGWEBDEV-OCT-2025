@@ -62,3 +62,31 @@ let numbe = [1, 2, 3, 4, 5]
 
 console.log(numbe.splice(1, 3, 222, 333)) // NUMBERS ADD KERNEKELEYE
 console.log(numbe)
+
+
+//SLICE IN JAVASCRIPT
+
+
+let fruits = ["apple", "banana", "mango", "grape"];
+let sliced = fruits.slice(1, 3); // YANI 1 AUR 3 HI NAZAR AYEGA SHOW HOJAYEGA // PEHLE NUMBER SE START KERTA HE AUR DOSRE NUMBER TK JATA HE
+
+console.log(sliced);
+
+
+//REVERSE IN JAVASCRIPT
+
+let nums = [1, 2, 3, 4];
+nums.reverse();
+
+console.log(nums); // [4, 3, 2, 1]
+
+
+
+// LOOPS
+
+let z = [1, 93, 5, 6, 88]
+
+for (let index = 0; index < array.length; index++) {
+    const element = array[index];
+    
+}
