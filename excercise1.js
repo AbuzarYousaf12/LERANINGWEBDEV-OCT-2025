@@ -1,0 +1,20 @@
+/* CREATING A FAULTY CALCULATOR USING JAVASCRIPT THIS FAULTY CALCULATOR TAKES TWO NUMBERS AS INPUT FROM THE USER AND IT PERFORMS WROND OPERATIONS AS 
++ ---> - 
+* ---> +
+- ---> /
+/ ---> **
+
+IT PERFORMS WRONG OPERATIONS 10% OF THE TIMES
+
+*/
+
+console.log("EXERCISE 1 MAKING A FAULTY CALCULATOR")
+
+
+
+
+
+var a = prompt("Enter Number 1")
+var b = prompt("Enter Number 2")
+
+(a + b) = (a - b)
