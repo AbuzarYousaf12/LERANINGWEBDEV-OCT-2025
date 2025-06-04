@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>XZone – Step Into the Future | AI Tech Platform</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
     * {
       margin: 0;
@@ -16,8 +15,8 @@
     }
 
     body {
+      overflow-x: hidden;
       background: linear-gradient(to right, #8a00ff 0%, #1e0f29 30%, #000000 100%);
-      color: white;
     }
 
     nav {
@@ -29,46 +28,47 @@
     }
 
     .logo {
-      font-size: 22px;
       color: white;
+      font-size: 20px;
+      font-weight: 700;
     }
 
     .logo::first-letter {
       color: #A04CE0;
-      font-size: 40px;
+      font-size: 50px;
     }
 
     ul {
       display: flex;
-      list-style: none;
       gap: 20px;
       border: 1px solid grey;
       padding: 12px 18px;
       border-radius: 45px;
+      list-style: none;
       align-items: center;
     }
 
     ul li {
       color: white;
-      cursor: pointer;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 500;
+      cursor: pointer;
     }
 
     ul li.active {
-      background-color: white;
+      background: white;
       color: black;
       padding: 6px 12px;
-      border-radius: 100px;
+      border-radius: 50px;
     }
 
     .btn {
-      background-color: #9F4DDD;
+      background: #9F4DDD;
       color: white;
       padding: 12px 18px;
       border: none;
       border-radius: 30px;
-      font-size: 16px;
+      font-size: 18px;
       cursor: pointer;
     }
 
@@ -76,23 +76,21 @@
       background: none;
       border: 1px solid grey;
       color: white;
-      padding: 6px 16px;
+      padding: 6px 14px;
       border-radius: 100px;
-      cursor: pointer;
+      font-size: 15px;
     }
 
     .landing {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
       align-items: center;
-      padding: 60px 80px;
-      gap: 40px;
-      flex-wrap: wrap;
+      padding: 40px 60px;
     }
 
     aside {
-      width: 50%;
+      flex: 1;
+      padding-right: 30px;
     }
 
     .heading {
@@ -108,7 +106,7 @@
     .future {
       color: white;
       font-size: 70px;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 10px;
     }
 
@@ -118,39 +116,44 @@
 
     .description {
       color: white;
-      padding: 20px 0;
-      padding-right: 80px;
+      margin: 20px 0;
+      line-height: 1.6;
     }
 
     .btns {
+      margin-top: 20px;
       display: flex;
       gap: 16px;
-      margin-top: 20px;
+      flex-wrap: wrap;
     }
 
     hr {
-      width: 450px;
-      margin: 40px 0;
-      border: 1px solid rgb(71, 71, 71);
+      border: none;
+      height: 1px;
+      background-color: rgb(71, 71, 71);
+      width: 400px;
+      margin: 50px 0;
     }
 
     .worldwide-users {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     .worldwide-users span h1 {
+      color: white;
       font-size: 50px;
     }
 
     .worldwide-users span p {
-      font-size: 14px;
+      color: white;
+      margin-top: -10px;
     }
 
     .image-stack {
       display: flex;
-      position: relative;
     }
 
     .image-stack img {
@@ -159,27 +162,16 @@
       border-radius: 50%;
       border: 3px solid white;
       margin-left: -15px;
-      z-index: 1;
+      object-fit: cover;
     }
 
     .image-stack img:first-child {
       margin-left: 0;
-      z-index: 3;
-    }
-
-    .image-stack img:nth-child(2) {
-      z-index: 2;
-    }
-
-    .image-stack img:nth-child(3) {
-      z-index: 1;
     }
 
     .image {
-      width: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      flex: 1;
+      text-align: center;
     }
 
     .image img {
@@ -188,18 +180,17 @@
       height: auto;
     }
 
-    /* Responsive Styles */
+    /* Responsive Design */
     @media (max-width: 992px) {
       .landing {
         flex-direction: column;
-        align-items: center;
         text-align: center;
         padding: 30px 20px;
       }
 
       aside {
-        width: 100%;
         padding: 0;
+        margin-bottom: 40px;
       }
 
       .heading {
@@ -211,18 +202,6 @@
         letter-spacing: 6px;
       }
 
-      .description {
-        padding: 0 30px;
-      }
-
-      .btns {
-        justify-content: center;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 16px;
-        margin-top: 20px;
-      }
-
       hr {
         width: 80%;
         margin: 30px auto;
@@ -232,13 +211,46 @@
         justify-content: center;
       }
 
-      .image {
-        width: 100%;
-        margin-top: 30px;
-      }
-
       .image img {
         max-width: 90%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+
+      ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .btn, .btnn {
+        font-size: 16px;
+        
+      }
+      .btnn{
+        text-align: center;
+      }
+
+      .heading {
+        font-size: 32px;
+      }
+
+      .future {
+        font-size: 40px;
+      }
+
+      .worldwide-users span h1 {
+        font-size: 36px;
+      }
+
+      .image-stack img {
+        width: 60px;
+        height: 60px;
       }
     }
   </style>
@@ -279,18 +291,16 @@
             <p>worldwide users</p>
           </span>
           <div class="image-stack">
-            <img src="pexels-bertellifotografia-29267513.jpg" alt="" />
-            <img src="pexels-ferarcosn-190819.jpg" alt="" />
-            <img src="pexels-simon-robben-55958-614810.jpg" alt="" />
+            <img src="pexels-bertellifotografia-29267513.jpg" alt="">
+            <img src="pexels-ferarcosn-190819.jpg" alt="">
+            <img src="pexels-simon-robben-55958-614810.jpg" alt="">
           </div>
         </div>
       </aside>
-
       <div class="image">
-        <img src="3mM87tb2xe67ZLPG-removebg-preview.png" alt="Futuristic Illustration" />
+        <img src="3mM87tb2xe67ZLPG-removebg-preview.png" alt="AI Illustration">
       </div>
     </section>
   </main>
 </body>
-
 </html>
