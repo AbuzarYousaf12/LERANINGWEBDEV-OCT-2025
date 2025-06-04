@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Figma Website To HTML - CSS</title>
+    <title>XZone – Step Into the Future | AI Tech Platform</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
@@ -17,7 +17,6 @@
         .landing-page {
             background: linear-gradient(to right, #4B2569, #000000);
             background: linear-gradient(to right, #8a00ff 0%, #1e0f29 30%, #000000 100%);
-            width: 100vw;
         }
 
         nav {
@@ -118,6 +117,7 @@
 
         aside {
             padding: 80px 50px 100px 80px;
+            width: 50%;
         }
 
         hr {
@@ -185,6 +185,55 @@
         .image-stack img:nth-child(3) {
             z-index: 1;
         }
+
+        .image {
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .landing-page {
+                width: 100%;
+            }
+
+            .landing {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            aside {
+                width: 100%;
+                padding: 40px;
+            }
+
+            hr {
+                width: 80%;
+            }
+
+            .worldwide-users {
+                width: 100%;
+                flex-wrap: wrap;
+            }
+
+            .image {
+                width: 100%;
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 
@@ -205,7 +254,7 @@
 
         </header>
         <main class="landing">
-            <aside style="gap: 0; row-gap: 0; width: 50%;">
+            <aside>
                 <button class="btnn users">100K Users in 1 Month</button>
                 <p class="heading">Step <span>into the</span></p>
                 <p class="future">f<span>u</span>t<span>u</span>re</p>
@@ -228,8 +277,7 @@
                     </div>
                 </div>
             </aside>
-            <div style="width: 50%;" class="image"><img width="600px" src="3mM87tb2xe67ZLPG-removebg-preview.png"
-                    alt=""></div>
+            <div style="width: 50%;" class="image"><img src="3mM87tb2xe67ZLPG-removebg-preview.png" alt=""></div>
         </main>
     </main>
 </body>
