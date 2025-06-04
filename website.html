@@ -2,284 +2,295 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XZone – Step Into the Future | AI Tech Platform</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XZone – Step Into the Future | AI Tech Platform</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
-        * {
-            padding: 0;
-            margin: 0;
-            font-family: 'Poppins', 'Courier New', Courier, monospace;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-        .landing-page {
-            background: linear-gradient(to right, #4B2569, #000000);
-            background: linear-gradient(to right, #8a00ff 0%, #1e0f29 30%, #000000 100%);
-            width: 100%;
-        }
+    body {
+      background: linear-gradient(to right, #8a00ff 0%, #1e0f29 30%, #000000 100%);
+      color: white;
+    }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 40px;
-        }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      flex-wrap: wrap;
+    }
 
-        ul {
-            display: flex;
-            list-style-type: none;
-            gap: 20px;
-            border: 1px solid grey;
-            padding: 12px 18px;
-            border-radius: 45px;
-            align-items: center;
-        }
+    .logo {
+      font-size: 22px;
+      color: white;
+    }
 
-        ul li {
-            color: white;
-            cursor: pointer;
-            font-size: 17px;
-            font-weight: 500;
-        }
+    .logo::first-letter {
+      color: #A04CE0;
+      font-size: 40px;
+    }
 
-        .logo::first-letter {
-            color: #A04CE0;
-            font-size: 50px;
-        }
+    ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+      border: 1px solid grey;
+      padding: 12px 18px;
+      border-radius: 45px;
+      align-items: center;
+    }
 
-        .logo {
-            font-size: 18px;
-            color: white;
-        }
+    ul li {
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 500;
+    }
 
-        .btn {
-            background-color: #9F4DDD;
-            color: white;
-            padding: 12px 18px;
-            border: none;
-            border-radius: 30px;
-            font-size: 18px;
-            cursor: pointer;
-        }
+    ul li.active {
+      background-color: white;
+      color: black;
+      padding: 6px 12px;
+      border-radius: 100px;
+    }
 
-        ul li.active {
-            background-color: white;
-            color: black;
-            padding: 6px;
-            border-radius: 100px;
-        }
+    .btn {
+      background-color: #9F4DDD;
+      color: white;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+    }
 
-        .btnn {
-            background: none;
-            border: 1px solid grey;
-            color: aliceblue;
-            padding: 4px 12px;
-            border-radius: 100px;
-        }
+    .btnn {
+      background: none;
+      border: 1px solid grey;
+      color: white;
+      padding: 6px 16px;
+      border-radius: 100px;
+      cursor: pointer;
+    }
 
-        span * {
-            color: white;
-        }
+    .landing {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px 80px;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
 
-        .worldwide-users {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
+    aside {
+      width: 50%;
+    }
 
-        }
+    .heading {
+      color: #9C4EDE;
+      font-size: 60px;
+      font-weight: 600;
+    }
 
-        span h1 {
-            font-size: 60px;
-        }
+    .heading span {
+      color: white;
+    }
 
-        .heading {
-            color: #9C4EDE;
-            font-size: 60px;
-            font-weight: 600;
-        }
+    .future {
+      color: white;
+      font-size: 70px;
+      font-weight: 600;
+      letter-spacing: 10px;
+    }
 
-        .future {
-            color: white;
-            font-size: 70px;
-            font-weight: 600;
-            letter-spacing: 10px;
-        }
+    .future span {
+      color: #9C4EDE;
+    }
 
-        .heading span {
-            color: white;
-        }
+    .description {
+      color: white;
+      padding: 20px 0;
+      padding-right: 80px;
+    }
 
-        .future span {
-            color: #9C4EDE;
+    .btns {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+    }
 
-        }
+    hr {
+      width: 450px;
+      margin: 40px 0;
+      border: 1px solid rgb(71, 71, 71);
+    }
 
-        aside {
-            padding: 80px 50px 100px 80px;
-            width: 50%;
-        }
+    .worldwide-users {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-        hr {
-            width: 450px;
-            color: rgb(71, 71, 71);
-            margin: 60px 0px;
-        }
+    .worldwide-users span h1 {
+      font-size: 50px;
+    }
 
-        .description {
-            color: white;
-            padding-right: 80px;
-        }
+    .worldwide-users span p {
+      font-size: 14px;
+    }
 
-        .landing {
-            display: flex;
-        }
+    .image-stack {
+      display: flex;
+      position: relative;
+    }
 
-        .btns {
-            padding-top: 25px;
-        }
+    .image-stack img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 3px solid white;
+      margin-left: -15px;
+      z-index: 1;
+    }
 
-        .pricing {
-            padding: 12px 18px;
-            border-radius: 30px;
-            font-size: 18px;
-            cursor: pointer;
-        }
+    .image-stack img:first-child {
+      margin-left: 0;
+      z-index: 3;
+    }
 
-        .worldwide-users {
-            display: flex;
-            align-items: center;
-            gap: 2px;
-            position: relative;
-        }
+    .image-stack img:nth-child(2) {
+      z-index: 2;
+    }
 
-        .worldwide-users span {
-            margin-right: 20px;
-            /* Adjust for space before overlapping images */
-        }
+    .image-stack img:nth-child(3) {
+      z-index: 1;
+    }
 
-        .image-stack {
-            display: flex;
-            position: relative;
-        }
+    .image {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        .image-stack img {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            border: 3px solid white;
-            position: relative;
-            margin-left: -15px;
-            z-index: 1;
-        }
+    .image img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+    }
 
-        .image-stack img:first-child {
-            margin-left: 0;
-            z-index: 3;
-        }
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .landing {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 30px 20px;
+      }
 
-        .image-stack img:nth-child(2) {
-            z-index: 2;
-        }
+      aside {
+        width: 100%;
+        padding: 0;
+      }
 
-        .image-stack img:nth-child(3) {
-            z-index: 1;
-        }
+      .heading {
+        font-size: 40px;
+      }
 
-        .image {
-            width: 50%;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      .future {
+        font-size: 50px;
+        letter-spacing: 6px;
+      }
 
-        .image img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
+      .description {
+        padding: 0 30px;
+      }
 
-        @media (max-width: 768px) {
-            .landing-page {
-                width: 100%;
-            }
+      .btns {
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 20px;
+      }
 
-            .landing {
-                flex-direction: column;
-                width: 100%;
-            }
+      hr {
+        width: 80%;
+        margin: 30px auto;
+      }
 
-            nav {
-                flex-direction: column;
-                gap: 20px;
-            }
+      .worldwide-users {
+        justify-content: center;
+      }
 
-            aside {
-                width: 100%;
-                padding: 50px;
-            }
-            hr {
-                width: 80%;
-            }
+      .image {
+        width: 100%;
+        margin-top: 30px;
+      }
 
-            .worldwide-users {
-                width: 100%;
-                flex-wrap: wrap;
-            }
-
-            .image {
-                width: 100%;
-                padding: 20px;
-            }
-        }
-    </style>
+      .image img {
+        max-width: 90%;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <main class="landing-page">
-        <header>
+  <main class="landing-page">
+    <header>
+      <nav>
+        <p class="logo">XZone</p>
+        <ul>
+          <li class="active">Home</li>
+          <li>Features</li>
+          <li>Pricing</li>
+          <li>Contact</li>
+        </ul>
+        <button class="btn register">Register</button>
+      </nav>
+    </header>
 
-            <nav>
-                <p class="logo">XZone</p>
-                <ul>
-                    <li class="active">Home</li>
-                    <li>Features</li>
-                    <li>Pricing</li>
-                    <li>Contact</li>
-                </ul>
-                <button class="btn register">Register</button>
-            </nav>
+    <section class="landing">
+      <aside>
+        <button class="btnn users">100K Users in 1 Month</button>
+        <p class="heading">Step <span>into the</span></p>
+        <p class="future">f<span>u</span>t<span>u</span>re</p>
+        <p class="description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea ut odit quisquam
+          cupiditate repudiandae quam dignissimos eaque eius.
+        </p>
+        <div class="btns">
+          <button class="btn getstarted">Get Started</button>
+          <button class="btnn pricing">Our Pricing</button>
+        </div>
+        <hr />
+        <div class="worldwide-users">
+          <span>
+            <h1>500K</h1>
+            <p>worldwide users</p>
+          </span>
+          <div class="image-stack">
+            <img src="pexels-bertellifotografia-29267513.jpg" alt="" />
+            <img src="pexels-ferarcosn-190819.jpg" alt="" />
+            <img src="pexels-simon-robben-55958-614810.jpg" alt="" />
+          </div>
+        </div>
+      </aside>
 
-        </header>
-        <main class="landing">
-            <aside>
-                <button class="btnn users">100K Users in 1 Month</button>
-                <p class="heading">Step <span>into the</span></p>
-                <p class="future">f<span>u</span>t<span>u</span>re</p>
-                <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea ut odit quisquam
-                    cupiditate repudiandae quam dignissimos eaque eius.</p>
-                <div class="btns">
-                    <button class="btn getstarted">Get Started</button>
-                    <button class="btnn pricing">Our Pricing</button>
-                </div>
-                <hr>
-                <div class="worldwide-users">
-                    <span>
-                        <h1>500K</h1>
-                        <p>worldwide users</p>
-                    </span>
-                    <div class="image-stack">
-                        <img src="pexels-bertellifotografia-29267513.jpg" alt="">
-                        <img src="pexels-ferarcosn-190819.jpg" alt="">
-                        <img src="pexels-simon-robben-55958-614810.jpg" alt="">
-                    </div>
-                </div>
-            </aside>
-            <div class="image"><img src="3mM87tb2xe67ZLPG-removebg-preview.png" alt=""></div>
-        </main>
-    </main>
+      <div class="image">
+        <img src="3mM87tb2xe67ZLPG-removebg-preview.png" alt="Futuristic Illustration" />
+      </div>
+    </section>
+  </main>
 </body>
 
 </html>
