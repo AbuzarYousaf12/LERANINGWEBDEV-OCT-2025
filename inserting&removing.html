@@ -1,13 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inserting & Removing Elements Using Javascript</title>
+ <style>
+    
+ </style>
 </head>
+
 <body>
-    <div class="container">
+    <div class="container red bg-green">
         <div class="box">Hey I am a Box</div>
     </div>
+    <script>
+        ///////// INSETION METHOD 
+
+
+
+        // let div = document.createElement("div");
+        // div.innerHTML = "I have been inserted <b>By Harry</b>"
+        // div.setAttribute("class", "created");
+        // document.querySelector(".container").append(div)
+
+
+
+        ///////// INSERT ADJACENT HTML/TEXT/ELEMENT METHOD
+        // HTML KELEYE INSERTADJACENTHTML FUNCTION HE
+        // TEXT KELEYE INSERTADJACENTTEXT FUNCTION HE
+        // ELEMENT KELEYE INSERTADJACENTELEMENT FUNCTION HE
+
+
+        let cont = document.querySelector(".container")
+        cont.insertAdjacentHTML("afterend", "<b> I am under the water. Please help me here too much raining.... iuuuuooooo</b>")
+    </script>
 </body>
+
 </html>
