@@ -67,6 +67,44 @@
             alert("Container Was Clicked")
         })
         
+
+
+        // GET RANDOM COLOR FUNCTION
+
+
+        function getRandomColor (){
+            let val1 = Math.ceil(0 + Math.random()* 255);
+            let val2 = Math.ceil(0 + Math.random()* 255);
+            let val3 = Math.ceil(0 + Math.random()* 255);
+            return `rgb(${val1}, ${val2}, ${val3})`
+        }
+
+        // SET INTERVALS IN JAVASCRIPT
+        // HAR EIK SECOND ME COLOR CHANGE HO
+
+        // SET INTER VAL KA MTLB YANI K WORK KERTA REHGA CHANGE HOTA RHEGA MTLB EIK BAR NAE HOGA 
+        setInterval(() => {
+            document.querySelector(".childContainer").style.background = getRandomColor()
+        }, 3000);
+
+
+        // AGR ME CONSOLE ME clearInterval(1) RUN KERDO TO YE CANCEL HOJAYEGA
+
+
+
+
+
+        // SET TIME OUT YANI EIK BAR WORK KEREGA YANI COLOR CHANGE KERHE HE TO GIVEN TIME KE BAD WORK KEREGA
+         setTimeout(() => {
+            document.querySelector(".childContainer").style.background = getRandomColor()
+        }, 3000);
+
+
+
+
+
+        // AGR ME CONSOLE ME clearTimeout(1) RUN KERDO TO YE CANCEL HOJAYEGA
+
     </script>
 </body>
 </html>
