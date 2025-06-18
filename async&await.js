@@ -20,7 +20,7 @@ async function getData(){ //// ASYNC FUNCTION KA MTLB KE YE FUNCTION BACKGROUND 
 
 
 async function getData() {
-    
+    // SIMULATE GETTING DATA FROM SERVER
     let x = await fetch('https://jsonplaceholder.typicode.com/todos/1')
     let data = await x.json()
       return data
@@ -64,6 +64,26 @@ main ()
 // console.log("task 2")
 
 // })
+
+
+// ✅ Reusable POST method using Fetch API
+async function postData(url = '', data = {}) {
+  const response = await fetch(url, {
+    method: 'POST',               // *GET, POST, PUT, DELETE, etc.
+    headers: {
+      'Content-Type': 'application/json'  // body will be JSON
+    },
+    body: JSON.stringify(data)    // body data type must match "Content-Type" header
+  });
+  return response.json(); // parses JSON response into native JS objects
+}
+
+// ✅ Example usage
+postData('https://example.com/api/endpoint', { answer : 42 }).then((data)) => {
+    console.log(data)
+}
+
+
 
 
 
