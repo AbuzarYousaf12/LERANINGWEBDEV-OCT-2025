@@ -25,9 +25,8 @@ rabbit.__proto__ = animal; // ** SET rabbit.[[Prototype]] = animal
 
 class Animal {
     constructor(name) {
-        super()
         this.name = name
-        console.log("Object is created and he is a lion....")
+        console.log("Object is created....")
     }
 
     eats() {
@@ -40,11 +39,24 @@ class Animal {
 
 }
 
-class Lion extends Animal {            // **** IS SE YE HOGA KE LIION KE ANDAR ANIMAL WALI PROPERTIES BHI AJAYEGIN               **** //
 
-
+// **** IS SE YE HOGA KE LIION KE ANDAR ANIMAL WALI PROPERTIES BHI AJAYEGIN              **** //
+class Lion extends Animal {
+    constructor(name) {
+        super(name)
+        console.log("Object is created and he is a Lion....")
+    }
+    // *METHOD OVERRIDING*
+    eats() {
+        super.eats()   // * YE CONSTRUCTOR SE DATA KE LEYE * //
+        console.log("Kha raha hoo roar")
+    }
 }
 
 
 let a = new Animal("Bunny")
 console.log(a)
+
+let l = new Lion("Shera")
+console.log(l)
+
