@@ -707,6 +707,76 @@
 
 
 
+////////// ***** BUILDING A FACTORIAL CALCULATOR IN JAVASCRIPT ***** //////////
+
+
+
+
+
+// console.log("BUILDING A FACTORIAL CALCULATOR IN JAVASCRIPT")
+
+
+
+
+// let number = parseInt(prompt("Enter Your Number For Factorial"));
+// let factorial = 1;
+
+// for (let i = 1; i <= number; i++) {
+//     factorial *= i
+// }
+
+// console.log(`Factorial of ${number} is ${factorial}`)
+
+
+// console.log("BUILDING A FACTORIAL CALCULATOR IN JAVASCRIPT ~WITH ARRAYS~")
+
+
+
+
+// let a = 6
+
+// function factorial(number) {
+//     let arr = Array.from(Array(number+1).keys())
+//     console.log(arr.slice(1,))
+//     let c = arr.slice(1,).reduce((a, b) => {
+//         return a*b
+//     })
+//     console.log(c)
+// }
+
+// factorial(a)
+
+
+// console.log("BUILDING A FACTORIAL CALCULATOR IN JAVASCRIPT ~WITH ARRAYS~")
+
+
+
+
+// let a = 6;
+
+// function facFor(number){
+//     let fac = 1;
+//     for (let index = 1; index <= number; index++) {
+//         fac = fac * index
+//     }
+//     return fac
+// }
+
+// console.log(facFor(a))
+
+
+
+
+
+////////// ***** BUILDING RANDOM COLOR GENERATOR FOR 5 BOXES USING DOM CONCEPTS IN JAVASCRIPTT ***** //////////
+
+
+
+
+
+// console.log("BUILDING RANDOM COLOR GENERATOR FOR 5 BOXES USING DOM CONCEPTS IN JAVASCRIPT")
+
+
 
 
 
