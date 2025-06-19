@@ -249,6 +249,466 @@
 
 
 
+////////// ***** VIDEO 4 JAVASCRIPT ***** //////////
+
+
+
+
+
+// console.log("VIDEO 4 JAVASCRIPT")
+
+// *~LOOPS IN JAVASCRIPT~* //
+
+// let a = 1;
+
+// *~FOR LOOP IN JAVASCRIPT~* //
+
+
+// for (let i = 0; i < 100; i++) {
+//     console.log(a + i)
+// }
+
+// *~FOR IN LOOP IN JAVASCRIPT~* //
+
+// let obj = {
+//     "name": "Harry",
+//     "role": "Programmer",
+//     "company": "CodeWithHarry"
+//     // KEY   : // STRING
+// }
+
+// for (const key in obj) {
+//     if (Object.prototype.hasOwnProperty.call(obj, key)) {
+//         const element = obj[key];
+//         console.log(element)
+
+//     }
+// }
+
+
+// *~FOR IN LOOP IN JAVASCRIPT~* //
+
+// for (const c of "Harry") {
+//     console.log(c)
+// }
+
+
+// *~WHILE LOOP IN JAVASCRIPT~* //
+
+// let i = 1;
+// while(i<6){
+//     console.log(i)
+//     i++;
+// }
+
+
+// *~DO WHILE LOOP IN JAVASCRIPT~* //
+
+// let i = 19;
+// do {
+//     console.log(i)
+//     i++;
+// } while (i<6);
+
+
+
+
+////////// ***** VIDEO 5 JAVASCRIPT ***** //////////
+
+
+
+
+
+// console.log("VIDEO 5 JAVASCRIPT")
+
+// *~FUNCTIONS IN JAVASCRIPT~* //
+
+// function main(name){
+//     console.log("Hey " + name + " You are nice!")
+//     console.log("Hey " + name + " You are very tall!")
+//     console.log("Hey " + name + " You are good!")
+//     console.log("Hey " + name + " You tshirt is nice!")
+//     console.log("Hey " + name + " You course is good too!")
+// }
+
+// main("Harry")
+// main("Rohan")
+
+// function sum(a, b){
+//     console.log(a + b)
+// }
+
+// sum(19, 11)
+
+// VALUE KO DALNE KELEYE RETURN KA USE KERTE HEN
+
+// function addition(a, b, c = 3){
+//     return a + b + c
+// }
+
+// result = addition(4, 6)
+
+// console.log(result)
+
+// result1 = addition(24, 16)
+// result2 = addition(4, 16)
+// result3 = addition(44, 16, 17)
+
+// REUSING A FUNCTION
+
+// console.log(result1)
+// console.log(result2)
+// console.log(result3)
+
+
+// *~ARROW FUNCTIONS IN JAVASCRIPT~* //
+
+// const func1 = (x) => {
+//     console.log("I am an arrow function", x)
+// }
+
+// func1(34)
+// func1(66)
+// func1(84)
+
+
+
+
+////////// ***** VIDEO 6 JAVASCRIPT ***** //////////
+
+
+
+
+
+// console.log("VIDEO 6 JAVASCRIPT");
+
+
+// *~STRINGS IN JAVASCRIPT~* //
+
+// let name = "Alice";
+// let greeting = 'Hello!';
+// let message = `Welcome, ${name}!`;  // Template literals (backticks)
+
+// let a = "Harry";
+
+// console.log(a[0])
+// console.log(a[1])
+// console.log(a[2])
+// console.log(a[3])
+// console.log(a[4])
+// console.log(a[5])
+
+// console.log(a.length)
+
+// let real_name = "Harry"
+// let friend = "Rohan"
+// console.log("His name is " + real_name + " and his friend name is " + friend )
+
+// Template literals (backticks)
+//  console.log(`His name is ${real_name} and his friend name is ${friend}`)
+
+
+// *~STRING METHODS IN JAVASCRIPT~* //
+
+
+// length	Returns length of string	"Hello".length // 5
+// toUpperCase()	Converts to uppercase	"hello".toUpperCase()
+// toLowerCase()	Converts to lowercase	"HELLO".toLowerCase()
+// indexOf()	Finds position of first occurrence	"hello".indexOf('e') // 1
+// includes()	Checks if substring exists	"world".includes('or')
+// slice()	Extracts part of string	"abcdef".slice(1,4) // "bcd"
+// replace()	Replaces part of string	"I am Lerry".replace("Lerry", "John")
+// split()	Converts to array	"a,b,c".split(',')
+// trim()	Removes whitespace from start/end	" hello ".trim()
+
+// let sentence = "  JavaScript is fun!  ";
+// console.log(sentence.trim().toUpperCase());  // "JAVASCRIPT IS FUN!"
+
+
+// *~CONCAT IN JAVASCRIPT~* //
+
+// let b = "ShivamSh"
+
+// console.log(b.concat("Aishwariya"))
+
+
+// *~ARRAYS IN JAVASCRIPT~* //
+
+// let fruits = ["apple", "banana", "mango"];
+// let numbers = [1, 2, 3, 4];
+
+
+// *~ESCAPE SEQUENCE CHARACTERS IN JAVASCRIPT~* //
+
+// console.log('She said: \"Hello!\"');
+// Output: She said: "Hello!"
+
+// console.log("Path is C:\\Program Files\\JavaScript");
+// Output: Path is C:\Program Files\JavaScript
+
+
+// *~ARRAYS METHODS IN JAVASCRIPT~* //
+
+// length	Number of items	fruits.length // 3
+// push()	Add to end	fruits.push("grape")
+// pop()	Remove last element	fruits.pop()
+// shift()	Remove first element	fruits.shift()
+// unshift()	Add to start	fruits.unshift("kiwi")
+// includes()	Checks if item exists	fruits.includes("banana")
+// indexOf()	Finds index of item	fruits.indexOf("mango")
+// slice()	Returns a part of the array	fruits.slice(1, 3)
+// splice()	Add/remove elements	fruits.splice(1, 1)
+// join()	Joins elements into a string	fruits.join(", ")
+// forEach()	Loop through elements	fruits.forEach(fruit => console.log(fruit))
+// map()	Create new array from existing array	numbers.map(n => n * 2)
+// filter()	Filter elements	numbers.filter(n => n > 2)
+
+// let numbers = [1, 2, 3, 4, 5];
+// let doubled = numbers.map(num => num * 2); 
+// console.log(doubled);  // [2, 4, 6, 8, 10]
+
+
+
+
+////////// ***** BUILDING A FAULTY CALCULATOR IN JAVASCRIPT ***** //////////
+
+
+
+
+
+// console.log("BUILDING A FAULTY CALCULATOR IN JAVASCRIPT")
+
+// let number = Math.random()
+
+// console.log(number)
+
+// let a = prompt("Enter Your First Number")
+
+// let b = prompt("Enter Your Second Number")
+
+// if (number > 0.1) {
+//     console.log("The Multiplication of You Numbers Are", a * b)
+//     console.log("The Addition of You Numbers Are", a + b)
+//     console.log("The Subtraction of You Numbers Are", a - b)
+//     console.log("The Divisiion of You Numbers Are", a / b)
+// }
+// else {
+//     console.log("The Multiplication of You Numbers Are", a + b)
+//     console.log("The Addition of You Numbers Are", a - b)
+//     console.log("The Subtraction of You Numbers Are", a / b)
+//     console.log("The Divisiion of You Numbers Are", a ** b)
+// }
+
+
+
+
+// console.log("BUILDING A FAULTY CALCULATOR IN JAVASCRIPT ~ANOTHER WAY~")
+
+
+
+
+
+
+// let random = Math.random()
+
+// console.log(random);
+
+// let a = prompt("Enter Your First Number")
+
+// let b = prompt("Enter Your Second Number")
+
+// let c = prompt("Enter Operation")
+
+// let result;
+
+// if (random > 0.4) {
+//     // CORRECT CALCULATION
+//     if (c == '+') {
+//         result = a + b
+//     } else if (c == '-') {
+//         result = a - b
+//     } else if (c == '*') {
+//         result = a * b
+//     } else if (c == '/') {
+//         result = a / b
+//     } else {
+//         result = "Invalid Operation";
+//     }
+// }
+// else {
+//     // WRONG CALCULATION
+//     if (c == '+') {
+//         result = a - b;
+//     } else if (c == '-') {
+//         result = a / b;
+//     } else if (c == '*') {
+//         result = a + b;
+//     } else if (c == '/') {
+//         result = a ** b;
+//     } else {
+//         result = "Invalid Operation";
+//     }
+// }
+
+// console.log("Result is: ", result)
+
+
+
+
+
+// console.log("BUILDING A FAULTY CALCULATOR IN JAVASCRIPT ~EASY AND SHORT WAY USING EVAL~")
+
+
+
+
+
+
+// let random = Math.random()
+// console.log(random)
+// let a = prompt("Enter first number")
+// let c = prompt("Enter operation")
+// let b = prompt("Enter second number")
+
+// let obj = {
+//     "+": "-",
+//     "*": "+",
+//     "-": "/",
+//     "/": "**",
+// }
+
+
+
+// if (random > 0.1) {
+//     // Perform correct calculation
+//     console.log(`The result is ${a} ${c} ${b}`)
+//     alert(`The result is ${eval(`${a} ${c} ${b}`)}`)
+//     // EVAL CALCULATIONS KO SOLVE KERKE DETA HE 
+// }
+
+// else {
+//     // Perform wrong calculation
+//     c = obj[c] // OPERATOR KO CHANGE KERDENGE OBJECT KI HISAB SE YANI AGR C PLUS HE TO MINUS HOJAYE
+//     alert(`The result is ${eval(`${a} ${c} ${b}`)}`) 
+
+// }
+
+
+
+
+////////// ***** BUILDING A BUSINESS NAME GENERATOR IN JAVASCRIPT ***** //////////
+
+
+
+
+
+// console.log("BUILDING A BUSINESS NAME GENERATOR IN JAVASCRIPT")
+
+// rand = Math.random()
+// let first, second, third;
+// // 0 0.33 0.66 1
+
+
+// // lets generate the first word
+
+// if (rand < 0.33) {
+//     first = "Crazy"
+// }
+// else if (rand < 0.66 && rand >= 0.33) {
+//     first = "Amazing"
+// }
+// else {
+//     first = "Fire"
+
+// }
+
+
+// // lets generate the second word
+
+// rand = Math.random()
+
+// if (rand < 0.33) {
+//     second = "Engine"
+// }
+// else if (rand < 0.66 && rand >= 0.33) {
+//     second = "Foods"
+// }
+// else {
+//     second = "Garments"
+// }
+
+
+// // lets generate the third word
+
+// rand = Math.random()
+
+// if (rand < 0.33) {
+//     third = "Bros"
+// }
+// else if (rand < 0.66 && rand >= 0.33) {
+//     third = "Limited"
+// }
+// else {
+//     third = "Hub"
+// }
+
+
+// console.log(`${first} ${second} ${third}`)
+
+
+
+
+// console.log("BUILDING A BUSINESS NAME GENERATOR IN JAVASCRIPT USING ~ARRAYS~")
+
+
+
+
+
+// const firstWords = ["Crazy", "Amazing", "Fire"];
+// const secondWords = ["Engine", "Foods", "Garments"];
+// const thirdWords = ["Bros", "Limited", "Hub"];
+
+// const randomWord = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+// console.log(`${randomWord(firstWords)} ${randomWord(secondWords)} ${randomWord(thirdWords)}`);
+
+
+
+
+
+// console.log("BUILDING A BUSINESS NAME GENERATOR IN JAVASCRIPT USING ~OBJECTS~")
+
+
+
+
+
+// let obj1 = {
+//     1: "Crazy",
+//     2: "Amazing",
+//     3: "Fire"
+// };
+// let obj2 = {
+//     1: "Engine",
+//     2: "Foods",
+//     3: "Garments"
+// };
+// let obj3 = {
+//     1: "Bros",
+//     2: "Limited",
+//     3: "Hub"
+// };
+
+// var ran1 = Math.floor(Math.random() * 3) + 1;
+// var ran2 = Math.floor(Math.random() * 3) + 1;
+// var ran3 = Math.floor(Math.random() * 3) + 1;
+
+// console.log(obj1[ran1] + " " + obj2[ran2] + " " + obj3[ran3]);
+
+
+
+
+
+
+
 
 
 
