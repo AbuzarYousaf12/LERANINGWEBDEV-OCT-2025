@@ -1,0 +1,245 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f5f5f5;
+    margin: 0;
+    font-family: sans-serif;
+  }
+
+  .calculator {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+
+  .display {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    text-align: right;
+    font-size: 24px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 60px);
+    gap: 10px;
+  }
+
+  button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    background: #e0e0e0;
+  }
+
+  button.dark { background: #0d1b2a; color: #fff; }
+  button.red { background: #f94144; color: #fff; }
+  button.blue { background: #277da1; color: #fff; }
+  button.yellow { background: #f9c74f; color: #fff; }
+  button.green { background: #43aa8b; color: #fff; }
+</style>
+</head>
+<body>
+
+<div class="calculator">
+  <input type="text" class="display" id="display" disabled>
+
+  <div class="buttons">
+    <button onclick="press('%')">%</button>
+    <button onclick="sqrt()">√</button>
+    <button onclick="clearEntry()">CE</button>
+    <button class="dark" onclick="clearDisplay()">C</button>
+
+    <button onclick="press('7')">7</button>
+    <button onclick="press('8')">8</button>
+    <button onclick="press('9')">9</button>
+    <button class="red" onclick="press('-')">−</button>
+
+    <button onclick="press('4')">4</button>
+    <button onclick="press('5')">5</button>
+    <button onclick="press('6')">6</button>
+    <button class="blue" onclick="press('/')">÷</button>
+
+    <button onclick="press('1')">1</button>
+    <button onclick="press('2')">2</button>
+    <button onclick="press('3')">3</button>
+    <button class="yellow" onclick="press('*')">×</button>
+
+    <button onclick="press('.')">.</button>
+    <button onclick="press('0')">0</button>
+    <button onclick="calculate()">=</button>
+    <button class="green" onclick="press('+')">+</button>
+  </div>
+</div>
+
+<script>
+  const display = document.getElementById('display');
+
+  function press(val) {
+    display.value += val;
+  }
+
+  function calculate() {
+    try {
+      display.value = eval(display.value);
+    } catch {
+      display.value = 'Error';
+    }
+  }
+
+  function clearDisplay() {
+    display.value = '';
+  }
+
+  function clearEntry() {
+    display.value = display.value.slice(0, -1);
+  }
+
+  function sqrt() {
+    try {
+      display.value = Math.sqrt(eval(display.value));
+    } catch {
+      display.value = 'Error';
+    }
+  }
+</script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator 2</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #222;
+    margin: 0;
+  }
+
+  .calculator {
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    width: 280px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  }
+
+  .display {
+    width: 100%;
+    padding: 10px;
+    font-size: 26px;
+    margin-bottom: 10px;
+    text-align: right;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  .btn {
+    padding: 18px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    background: #f0f0f0;
+    cursor: pointer;
+  }
+
+  .operator { background: #3b82f6; color: #fff; }
+  .equal { background: #10b981; color: #fff; }
+  .clear { background: #ef4444; color: #fff; }
+</style>
+</head>
+<body>
+
+<div class="calculator">
+  <input type="text" class="display" id="display" disabled>
+
+  <div class="buttons" id="buttons">
+    <button class="btn operator">%</button>
+    <button class="btn operator">√</button>
+    <button class="btn clear">CE</button>
+    <button class="btn clear">C</button>
+
+    <button class="btn">7</button>
+    <button class="btn">8</button>
+    <button class="btn">9</button>
+    <button class="btn operator">-</button>
+
+    <button class="btn">4</button>
+    <button class="btn">5</button>
+    <button class="btn">6</button>
+    <button class="btn operator">÷</button>
+
+    <button class="btn">1</button>
+    <button class="btn">2</button>
+    <button class="btn">3</button>
+    <button class="btn operator">×</button>
+
+    <button class="btn">.</button>
+    <button class="btn">0</button>
+    <button class="btn equal">=</button>
+    <button class="btn operator">+</button>
+  </div>
+</div>
+
+<script>
+  const display = document.getElementById('display');
+  const buttons = document.getElementById('buttons');
+
+  buttons.addEventListener('click', function(e) {
+    if (e.target.matches('button')) {
+      const key = e.target.textContent;
+
+      if (key === 'C') {
+        display.value = '';
+      } else if (key === 'CE') {
+        display.value = display.value.slice(0, -1);
+      } else if (key === '=') {
+        try {
+          display.value = eval(display.value
+            .replace(/÷/g, '/')
+            .replace(/×/g, '*')
+            .replace(/√/g, `Math.sqrt`)
+            .replace(/%/g, '/100')
+          );
+        } catch {
+          display.value = 'Error';
+        }
+      } else {
+        display.value += key;
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
+
