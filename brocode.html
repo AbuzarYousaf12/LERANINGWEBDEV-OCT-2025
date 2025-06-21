@@ -5,10 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bro Code Javascript Full Course</title>
     <link rel="shortcut icon" href="https://cdn.pixabay.com/photo/2015/04/23/17/41/javascript-736400_1280.png">
+    <style>
+        body{
+            text-align: center;
+        }
+        button{
+            padding: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        #plus{
+            background-color: yellow;
+        }
+        #reset{
+            background-color: red;
+        }
+        #minus{
+            background-color: green;
+        }
+        #number {
+            font-size: 32px;
+        }
+        .container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+        }
+        .box {
+            border: 2px solid black;
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1 id="myH1"></h1>
-    <p id="myP"></p>
+    <div class="container">
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box">Box 3</div>
+        <div class="box">Box 4</div>
+        <div class="box">Box 5</div>
+    </div>
+
+
+    <h1 id="heading">Counter Program</h1>
+
+    <p id="number">1</p>
+
+    <button id="plus">+</button>
+    <button id="reset">Reset</button>
+    <button id="minus">-</button>
+
     <script src="brocode.js"></script>
 </body>
 </html>
